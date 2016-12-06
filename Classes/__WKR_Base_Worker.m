@@ -41,9 +41,18 @@
     if (self)
     {
         _options    = [@[ ] mutableCopy];
+
+        [self configure];
     }
     
     return self;
+}
+
+#pragma mark - Configuration
+
+- (void)configure
+{
+    // Worker Dependency Injection
 }
 
 #pragma mark - Common Methods
