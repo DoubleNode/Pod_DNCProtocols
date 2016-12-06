@@ -14,7 +14,7 @@ typedef void(^PTCLMessageBlockVoidDAOMessageNSError)(DAOMessage* _Nullable messa
 
 @protocol PTCLMessage_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLMessage_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLMessage_Protocol> _Nullable    nextMessageWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLMessage_Protocol>)nextWorker;

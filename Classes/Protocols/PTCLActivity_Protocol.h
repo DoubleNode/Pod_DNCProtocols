@@ -35,7 +35,7 @@ typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 
 @protocol PTCLActivity_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLActivity_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLActivity_Protocol> _Nullable    nextActivityWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLActivity_Protocol>)nextWorker;

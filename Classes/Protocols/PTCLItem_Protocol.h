@@ -24,7 +24,7 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 
 @protocol PTCLItem_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLItem_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLItem_Protocol> _Nullable    nextItemWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLItem_Protocol>)nextWorker;

@@ -28,7 +28,7 @@ typedef void(^PTCLFavoriteBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 
 @protocol PTCLFavorite_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLFavorite_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLFavorite_Protocol> _Nullable    nextFavoriteWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLFavorite_Protocol>)nextWorker;

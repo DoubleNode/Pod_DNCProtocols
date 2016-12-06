@@ -28,7 +28,7 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 
 @protocol PTCLLocation_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLLocation_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLLocation_Protocol> _Nullable    nextLocationWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLLocation_Protocol>)nextWorker;

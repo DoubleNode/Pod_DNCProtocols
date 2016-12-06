@@ -31,7 +31,7 @@ typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
 
 @protocol PTCLReview_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLReview_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLReview_Protocol> _Nullable    nextReviewWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLReview_Protocol>)nextWorker;

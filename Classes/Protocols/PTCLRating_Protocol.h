@@ -30,7 +30,7 @@ typedef void(^PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
 
 @protocol PTCLRating_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLRating_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLRating_Protocol> _Nullable    nextRatingWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLRating_Protocol>)nextWorker;

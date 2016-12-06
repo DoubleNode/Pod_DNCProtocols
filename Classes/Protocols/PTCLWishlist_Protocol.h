@@ -28,7 +28,7 @@ typedef void(^PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 
 @protocol PTCLWishlist_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLWishlist_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLWishlist_Protocol> _Nullable    nextWishlistWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLWishlist_Protocol>)nextWorker;

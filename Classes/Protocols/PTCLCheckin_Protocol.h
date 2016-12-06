@@ -31,7 +31,7 @@ typedef void(^PTCLCheckinBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable use
 
 @protocol PTCLCheckin_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLCheckin_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLCheckin_Protocol> _Nullable    nextCheckinWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLCheckin_Protocol>)nextWorker;

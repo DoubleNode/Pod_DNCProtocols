@@ -20,7 +20,7 @@ typedef void(^PTCLNewsBlockVoidDAONewsNSErrorContinue)(DAONews* _Nullable news, 
 
 @protocol PTCLNews_Protocol <PTCLBase_Protocol>
 
-@property (strong, nonatomic)   id<PTCLNews_Protocol> _Nullable    nextWorker;
+@property (strong, nonatomic)   id<PTCLNews_Protocol> _Nullable    nextNewsWorker;
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLNews_Protocol>)nextWorker;
