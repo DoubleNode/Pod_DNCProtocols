@@ -17,24 +17,12 @@
 
 @implementation WKRNET_Base_Worker
 
-@synthesize nextBaseWorker;
-
 #define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.dncprotocols.%@", NSStringFromClass([self class])]
 #define ERROR_UNKNOWN           1001
 #define ERROR_NOT_FOUND         1002
 #define ERROR_BAD_PARAMETER     1003
 #define ERROR_BAD_RESPONSE      1004
 #define ERROR_SERVER_ERROR      1005
-
-- (id)init
-{
-    self = [super init];
-    if (self)
-    {
-    }
-    
-    return self;
-}
 
 #pragma mark - Utility Methods
 

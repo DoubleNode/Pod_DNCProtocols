@@ -15,6 +15,9 @@
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLBase_Protocol>)nextBaseWorker;
 
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLBase_Protocol>)nextBaseWorker;
+
 - (void)configure;
 
 - (void)enableOption:(nonnull NSString*)option;

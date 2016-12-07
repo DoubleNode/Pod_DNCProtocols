@@ -14,7 +14,6 @@
 		6A1E838F1DBBCC9F00CE0D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1E838E1DBBCC9F00CE0D48 /* Assets.xcassets */; };
 		6A1E83921DBBCC9F00CE0D48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1E83901DBBCC9F00CE0D48 /* LaunchScreen.storyboard */; };
 		6A1E839D1DBBCC9F00CE0D48 /* DNCProtocolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1E839C1DBBCC9F00CE0D48 /* DNCProtocolsTests.m */; };
-		6A1E83BF1DBC3F8100CE0D48 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6A1E83BE1DBC3F8100CE0D48 /* README.md */; };
 		6A3F02A91DBD80F4008849B5 /* __WKR_Base_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F02A41DBD80F4008849B5 /* __WKR_Base_Worker.m */; };
 		6A3F02AA1DBD80F4008849B5 /* __WKRNET_Base_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F02A61DBD80F4008849B5 /* __WKRNET_Base_Worker.m */; };
 		6ACFB64A1DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB6491DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m */; };
@@ -287,7 +286,7 @@
 		6A1E83771DBBCC9F00CE0D48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = DoubleNode.com;
 				TargetAttributes = {
 					6A1E837E1DBBCC9F00CE0D48 = {
@@ -444,7 +443,6 @@
 				6A3F02A91DBD80F4008849B5 /* __WKR_Base_Worker.m in Sources */,
 				6A1E83871DBBCC9F00CE0D48 /* AppDelegate.m in Sources */,
 				6A3F02AA1DBD80F4008849B5 /* __WKRNET_Base_Worker.m in Sources */,
-				6A1E83BF1DBC3F8100CE0D48 /* README.md in Sources */,
 				6ACFB64A1DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m in Sources */,
 				6ACFB6561DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.m in Sources */,
 				6A1E83841DBBCC9F00CE0D48 /* main.m in Sources */,
@@ -507,6 +505,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -555,6 +554,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

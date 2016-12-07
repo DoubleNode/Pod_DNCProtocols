@@ -30,18 +30,33 @@
 
 + (instancetype _Nonnull)worker:(nullable id<PTCLBase_Protocol>)nextBaseWorker
 {
-    id<PTCLBase_Protocol>   worker  = [[self.class alloc] init];
-    worker.nextBaseWorker   = nextBaseWorker;
-    return worker;
+    return [[self.class alloc] initWithWorker:nextBaseWorker];
 }
 
-- (id)init
+- (nonnull instancetype)init
 {
     self = [super init];
     if (self)
     {
         _options    = [@[ ] mutableCopy];
+        
+        self.nextBaseWorker = nil;
+        
+        [self configure];
+    }
+    
+    return self;
+}
 
+- (nonnull instancetype)initWithWorker:(nullable id<PTCLBase_Protocol>)nextBaseWorker_
+{
+    self = [super init];
+    if (self)
+    {
+        _options    = [@[ ] mutableCopy];
+        
+        self.nextBaseWorker = nextBaseWorker_;
+        
         [self configure];
     }
     
