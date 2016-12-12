@@ -13,6 +13,7 @@
 
 typedef void(^PTCLItemContinueBlock)();
 
+typedef void(^PTCLItemBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidDAOItemNSError)(DAOItem* _Nullable item, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
@@ -37,6 +38,12 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 
 - (void)doSaveObject:(nonnull DAOItem*)item
            withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+
+- (void)doSaveOption:(nonnull NSString*)optionId
+              andKey:(nonnull NSString*)optionKey
+            andValue:(nullable id)optionValue
+             forItem:(nonnull DAOItem*)daoItem
+           withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doFavoriteObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block;

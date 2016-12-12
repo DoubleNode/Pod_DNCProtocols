@@ -67,4 +67,10 @@ typedef void(^PTCLUserBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOUs
        withParameters:(nullable NSDictionary*)parameters
              andBlock:(nullable PTCLUserSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)block;
 
+- (void)doSaveOption:(nonnull NSString*)optionId
+              andKey:(nonnull NSString*)optionKey
+            andValue:(nullable id)optionValue
+             forUser:(nonnull DAOUser*)daoUser
+           withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
 @end

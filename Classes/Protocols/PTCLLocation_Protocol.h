@@ -15,6 +15,7 @@ typedef void(^PTCLLocationContinueBlock)();
 
 typedef void(^PTCLLocationBlockVoidNSError)(NSError* _Nullable error);
 
+typedef void(^PTCLLocationBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLLocationBlockVoidDAOLocationNSError)(DAOLocation* _Nullable location, NSError* _Nullable error);
 typedef void(^PTCLLocationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)(NSArray<DAOItem* >* _Nullable items, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSString* _Nonnull searchId, NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
@@ -41,6 +42,12 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 
 - (void)doSaveObject:(nonnull DAOLocation*)location
            withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
+
+- (void)doSaveOption:(nonnull NSString*)optionId
+              andKey:(nonnull NSString*)optionKey
+            andValue:(nullable id)optionValue
+         forLocation:(nonnull DAOLocation*)daoLocation
+           withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
 - (void)doFollowObject:(nonnull DAOLocation*)location
              withBlock:(nullable PTCLLocationBlockVoidNSError)block;
