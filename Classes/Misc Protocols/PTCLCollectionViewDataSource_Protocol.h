@@ -1,17 +1,17 @@
 //
-//  PTCLDataSource_Protocol.h
+//  PTCLCollectionViewDataSource_Protocol.h
 //  DoubleNode Core
 //
 //  Created by Darren Ehlers on 2016/10/16.
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#ifndef PTCLDataSource_Protocol_h
-#define PTCLDataSource_Protocol_h
+#ifndef PTCLCollectionViewDataSource_Protocol_h
+#define PTCLCollectionViewDataSource_Protocol_h
 
 #import <UIKit/UIKit.h>
 
-@protocol PTCLDataSource_Protocol <UICollectionViewDataSource>
+@protocol PTCLCollectionViewDataSource_Protocol <UICollectionViewDataSource>
 
 @property (strong, nonatomic)   NSArray* _Nullable  data;
 
@@ -21,4 +21,4 @@
 
 @end
 
-#endif /* PTCLDataSource_Protocol_h */
+#endif /* PTCLCollectionViewDataSource_Protocol_h */
