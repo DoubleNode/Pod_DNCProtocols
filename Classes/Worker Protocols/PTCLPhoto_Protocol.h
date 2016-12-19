@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLPhoto_Protocol_h
+#define PTCLPhoto_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
@@ -79,3 +82,5 @@ typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user,
              andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOUserNSError)updateBlock;
 
 @end
+
+#endif /* PTCLPhoto_Protocol_h */

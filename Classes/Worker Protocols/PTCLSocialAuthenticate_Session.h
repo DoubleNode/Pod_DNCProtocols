@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLSocialAuthenticate_Session_h
+#define PTCLSocialAuthenticate_Session_h
+
 #import <UIKit/UIKit.h>
 
 #import "PTCLSocialAuthenticate_User.h"
@@ -22,3 +25,5 @@
 @property (copy, nonatomic)   PTCLSocialAuthenticate_User* _Nullable    user;
 
 @end
+
+#endif /* PTCLSocialAuthenticate_Session_h */

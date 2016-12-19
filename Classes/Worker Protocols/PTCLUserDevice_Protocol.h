@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLUserDevice_Protocol_h
+#define PTCLUserDevice_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOUser;
@@ -53,3 +56,5 @@ typedef void(^PTCLUserDeviceBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)
               andUpdateBlock:(nullable PTCLUserDeviceBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
+
+#endif /* PTCLUserDevice_Protocol_h */

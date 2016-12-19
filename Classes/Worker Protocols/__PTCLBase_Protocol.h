@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef __PTCLBase_Protocol_h
+#define __PTCLBase_Protocol_h
+
 #import <UIKit/UIKit.h>
 
 @protocol PTCLBase_Protocol <NSObject>
@@ -24,3 +27,5 @@
 - (void)disableOption:(nonnull NSString*)option;
 
 @end
+
+#endif /* __PTCLBase_Protocol_h */

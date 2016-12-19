@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLAnalytics_Protocol_h
+#define PTCLAnalytics_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 #define NS_PRETTY_FUNCTION  [NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]
@@ -44,3 +47,5 @@
 - (void)doGroup:(NSString* _Nonnull)groupId traits:(NSDictionary* _Nonnull)traits options:(NSDictionary* _Nonnull)options;
 
 @end
+
+#endif /* PTCLAnalytics_Protocol_h */

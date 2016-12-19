@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLSocialShare_Protocol_h
+#define PTCLSocialShare_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 typedef void(^PTCLSocialShareBlockVoidNSError)(NSError* _Nullable error);
@@ -23,3 +26,5 @@ typedef void(^PTCLSocialShareBlockVoidNSError)(NSError* _Nullable error);
             withBlock:(nullable PTCLSocialShareBlockVoidNSError)block;
 
 @end
+
+#endif /* PTCLSocialShare_Protocol_h */

@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLPasswordStrength_Protocol_h
+#define PTCLPasswordStrength_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 typedef NS_ENUM(NSUInteger, WKRPasswordStrengthType)
@@ -27,3 +30,5 @@ typedef NS_ENUM(NSUInteger, WKRPasswordStrengthType)
 - (WKRPasswordStrengthType)doCheckPasswordStrength:(nonnull NSString*)password;
 
 @end
+
+#endif /* PTCLPasswordStrength_Protocol_h */

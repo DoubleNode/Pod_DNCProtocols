@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLActivity_Protocol_h
+#define PTCLActivity_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOActivity;
@@ -86,3 +89,5 @@ typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
               andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
+
+#endif /* PTCLActivity_Protocol_h */

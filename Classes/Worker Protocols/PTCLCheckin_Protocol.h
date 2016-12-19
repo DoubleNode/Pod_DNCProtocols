@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLCheckin_Protocol_h
+#define PTCLCheckin_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOCheckin;
@@ -72,3 +75,5 @@ typedef void(^PTCLCheckinBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable use
              andUpdateBlock:(nullable PTCLCheckinBlockVoidDAOUserNSError)updateBlock;
 
 @end
+
+#endif /* PTCLCheckin_Protocol_h */

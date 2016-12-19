@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLReview_Protocol_h
+#define PTCLReview_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
@@ -74,3 +77,5 @@ typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
               andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
+
+#endif /* PTCLReview_Protocol_h */

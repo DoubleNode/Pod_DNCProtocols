@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLSocialAuthenticate_Protocol_h
+#define PTCLSocialAuthenticate_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 #import "PTCLSocialAuthenticate_Session.h"
@@ -32,3 +35,5 @@ typedef void(^PTCLSocialAuthenticateBlockVoidUserNSError)(PTCLSocialAuthenticate
         withCompletion:(nullable PTCLSocialAuthenticateBlockVoidUserNSError)completion;
 
 @end
+
+#endif /* PTCLSocialAuthenticate_Protocol_h */

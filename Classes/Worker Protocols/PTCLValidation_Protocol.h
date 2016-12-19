@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLValidation_Protocol_h
+#define PTCLValidation_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @protocol PTCLValidation_Protocol <PTCLBase_Protocol>
@@ -26,3 +29,5 @@
 - (BOOL)doValidateState:(nonnull NSString*)state error:(NSError*_Nullable*_Nullable)error;
 
 @end
+
+#endif /* PTCLValidation_Protocol_h */

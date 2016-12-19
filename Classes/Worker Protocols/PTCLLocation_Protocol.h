@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLLocation_Protocol_h
+#define PTCLLocation_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
@@ -72,3 +75,5 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
      andUpdateBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
+
+#endif /* PTCLLocation_Protocol_h */

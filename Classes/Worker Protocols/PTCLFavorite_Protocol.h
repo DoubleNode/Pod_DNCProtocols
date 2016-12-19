@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLFavorite_Protocol_h
+#define PTCLFavorite_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
@@ -66,3 +69,5 @@ typedef void(^PTCLFavoriteBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
               andUpdateBlock:(nullable PTCLFavoriteBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
+
+#endif /* PTCLFavorite_Protocol_h */

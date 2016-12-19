@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLFile_Protocol_h
+#define PTCLFile_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOUser;
@@ -25,3 +28,5 @@ typedef void(^PTCLFileBlockVoidNSStringIDBOOLNSError)(NSString* _Nullable url, i
                               block:(nullable PTCLFileBlockVoidNSStringIDBOOLNSError)block;
 
 @end
+
+#endif /* PTCLFile_Protocol_h */

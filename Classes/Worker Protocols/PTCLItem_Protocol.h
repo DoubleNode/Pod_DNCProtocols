@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLItem_Protocol_h
+#define PTCLItem_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
@@ -72,3 +75,5 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
        andUpdateBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
+
+#endif /* PTCLItem_Protocol_h */

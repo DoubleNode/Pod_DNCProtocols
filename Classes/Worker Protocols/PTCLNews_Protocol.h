@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLNews_Protocol_h
+#define PTCLNews_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAONews;
@@ -38,3 +41,5 @@ typedef void(^PTCLNewsBlockVoidDAONewsNSErrorContinue)(DAONews* _Nullable news, 
                  withBlock:(nullable PTCLNewsBlockVoidNSError)block;
 
 @end
+
+#endif /* PTCLNews_Protocol_h */

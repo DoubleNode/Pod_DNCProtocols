@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLMessage_Protocol_h
+#define PTCLMessage_Protocol_h
+
 #import "__PTCLBase_Protocol.h"
 
 @class DAOMessage;
@@ -25,3 +28,5 @@ typedef void(^PTCLMessageBlockVoidDAOMessageNSError)(DAOMessage* _Nullable messa
            withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block;
 
 @end
+
+#endif /* PTCLMessage_Protocol_h */

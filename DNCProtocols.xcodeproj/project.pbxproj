@@ -80,7 +80,8 @@
 		6A7A07701E07A59200ADE310 /* PTCLUserIdentification_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUserIdentification_Protocol.h; path = "Classes/Worker Protocols/PTCLUserIdentification_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A07711E07A59200ADE310 /* PTCLValidation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLValidation_Protocol.h; path = "Classes/Worker Protocols/PTCLValidation_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A07721E07A59200ADE310 /* PTCLWishlist_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLWishlist_Protocol.h; path = "Classes/Worker Protocols/PTCLWishlist_Protocol.h"; sourceTree = SOURCE_ROOT; };
-		6A7A07761E07A5A800ADE310 /* PTCLDataSource_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLDataSource_Protocol.h; path = "Classes/Misc Protocols/PTCLDataSource_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07761E07A5A800ADE310 /* PTCLCollectionViewDataSource_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCollectionViewDataSource_Protocol.h; path = "Classes/Misc Protocols/PTCLCollectionViewDataSource_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A077E1E07B09F00ADE310 /* PTCLCollectionViewDelegate_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCollectionViewDelegate_Protocol.h; path = "Classes/Misc Protocols/PTCLCollectionViewDelegate_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		76B92F046080DCA26332ACFA /* Pods-DNCProtocols.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNCProtocols.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNCProtocols/Pods-DNCProtocols.release.xcconfig"; sourceTree = "<group>"; };
 		864D4BE4BEC2981221E7D137 /* Pods_DNCProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNCProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CAD258DC3FAD9CB7CE7D3E /* Pods_DNCProtocolsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNCProtocolsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +233,8 @@
 		6A7A07751E07A59A00ADE310 /* Misc Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				6A7A07761E07A5A800ADE310 /* PTCLDataSource_Protocol.h */,
+				6A7A07761E07A5A800ADE310 /* PTCLCollectionViewDataSource_Protocol.h */,
+				6A7A077E1E07B09F00ADE310 /* PTCLCollectionViewDelegate_Protocol.h */,
 			);
 			name = "Misc Protocols";
 			sourceTree = "<group>";

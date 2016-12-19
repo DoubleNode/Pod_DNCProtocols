@@ -6,6 +6,9 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
+#ifndef PTCLSocialAuthenticate_User_h
+#define PTCLSocialAuthenticate_User_h
+
 #import <UIKit/UIKit.h>
 
 @interface PTCLSocialAuthenticate_User : NSObject
@@ -19,3 +22,5 @@
 @property (copy, nonatomic)   NSString* _Nullable   photoUrl;
 
 @end
+
+#endif /* PTCLSocialAuthenticate_User_h */
