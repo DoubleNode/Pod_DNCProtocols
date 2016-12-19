@@ -16,8 +16,8 @@
 		6A1E839D1DBBCC9F00CE0D48 /* DNCProtocolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1E839C1DBBCC9F00CE0D48 /* DNCProtocolsTests.m */; };
 		6A3F02A91DBD80F4008849B5 /* __WKR_Base_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F02A41DBD80F4008849B5 /* __WKR_Base_Worker.m */; };
 		6A3F02AA1DBD80F4008849B5 /* __WKRNET_Base_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F02A61DBD80F4008849B5 /* __WKRNET_Base_Worker.m */; };
-		6ACFB64A1DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB6491DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m */; };
-		6ACFB6561DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB6551DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.m */; };
+		6A7A07731E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A076A1E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m */; };
+		6A7A07741E07A59200ADE310 /* PTCLSocialAuthenticate_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A076C1E07A59200ADE310 /* PTCLSocialAuthenticate_User.m */; };
 		7023CD81B5BD44CA10237B30 /* Pods_DNCProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864D4BE4BEC2981221E7D137 /* Pods_DNCProtocols.framework */; };
 		D62F9A080D5D5C83F4F4F959 /* Pods_DNCProtocolsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CAD258DC3FAD9CB7CE7D3E /* Pods_DNCProtocolsTests.framework */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		11462B4701ADD289933B308A /* Pods-DNCProtocols.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNCProtocols.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNCProtocols/Pods-DNCProtocols.debug.xcconfig"; sourceTree = "<group>"; };
-		6A0EEB081DC92EFF009FF664 /* PTCLSocialAuthenticate_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLSocialAuthenticate_Protocol.h; path = Classes/Protocols/PTCLSocialAuthenticate_Protocol.h; sourceTree = SOURCE_ROOT; };
 		6A1E837F1DBBCC9F00CE0D48 /* DNCProtocols.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNCProtocols.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1E83831DBBCC9F00CE0D48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A1E83851DBBCC9F00CE0D48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,36 +49,38 @@
 		6A1E839E1DBBCC9F00CE0D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A1E83AD1DBBEDF000CE0D48 /* DNCProtocols.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DNCProtocols.podspec; sourceTree = "<group>"; };
 		6A1E83BE1DBC3F8100CE0D48 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		6A3F02981DBD80EC008849B5 /* __PTCLBase_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __PTCLBase_Protocol.h; path = Classes/Protocols/__PTCLBase_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F02991DBD80EC008849B5 /* PTCLAnalytics_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLAnalytics_Protocol.h; path = Classes/Protocols/PTCLAnalytics_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F029A1DBD80EC008849B5 /* PTCLAuth_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLAuth_Protocol.h; path = Classes/Protocols/PTCLAuth_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F029B1DBD80EC008849B5 /* PTCLFile_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLFile_Protocol.h; path = Classes/Protocols/PTCLFile_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F029C1DBD80EC008849B5 /* PTCLMediaLibrary_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLMediaLibrary_Protocol.h; path = Classes/Protocols/PTCLMediaLibrary_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F029D1DBD80EC008849B5 /* PTCLPhoto_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLPhoto_Protocol.h; path = Classes/Protocols/PTCLPhoto_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F029E1DBD80EC008849B5 /* PTCLSocialShare_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialShare_Protocol.h; path = Classes/Protocols/PTCLSocialShare_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F029F1DBD80EC008849B5 /* PTCLUser_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUser_Protocol.h; path = Classes/Protocols/PTCLUser_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F02A01DBD80EC008849B5 /* PTCLUserDevice_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUserDevice_Protocol.h; path = Classes/Protocols/PTCLUserDevice_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F02A11DBD80EC008849B5 /* PTCLUserIdentification_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUserIdentification_Protocol.h; path = Classes/Protocols/PTCLUserIdentification_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6A3F02A21DBD80EC008849B5 /* PTCLValidation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLValidation_Protocol.h; path = Classes/Protocols/PTCLValidation_Protocol.h; sourceTree = SOURCE_ROOT; };
 		6A3F02A31DBD80F4008849B5 /* __WKR_Base_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __WKR_Base_Worker.h; path = Classes/__WKR_Base_Worker.h; sourceTree = SOURCE_ROOT; };
 		6A3F02A41DBD80F4008849B5 /* __WKR_Base_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = __WKR_Base_Worker.m; path = Classes/__WKR_Base_Worker.m; sourceTree = SOURCE_ROOT; };
 		6A3F02A51DBD80F4008849B5 /* __WKRNET_Base_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __WKRNET_Base_Worker.h; path = Classes/__WKRNET_Base_Worker.h; sourceTree = SOURCE_ROOT; };
 		6A3F02A61DBD80F4008849B5 /* __WKRNET_Base_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = __WKRNET_Base_Worker.m; path = Classes/__WKRNET_Base_Worker.m; sourceTree = SOURCE_ROOT; };
-		6ACFB6481DC99A2C00CC388F /* PTCLSocialAuthenticate_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialAuthenticate_User.h; path = Classes/Protocols/PTCLSocialAuthenticate_User.h; sourceTree = SOURCE_ROOT; };
-		6ACFB6491DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTCLSocialAuthenticate_User.m; path = Classes/Protocols/PTCLSocialAuthenticate_User.m; sourceTree = SOURCE_ROOT; };
-		6ACFB6541DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialAuthenticate_Session.h; path = Classes/Protocols/PTCLSocialAuthenticate_Session.h; sourceTree = SOURCE_ROOT; };
-		6ACFB6551DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTCLSocialAuthenticate_Session.m; path = Classes/Protocols/PTCLSocialAuthenticate_Session.m; sourceTree = SOURCE_ROOT; };
-		6AE0CF8B1DF77106009727C1 /* PTCLActivity_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLActivity_Protocol.h; path = Classes/Protocols/PTCLActivity_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF8C1DF77106009727C1 /* PTCLCheckin_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCheckin_Protocol.h; path = Classes/Protocols/PTCLCheckin_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF8D1DF77106009727C1 /* PTCLFavorite_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLFavorite_Protocol.h; path = Classes/Protocols/PTCLFavorite_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF8E1DF77106009727C1 /* PTCLItem_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLItem_Protocol.h; path = Classes/Protocols/PTCLItem_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF8F1DF77106009727C1 /* PTCLLocation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLLocation_Protocol.h; path = Classes/Protocols/PTCLLocation_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF901DF77106009727C1 /* PTCLMessage_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLMessage_Protocol.h; path = Classes/Protocols/PTCLMessage_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF911DF77106009727C1 /* PTCLNews_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLNews_Protocol.h; path = Classes/Protocols/PTCLNews_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF921DF77106009727C1 /* PTCLRating_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLRating_Protocol.h; path = Classes/Protocols/PTCLRating_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF931DF77106009727C1 /* PTCLReview_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLReview_Protocol.h; path = Classes/Protocols/PTCLReview_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CF941DF77106009727C1 /* PTCLWishlist_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLWishlist_Protocol.h; path = Classes/Protocols/PTCLWishlist_Protocol.h; sourceTree = SOURCE_ROOT; };
-		6AE0CFB41DF8825E009727C1 /* PTCLPasswordStrength_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLPasswordStrength_Protocol.h; path = Classes/Protocols/PTCLPasswordStrength_Protocol.h; sourceTree = SOURCE_ROOT; };
+		6A7A07581E07A59200ADE310 /* __PTCLBase_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __PTCLBase_Protocol.h; path = "Classes/Worker Protocols/__PTCLBase_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07591E07A59200ADE310 /* PTCLActivity_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLActivity_Protocol.h; path = "Classes/Worker Protocols/PTCLActivity_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A075A1E07A59200ADE310 /* PTCLAnalytics_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLAnalytics_Protocol.h; path = "Classes/Worker Protocols/PTCLAnalytics_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A075B1E07A59200ADE310 /* PTCLAuth_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLAuth_Protocol.h; path = "Classes/Worker Protocols/PTCLAuth_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A075C1E07A59200ADE310 /* PTCLCheckin_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCheckin_Protocol.h; path = "Classes/Worker Protocols/PTCLCheckin_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A075D1E07A59200ADE310 /* PTCLFavorite_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLFavorite_Protocol.h; path = "Classes/Worker Protocols/PTCLFavorite_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A075E1E07A59200ADE310 /* PTCLFile_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLFile_Protocol.h; path = "Classes/Worker Protocols/PTCLFile_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A075F1E07A59200ADE310 /* PTCLItem_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLItem_Protocol.h; path = "Classes/Worker Protocols/PTCLItem_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07601E07A59200ADE310 /* PTCLLocation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLLocation_Protocol.h; path = "Classes/Worker Protocols/PTCLLocation_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07611E07A59200ADE310 /* PTCLMediaLibrary_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLMediaLibrary_Protocol.h; path = "Classes/Worker Protocols/PTCLMediaLibrary_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07621E07A59200ADE310 /* PTCLMessage_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLMessage_Protocol.h; path = "Classes/Worker Protocols/PTCLMessage_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07631E07A59200ADE310 /* PTCLNews_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLNews_Protocol.h; path = "Classes/Worker Protocols/PTCLNews_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07641E07A59200ADE310 /* PTCLPasswordStrength_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLPasswordStrength_Protocol.h; path = "Classes/Worker Protocols/PTCLPasswordStrength_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07651E07A59200ADE310 /* PTCLPhoto_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLPhoto_Protocol.h; path = "Classes/Worker Protocols/PTCLPhoto_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07661E07A59200ADE310 /* PTCLRating_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLRating_Protocol.h; path = "Classes/Worker Protocols/PTCLRating_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07671E07A59200ADE310 /* PTCLReview_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLReview_Protocol.h; path = "Classes/Worker Protocols/PTCLReview_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07681E07A59200ADE310 /* PTCLSocialAuthenticate_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialAuthenticate_Protocol.h; path = "Classes/Worker Protocols/PTCLSocialAuthenticate_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07691E07A59200ADE310 /* PTCLSocialAuthenticate_Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialAuthenticate_Session.h; path = "Classes/Worker Protocols/PTCLSocialAuthenticate_Session.h"; sourceTree = SOURCE_ROOT; };
+		6A7A076A1E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTCLSocialAuthenticate_Session.m; path = "Classes/Worker Protocols/PTCLSocialAuthenticate_Session.m"; sourceTree = SOURCE_ROOT; };
+		6A7A076B1E07A59200ADE310 /* PTCLSocialAuthenticate_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialAuthenticate_User.h; path = "Classes/Worker Protocols/PTCLSocialAuthenticate_User.h"; sourceTree = SOURCE_ROOT; };
+		6A7A076C1E07A59200ADE310 /* PTCLSocialAuthenticate_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTCLSocialAuthenticate_User.m; path = "Classes/Worker Protocols/PTCLSocialAuthenticate_User.m"; sourceTree = SOURCE_ROOT; };
+		6A7A076D1E07A59200ADE310 /* PTCLSocialShare_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLSocialShare_Protocol.h; path = "Classes/Worker Protocols/PTCLSocialShare_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A076E1E07A59200ADE310 /* PTCLUser_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUser_Protocol.h; path = "Classes/Worker Protocols/PTCLUser_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A076F1E07A59200ADE310 /* PTCLUserDevice_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUserDevice_Protocol.h; path = "Classes/Worker Protocols/PTCLUserDevice_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07701E07A59200ADE310 /* PTCLUserIdentification_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUserIdentification_Protocol.h; path = "Classes/Worker Protocols/PTCLUserIdentification_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07711E07A59200ADE310 /* PTCLValidation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLValidation_Protocol.h; path = "Classes/Worker Protocols/PTCLValidation_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07721E07A59200ADE310 /* PTCLWishlist_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLWishlist_Protocol.h; path = "Classes/Worker Protocols/PTCLWishlist_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6A7A07761E07A5A800ADE310 /* PTCLDataSource_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLDataSource_Protocol.h; path = "Classes/Misc Protocols/PTCLDataSource_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		76B92F046080DCA26332ACFA /* Pods-DNCProtocols.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNCProtocols.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNCProtocols/Pods-DNCProtocols.release.xcconfig"; sourceTree = "<group>"; };
 		864D4BE4BEC2981221E7D137 /* Pods_DNCProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNCProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CAD258DC3FAD9CB7CE7D3E /* Pods_DNCProtocolsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNCProtocolsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,7 +174,8 @@
 		6A1E83B01DBBEF5800CE0D48 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6A3F02971DBD80DE008849B5 /* Protocols */,
+				6A7A07751E07A59A00ADE310 /* Misc Protocols */,
+				6A3F02971DBD80DE008849B5 /* Worker Protocols */,
 				6A3F02A31DBD80F4008849B5 /* __WKR_Base_Worker.h */,
 				6A3F02A41DBD80F4008849B5 /* __WKR_Base_Worker.m */,
 				6A3F02A51DBD80F4008849B5 /* __WKRNET_Base_Worker.h */,
@@ -193,38 +195,46 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		6A3F02971DBD80DE008849B5 /* Protocols */ = {
+		6A3F02971DBD80DE008849B5 /* Worker Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				6A3F02981DBD80EC008849B5 /* __PTCLBase_Protocol.h */,
-				6AE0CF8B1DF77106009727C1 /* PTCLActivity_Protocol.h */,
-				6A3F02991DBD80EC008849B5 /* PTCLAnalytics_Protocol.h */,
-				6A3F029A1DBD80EC008849B5 /* PTCLAuth_Protocol.h */,
-				6AE0CF8C1DF77106009727C1 /* PTCLCheckin_Protocol.h */,
-				6AE0CF8D1DF77106009727C1 /* PTCLFavorite_Protocol.h */,
-				6A3F029B1DBD80EC008849B5 /* PTCLFile_Protocol.h */,
-				6AE0CF8E1DF77106009727C1 /* PTCLItem_Protocol.h */,
-				6AE0CF8F1DF77106009727C1 /* PTCLLocation_Protocol.h */,
-				6A3F029C1DBD80EC008849B5 /* PTCLMediaLibrary_Protocol.h */,
-				6AE0CF901DF77106009727C1 /* PTCLMessage_Protocol.h */,
-				6AE0CF911DF77106009727C1 /* PTCLNews_Protocol.h */,
-				6AE0CFB41DF8825E009727C1 /* PTCLPasswordStrength_Protocol.h */,
-				6A3F029D1DBD80EC008849B5 /* PTCLPhoto_Protocol.h */,
-				6AE0CF921DF77106009727C1 /* PTCLRating_Protocol.h */,
-				6AE0CF931DF77106009727C1 /* PTCLReview_Protocol.h */,
-				6A0EEB081DC92EFF009FF664 /* PTCLSocialAuthenticate_Protocol.h */,
-				6ACFB6541DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.h */,
-				6ACFB6551DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.m */,
-				6ACFB6481DC99A2C00CC388F /* PTCLSocialAuthenticate_User.h */,
-				6ACFB6491DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m */,
-				6A3F029E1DBD80EC008849B5 /* PTCLSocialShare_Protocol.h */,
-				6A3F029F1DBD80EC008849B5 /* PTCLUser_Protocol.h */,
-				6A3F02A01DBD80EC008849B5 /* PTCLUserDevice_Protocol.h */,
-				6A3F02A11DBD80EC008849B5 /* PTCLUserIdentification_Protocol.h */,
-				6A3F02A21DBD80EC008849B5 /* PTCLValidation_Protocol.h */,
-				6AE0CF941DF77106009727C1 /* PTCLWishlist_Protocol.h */,
+				6A7A07581E07A59200ADE310 /* __PTCLBase_Protocol.h */,
+				6A7A07591E07A59200ADE310 /* PTCLActivity_Protocol.h */,
+				6A7A075A1E07A59200ADE310 /* PTCLAnalytics_Protocol.h */,
+				6A7A075B1E07A59200ADE310 /* PTCLAuth_Protocol.h */,
+				6A7A075C1E07A59200ADE310 /* PTCLCheckin_Protocol.h */,
+				6A7A075D1E07A59200ADE310 /* PTCLFavorite_Protocol.h */,
+				6A7A075E1E07A59200ADE310 /* PTCLFile_Protocol.h */,
+				6A7A075F1E07A59200ADE310 /* PTCLItem_Protocol.h */,
+				6A7A07601E07A59200ADE310 /* PTCLLocation_Protocol.h */,
+				6A7A07611E07A59200ADE310 /* PTCLMediaLibrary_Protocol.h */,
+				6A7A07621E07A59200ADE310 /* PTCLMessage_Protocol.h */,
+				6A7A07631E07A59200ADE310 /* PTCLNews_Protocol.h */,
+				6A7A07641E07A59200ADE310 /* PTCLPasswordStrength_Protocol.h */,
+				6A7A07651E07A59200ADE310 /* PTCLPhoto_Protocol.h */,
+				6A7A07661E07A59200ADE310 /* PTCLRating_Protocol.h */,
+				6A7A07671E07A59200ADE310 /* PTCLReview_Protocol.h */,
+				6A7A07681E07A59200ADE310 /* PTCLSocialAuthenticate_Protocol.h */,
+				6A7A07691E07A59200ADE310 /* PTCLSocialAuthenticate_Session.h */,
+				6A7A076A1E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m */,
+				6A7A076B1E07A59200ADE310 /* PTCLSocialAuthenticate_User.h */,
+				6A7A076C1E07A59200ADE310 /* PTCLSocialAuthenticate_User.m */,
+				6A7A076D1E07A59200ADE310 /* PTCLSocialShare_Protocol.h */,
+				6A7A076E1E07A59200ADE310 /* PTCLUser_Protocol.h */,
+				6A7A076F1E07A59200ADE310 /* PTCLUserDevice_Protocol.h */,
+				6A7A07701E07A59200ADE310 /* PTCLUserIdentification_Protocol.h */,
+				6A7A07711E07A59200ADE310 /* PTCLValidation_Protocol.h */,
+				6A7A07721E07A59200ADE310 /* PTCLWishlist_Protocol.h */,
 			);
-			name = Protocols;
+			name = "Worker Protocols";
+			sourceTree = "<group>";
+		};
+		6A7A07751E07A59A00ADE310 /* Misc Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6A7A07761E07A5A800ADE310 /* PTCLDataSource_Protocol.h */,
+			);
+			name = "Misc Protocols";
 			sourceTree = "<group>";
 		};
 		BA0EADED9D5DDC3C439F000E /* Pods */ = {
@@ -443,10 +453,10 @@
 			files = (
 				6A1E838A1DBBCC9F00CE0D48 /* ViewController.m in Sources */,
 				6A3F02A91DBD80F4008849B5 /* __WKR_Base_Worker.m in Sources */,
+				6A7A07731E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m in Sources */,
 				6A1E83871DBBCC9F00CE0D48 /* AppDelegate.m in Sources */,
 				6A3F02AA1DBD80F4008849B5 /* __WKRNET_Base_Worker.m in Sources */,
-				6ACFB64A1DC99A2C00CC388F /* PTCLSocialAuthenticate_User.m in Sources */,
-				6ACFB6561DCAAA7900CC388F /* PTCLSocialAuthenticate_Session.m in Sources */,
+				6A7A07741E07A59200ADE310 /* PTCLSocialAuthenticate_User.m in Sources */,
 				6A1E83841DBBCC9F00CE0D48 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
