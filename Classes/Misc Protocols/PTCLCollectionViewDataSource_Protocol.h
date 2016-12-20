@@ -13,10 +13,13 @@
 
 @protocol PTCLCollectionViewDataSource_Protocol <UICollectionViewDataSource>
 
-@property (strong, nonatomic)   NSArray* _Nullable  data;
+@property (strong, nonatomic)   NSArray* _Nullable          data;
+@property (strong, nonatomic)   UICollectionView* _Nullable collectionView;
 
++ (nonnull instancetype)dataSource;
 + (nonnull instancetype)dataSourceWithCollectionView:(nullable UICollectionView*)collectionView;
 
+- (nonnull instancetype)init;
 - (nonnull instancetype)initWithCollectionView:(nullable UICollectionView*)collectionView;
 
 @end

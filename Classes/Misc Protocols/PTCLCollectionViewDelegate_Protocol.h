@@ -13,8 +13,12 @@
 
 @protocol PTCLCollectionViewDelegate_Protocol <UICollectionViewDelegate>
 
+@property (strong, nonatomic)   UICollectionView* _Nullable collectionView;
+
++ (nonnull instancetype)delegate;
 + (nonnull instancetype)delegateWithCollectionView:(nullable UICollectionView*)collectionView;
 
+- (nonnull instancetype)init;
 - (nonnull instancetype)initWithCollectionView:(nullable UICollectionView*)collectionView;
 
 @end
