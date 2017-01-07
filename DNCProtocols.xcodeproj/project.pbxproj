@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		11462B4701ADD289933B308A /* Pods-DNCProtocols.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNCProtocols.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNCProtocols/Pods-DNCProtocols.debug.xcconfig"; sourceTree = "<group>"; };
+		6A1C62591E20A2F200FACF08 /* PTCLState_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLState_Protocol.h; path = "Classes/Misc Protocols/PTCLState_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A1E837F1DBBCC9F00CE0D48 /* DNCProtocols.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNCProtocols.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1E83831DBBCC9F00CE0D48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A1E83851DBBCC9F00CE0D48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 			children = (
 				6A7A07761E07A5A800ADE310 /* PTCLCollectionViewDataSource_Protocol.h */,
 				6A7A077E1E07B09F00ADE310 /* PTCLCollectionViewDelegate_Protocol.h */,
+				6A1C62591E20A2F200FACF08 /* PTCLState_Protocol.h */,
 			);
 			name = "Misc Protocols";
 			sourceTree = "<group>";
