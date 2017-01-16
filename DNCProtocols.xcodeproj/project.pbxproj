@@ -50,6 +50,7 @@
 		6A1E839E1DBBCC9F00CE0D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A1E83AD1DBBEDF000CE0D48 /* DNCProtocols.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DNCProtocols.podspec; sourceTree = "<group>"; };
 		6A1E83BE1DBC3F8100CE0D48 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6A2478CD1E2C7BD200BCAAC5 /* PTCLCategory_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLCategory_Protocol.h; path = "Classes/Worker Protocols/PTCLCategory_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A3F02A31DBD80F4008849B5 /* __WKR_Base_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __WKR_Base_Worker.h; path = Classes/__WKR_Base_Worker.h; sourceTree = SOURCE_ROOT; };
 		6A3F02A41DBD80F4008849B5 /* __WKR_Base_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = __WKR_Base_Worker.m; path = Classes/__WKR_Base_Worker.m; sourceTree = SOURCE_ROOT; };
 		6A3F02A51DBD80F4008849B5 /* __WKRNET_Base_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __WKRNET_Base_Worker.h; path = Classes/__WKRNET_Base_Worker.h; sourceTree = SOURCE_ROOT; };
@@ -204,6 +205,7 @@
 				6A7A07591E07A59200ADE310 /* PTCLActivity_Protocol.h */,
 				6A7A075A1E07A59200ADE310 /* PTCLAnalytics_Protocol.h */,
 				6A7A075B1E07A59200ADE310 /* PTCLAuth_Protocol.h */,
+				6A2478CD1E2C7BD200BCAAC5 /* PTCLCategory_Protocol.h */,
 				6A7A075C1E07A59200ADE310 /* PTCLCheckin_Protocol.h */,
 				6A7A075D1E07A59200ADE310 /* PTCLFavorite_Protocol.h */,
 				6A7A075E1E07A59200ADE310 /* PTCLFile_Protocol.h */,
