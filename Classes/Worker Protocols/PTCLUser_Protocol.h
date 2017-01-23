@@ -62,6 +62,9 @@ typedef void(^PTCLUserBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOUs
 - (void)saveInBackground:(nonnull DAOUser*)user
                withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
+- (void)saveOptionsInBackground:(nonnull DAOUser*)daoUser
+                      withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
 - (void)signUpInBackground:(nonnull DAOUser*)user
                  withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 

@@ -46,6 +46,9 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 - (void)doSaveObject:(nonnull DAOLocation*)location
            withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
 
+- (void)doSaveObjectOptions:(nonnull DAOLocation*)location
+                  withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue

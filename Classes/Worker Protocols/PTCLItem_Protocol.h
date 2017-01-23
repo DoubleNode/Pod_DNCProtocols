@@ -42,6 +42,9 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 - (void)doSaveObject:(nonnull DAOItem*)item
            withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
 
+- (void)doSaveObjectOptions:(nonnull DAOItem*)item
+                  withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue
