@@ -11,6 +11,7 @@
 
 #import "__PTCLBase_Protocol.h"
 
+@class DAOLocation;
 @class DAOPhoto;
 @class DAOUser;
 
