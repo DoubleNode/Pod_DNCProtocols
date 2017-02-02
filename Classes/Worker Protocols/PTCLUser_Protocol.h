@@ -14,6 +14,8 @@
 @class DAOPhoto;
 @class DAOUser;
 
+typedef void(^PTCLUserContinueBlock)();
+
 typedef void(^PTCLUserBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidDAOUser)(DAOUser* _Nullable user);
@@ -22,6 +24,8 @@ typedef void(^PTCLUserBlockVoidDAOUserNSString)(DAOUser* _Nullable user, NSStrin
 typedef void(^PTCLUserBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
 typedef void(^PTCLUserSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSString* _Nonnull searchId, NSArray<DAOUser* >* _Nullable users, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOUser* >* _Nullable users, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
+typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLUserContinueBlock _Nullable continueBlock);
+typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 @protocol PTCLUser_Protocol <PTCLBase_Protocol>
 
@@ -53,8 +57,14 @@ typedef void(^PTCLUserBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOUs
 - (void)doLoad:(nonnull NSString*)userId
      withBlock:(nullable PTCLUserBlockVoidDAOUserNSError)block;
 
+#pragma mark - Business Logic / Single Item Relationship CRUD
+
 - (void)doLoadAvatarForUser:(nonnull DAOUser*)user
                   withBlock:(nullable PTCLUserBlockVoidDAOPhotoNSError)block;
+
+- (void)doLoadLocationsForObject:(nonnull DAOUser*)user
+                       withBlock:(nullable PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doResetPasswordForEmail:(nonnull NSString*)email
                       withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;

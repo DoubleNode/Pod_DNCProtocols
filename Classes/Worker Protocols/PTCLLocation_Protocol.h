@@ -69,13 +69,13 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 
 #pragma mark - Business Logic / Collection Items CRUD
 
-- (void)doLoadItems:(nonnull NSString*)searchId
-           withText:(nonnull NSString*)search
-      withLongitude:(nullable NSNumber*)longitude
-       withLatitude:(nullable NSNumber*)latitude
-     withParameters:(nullable NSDictionary*)parameters
-           andBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
-     andUpdateBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
+- (void)doLoadObjects:(nonnull NSString*)searchId
+             withText:(nonnull NSString*)search
+        withLongitude:(nullable NSNumber*)longitude
+         withLatitude:(nullable NSNumber*)latitude
+       withParameters:(nullable NSDictionary*)parameters
+             andBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+       andUpdateBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
 

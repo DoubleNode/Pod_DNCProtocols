@@ -42,6 +42,10 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 - (void)doSaveObject:(nonnull DAOItem*)item
            withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
 
+- (void)doSaveObject:(nonnull DAOItem*)item
+          inLocation:(nonnull DAOLocation*)location
+           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+
 - (void)doSaveObjectOptions:(nonnull DAOItem*)item
                   withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
