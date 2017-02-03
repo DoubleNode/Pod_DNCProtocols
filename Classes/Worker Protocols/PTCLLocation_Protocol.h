@@ -13,6 +13,7 @@
 
 @class DAOItem;
 @class DAOLocation;
+@class DAOPhoto;
 
 typedef void(^PTCLLocationContinueBlock)();
 
