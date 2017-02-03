@@ -20,10 +20,12 @@ typedef void(^PTCLItemBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable err
 typedef void(^PTCLItemBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidDAOItemNSError)(DAOItem* _Nullable item, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
+typedef void(^PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)(NSArray<DAOPhoto* >* _Nullable photos, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError)(NSString* _Nonnull searchId, NSArray<DAOItem* >* _Nullable items, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 typedef void(^PTCLItemBlockVoidDAOItemNSErrorContinue)(DAOItem* _Nullable item, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
 typedef void(^PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
+typedef void(^PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
 typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)(NSString* _Nonnull searchId, NSArray<DAOItem* >* _Nullable items, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
 
 @protocol PTCLItem_Protocol <PTCLBase_Protocol>
@@ -72,6 +74,10 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 - (void)doLoadLocationsForObject:(nonnull DAOItem*)item
                        withBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock;
+
+- (void)doLoadPhotosForObject:(nonnull DAOItem*)item
+                    withBlock:(nullable PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
