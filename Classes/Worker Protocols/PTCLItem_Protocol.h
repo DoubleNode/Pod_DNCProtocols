@@ -25,7 +25,7 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 
 typedef void(^PTCLItemBlockVoidDAOItemNSErrorContinue)(DAOItem* _Nullable item, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
 typedef void(^PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
-typedef void(^PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
+typedef void(^PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOPhoto* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
 typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)(NSString* _Nonnull searchId, NSArray<DAOItem* >* _Nullable items, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLItemContinueBlock _Nullable continueBlock);
 
 @protocol PTCLItem_Protocol <PTCLBase_Protocol>
