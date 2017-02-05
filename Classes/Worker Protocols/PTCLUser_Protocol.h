@@ -58,6 +58,9 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
 - (void)doLoad:(nonnull NSString*)userId
      withBlock:(nullable PTCLUserBlockVoidDAOUserNSError)block;
 
+- (void)doVerify:(nonnull DAOUser*)user
+       withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadAvatarForUser:(nonnull DAOUser*)user
