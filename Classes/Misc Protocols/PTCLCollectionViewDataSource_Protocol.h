@@ -25,7 +25,7 @@
 - (nonnull instancetype)init;
 - (nonnull instancetype)initWithCollectionView:(nullable UICollectionView*)collectionView;
 
-- (void)resignFirstResponder;
+- (BOOL)resignFirstResponder;
 
 @end
 
