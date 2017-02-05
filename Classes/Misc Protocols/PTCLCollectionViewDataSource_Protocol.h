@@ -25,6 +25,8 @@
 - (nonnull instancetype)init;
 - (nonnull instancetype)initWithCollectionView:(nullable UICollectionView*)collectionView;
 
+- (void)resignFirstResponder;
+
 @end
 
 #endif /* PTCLCollectionViewDataSource_Protocol_h */
