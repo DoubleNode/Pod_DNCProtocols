@@ -59,7 +59,7 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
      withBlock:(nullable PTCLUserBlockVoidDAOUserNSError)block;
 
 - (void)doVerify:(nonnull DAOUser*)user
-       withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+       withBlock:(nullable PTCLUserBlockVoidDAOUserNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
