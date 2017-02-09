@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DNCProtocols"
-  s.version      = "0.0.30"
+  s.version      = "0.0.31"
   s.summary      = "A base collection of DNCProtocols headers."
 
   # This description is used to generate tags and improve search results.
