@@ -55,7 +55,7 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue
-         forLocation:(nonnull DAOCategory*)daoCategory
+         forCategory:(nonnull DAOCategory*)daoCategory
            withBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
 
 - (void)doFollowObject:(nonnull DAOCategory*)category
