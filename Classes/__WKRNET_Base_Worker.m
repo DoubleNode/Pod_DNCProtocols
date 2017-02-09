@@ -12,6 +12,9 @@
 #import "__WKRNET_Base_Worker.h"
 
 @interface WKRNET_Base_Worker ()
+{
+    NSMutableDictionary<NSString*, NSNumber*>*  _retryCounts;
+}
 
 @end
 
@@ -23,6 +26,15 @@
 #define ERROR_BAD_PARAMETER     1003
 #define ERROR_BAD_RESPONSE      1004
 #define ERROR_SERVER_ERROR      1005
+
+#pragma mark - Configuration
+
+- (void)configure
+{
+    [super configure];
+
+    _retryCounts = NSMutableDictionary.dictionary;
+}
 
 #pragma mark - Utility Methods
 
@@ -61,6 +73,39 @@
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
 
+          NSNumber* retryCount = _retryCounts[request.URL.absoluteString];
+          if (!retryCount)
+          {
+              retryCount = @(0);
+          }
+          retryCount = @(retryCount.intValue + 1);
+          
+          _retryCounts[request.URL.absoluteString]  = retryCount;
+          if (retryCount.intValue >= 5)
+          {
+              [_retryCounts removeObjectForKey:request.URL.absoluteString];
+
+              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+              
+              NSString* errorMessage    = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
+              if (errorMessage.length)
+              {
+                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+
+                  NSError*  responseError   = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                                  code:ERROR_SERVER_ERROR
+                                                              userInfo:@{
+                                                                         NSLocalizedDescriptionKey: errorMessage
+                                                                         }];
+                  
+                  errorHandler ? errorHandler(responseError) : nil;
+                  
+                  DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+              }
+              
+              return;
+          }
+          
           retryHandler ? retryHandler() : nil;
       }
                                        dataErrorHandler:
@@ -144,6 +189,39 @@
       ^(NSHTTPURLResponse* _Nullable httpResponse)
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+          
+          NSNumber* retryCount = _retryCounts[request.URL.absoluteString];
+          if (!retryCount)
+          {
+              retryCount = @(0);
+          }
+          retryCount = @(retryCount.intValue + 1);
+          
+          _retryCounts[request.URL.absoluteString]  = retryCount;
+          if (retryCount.intValue >= 5)
+          {
+              [_retryCounts removeObjectForKey:request.URL.absoluteString];
+              
+              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+              
+              NSString* errorMessage    = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
+              if (errorMessage.length)
+              {
+                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+                  
+                  NSError*  responseError   = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                                  code:ERROR_SERVER_ERROR
+                                                              userInfo:@{
+                                                                         NSLocalizedDescriptionKey: errorMessage
+                                                                         }];
+                  
+                  errorHandler ? errorHandler(responseError) : nil;
+                  
+                  DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+              }
+              
+              return;
+          }
           
           retryHandler ? retryHandler() : nil;
       }
