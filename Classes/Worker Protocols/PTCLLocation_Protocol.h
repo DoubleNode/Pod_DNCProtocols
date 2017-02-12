@@ -50,9 +50,9 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 - (void)doSaveObject:(nonnull DAOLocation*)location
            withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
 
-- (void)doSaveObject:(nonnull DAOItem*)item
+- (void)doSaveObject:(nonnull DAOLocation*)location
           inCategory:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+           withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
 
 - (void)doSaveObjectOptions:(nonnull DAOLocation*)location
                   withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
