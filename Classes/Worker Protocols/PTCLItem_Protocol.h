@@ -11,6 +11,7 @@
 
 #import "__PTCLBase_Protocol.h"
 
+@class DAOCategory;
 @class DAOItem;
 @class DAOLocation;
 @class DAOPhoto;
@@ -46,6 +47,10 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
              withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOItem*)item
+           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+
+- (void)doSaveObject:(nonnull DAOItem*)item
+          inCategory:(nonnull DAOCategory*)category
            withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
 
 - (void)doSaveObject:(nonnull DAOItem*)item
