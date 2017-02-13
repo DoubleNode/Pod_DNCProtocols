@@ -47,6 +47,13 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
                 withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSErrorContinue)block
            andUpdateBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)updateBlock;
 
+- (void)doDeleteObject:(nonnull DAOLocation*)location
+             withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+
+- (void)doDeleteObject:(nonnull DAOLocation*)location
+          fromCategory:(nonnull DAOCategory*)category
+             withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+
 - (void)doSaveObject:(nonnull DAOLocation*)location
            withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
 
