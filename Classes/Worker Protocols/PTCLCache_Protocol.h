@@ -12,7 +12,7 @@
 #import "__PTCLBase_Protocol.h"
 
 typedef void(^PTCLCacheBlockVoidNSError)(NSError* _Nullable error);
-typedef void(^PTCLCacheBlockVoidIDNSError)(ID _Nullable object, NSError* _Nullable error);
+typedef void(^PTCLCacheBlockVoidIDNSError)(id _Nullable object, NSError* _Nullable error);
 
 @protocol PTCLCache_Protocol <PTCLBase_Protocol>
 
