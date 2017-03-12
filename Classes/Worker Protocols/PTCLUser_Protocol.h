@@ -18,6 +18,7 @@
 
 typedef void(^PTCLUserContinueBlock)();
 
+typedef void(^PTCLUserBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidDAOUser)(DAOUser* _Nullable user);
