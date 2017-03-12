@@ -80,6 +80,16 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 - (void)doUnfavoriteObject:(nonnull DAOItem*)item
                  withBlock:(nullable PTCLItemBlockVoidNSError)block;
 
+- (void)doFlagObject:(nonnull DAOItem*)item
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLItemBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAOItem*)item
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLItemBlockVoidNSError)block;
+
 - (void)doWishlistObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block;
 

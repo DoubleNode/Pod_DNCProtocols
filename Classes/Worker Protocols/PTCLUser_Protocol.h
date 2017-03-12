@@ -11,6 +11,7 @@
 
 #import "__PTCLBase_Protocol.h"
 
+@class DAOFlag;
 @class DAOLocation;
 @class DAOPhoto;
 @class DAOUser;
@@ -25,6 +26,8 @@ typedef void(^PTCLUserBlockVoidDAOUserNSString)(DAOUser* _Nullable user, NSStrin
 typedef void(^PTCLUserBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
 typedef void(^PTCLUserSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSString* _Nonnull searchId, NSArray<DAOUser* >* _Nullable users, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOUser* >* _Nullable users, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
+typedef void(^PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLUserContinueBlock _Nullable continueBlock);
+typedef void(^PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLUserContinueBlock _Nullable continueBlock);
 typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
@@ -48,6 +51,16 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
                              username:(nonnull NSString*)username
                              password:(nonnull NSString*)password
                             withBlock:(nullable PTCLUserBlockVoidDAOUserBOOLNSError)block;
+
+- (void)doFlagObject:(nonnull DAOUser*)user
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLUserBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAOUser*)user
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLUserBlockVoidNSError)block;
 
 - (void)doFollowUser:(nonnull DAOUser*)user
            withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
@@ -92,6 +105,13 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
             andValue:(nullable id)optionValue
              forUser:(nonnull DAOUser*)daoUser
            withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
+#pragma mark - Business Logic / Single Item Relationship CRUD
+
+- (void)doLoadFlagsForObject:(nonnull DAOUser*)user
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
 

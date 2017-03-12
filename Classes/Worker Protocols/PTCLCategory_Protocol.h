@@ -58,6 +58,16 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
          forCategory:(nonnull DAOCategory*)daoCategory
            withBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
 
+- (void)doFlagObject:(nonnull DAOCategory*)category
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAOCategory*)category
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
+
 - (void)doFollowObject:(nonnull DAOCategory*)category
              withBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 

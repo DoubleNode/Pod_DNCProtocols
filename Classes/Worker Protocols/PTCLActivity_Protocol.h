@@ -55,6 +55,16 @@ typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 - (void)doUnfavoriteObject:(nonnull DAOActivity*)activity
                  withBlock:(nullable PTCLActivityBlockVoidNSError)block;
 
+- (void)doFlagObject:(nonnull DAOActivity*)activity
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLActivityBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAOActivity*)activity
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLActivityBlockVoidNSError)block;
+
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nullable DAOActivity*)activity

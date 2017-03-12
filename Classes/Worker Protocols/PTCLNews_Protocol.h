@@ -40,6 +40,16 @@ typedef void(^PTCLNewsBlockVoidDAONewsNSErrorContinue)(DAONews* _Nullable news, 
 - (void)doUnfavoriteObject:(nonnull DAONews*)news
                  withBlock:(nullable PTCLNewsBlockVoidNSError)block;
 
+- (void)doFlagObject:(nonnull DAONews*)news
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLNewsBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAONews*)news
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLNewsBlockVoidNSError)block;
+
 @end
 
 #endif /* PTCLNews_Protocol_h */

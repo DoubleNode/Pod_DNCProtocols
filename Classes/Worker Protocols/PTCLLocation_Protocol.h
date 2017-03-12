@@ -70,6 +70,16 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
          forLocation:(nonnull DAOLocation*)daoLocation
            withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
+- (void)doFlagObject:(nonnull DAOLocation*)location
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLLocationBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAOLocation*)location
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLLocationBlockVoidNSError)block;
+
 - (void)doFollowObject:(nonnull DAOLocation*)location
              withBlock:(nullable PTCLLocationBlockVoidNSError)block;
 

@@ -57,6 +57,16 @@ typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user,
 - (void)doSaveObject:(nonnull DAOPhoto*)photo
            withBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)block;
 
+- (void)doFlagObject:(nonnull DAOPhoto*)photo
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+
+- (void)doUnflagObject:(nonnull DAOPhoto*)photo
+            withAction:(nonnull NSString*)action
+               andText:(nonnull NSString*)text
+              andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+
 - (void)doFavoriteObject:(nonnull DAOPhoto*)photo
                withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
 
