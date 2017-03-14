@@ -57,6 +57,12 @@ typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user,
 - (void)doSaveObject:(nonnull DAOPhoto*)photo
            withBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)block;
 
+- (void)doFavoriteObject:(nonnull DAOPhoto*)photo
+               withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+
+- (void)doUnfavoriteObject:(nonnull DAOPhoto*)photo
+                 withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+
 - (void)doFlagObject:(nonnull DAOPhoto*)photo
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
@@ -67,11 +73,9 @@ typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user,
                andText:(nonnull NSString*)text
               andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
 
-- (void)doFavoriteObject:(nonnull DAOPhoto*)photo
-               withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
-
-- (void)doUnfavoriteObject:(nonnull DAOPhoto*)photo
-                 withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+- (void)doCheckFlagObject:(nonnull DAOPhoto*)photo
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 

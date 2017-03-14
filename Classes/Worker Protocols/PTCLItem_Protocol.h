@@ -90,6 +90,10 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
                andText:(nonnull NSString*)text
               andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
+- (void)doCheckFlagObject:(nonnull DAOItem*)item
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+
 - (void)doWishlistObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block;
 

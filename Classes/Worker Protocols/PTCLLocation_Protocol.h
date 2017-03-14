@@ -80,6 +80,10 @@ typedef void(^PTCLLocationBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
                andText:(nonnull NSString*)text
               andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
+- (void)doCheckFlagObject:(nonnull DAOLocation*)location
+               withAction:(nonnull NSString*)action
+                 andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+
 - (void)doFollowObject:(nonnull DAOLocation*)location
              withBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
