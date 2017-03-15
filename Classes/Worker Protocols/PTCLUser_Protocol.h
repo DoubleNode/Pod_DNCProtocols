@@ -20,6 +20,8 @@ typedef void(^PTCLUserContinueBlock)();
 
 typedef void(^PTCLUserBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLUserBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
+
 typedef void(^PTCLUserBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidDAOUser)(DAOUser* _Nullable user);
 typedef void(^PTCLUserBlockVoidDAOUserBOOLNSError)(DAOUser* _Nullable user, BOOL success, NSError* _Nullable error);
@@ -65,7 +67,7 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
 
 - (void)doCheckFlagObject:(nonnull DAOUser*)user
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+                 andBlock:(nullable PTCLUserBlockVoidNSUIntegerNSError)block;
 
 - (void)doFollowUser:(nonnull DAOUser*)user
            withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;

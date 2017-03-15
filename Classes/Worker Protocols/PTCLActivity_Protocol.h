@@ -22,6 +22,7 @@ typedef void(^PTCLActivityContinueBlock)();
 
 typedef void(^PTCLActivityBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLActivityBlockVoidBOOLNSError)(BOOL, NSError* _Nullable error);
+typedef void(^PTCLActivityBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
 
 typedef void(^PTCLActivityBlockVoidDAOActivityNSError)(DAOActivity* _Nullable activity, NSError* _Nullable error);
 typedef void(^PTCLActivityBlockVoidDAOItemNSError)(DAOItem* _Nullable item, NSError* _Nullable error);
@@ -68,7 +69,7 @@ typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 
 - (void)doCheckFlagObject:(nonnull DAOActivity*)activity
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLActivityBlockVoidBOOLNSError)block;
+                 andBlock:(nullable PTCLActivityBlockVoidNSUIntegerNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 

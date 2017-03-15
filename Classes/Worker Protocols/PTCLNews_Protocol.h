@@ -16,7 +16,8 @@
 typedef void(^PTCLNewsContinueBlock)();
 
 typedef void(^PTCLNewsBlockVoidNSError)(NSError* _Nullable error);
-typedef void(^PTCLNewsBlockVoidBOOLNSError)(BOOL, NSError* _Nullable error);
+typedef void(^PTCLNewsBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLNewsBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
 
 typedef void(^PTCLNewsBlockVoidDAONewsNSError)(DAONews* _Nullable news, NSError* _Nullable error);
 
@@ -53,7 +54,7 @@ typedef void(^PTCLNewsBlockVoidDAONewsNSErrorContinue)(DAONews* _Nullable news, 
 
 - (void)doCheckFlagObject:(nonnull DAONews*)news
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLNewsBlockVoidBOOLNSError)block;
+                 andBlock:(nullable PTCLNewsBlockVoidNSUIntegerNSError)block;
 
 @end
 

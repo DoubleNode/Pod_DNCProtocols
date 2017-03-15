@@ -18,8 +18,10 @@
 
 typedef void(^PTCLItemContinueBlock)();
 
-typedef void(^PTCLItemBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSError)(NSError* _Nullable error);
+typedef void(^PTCLItemBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLItemBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
+
 typedef void(^PTCLItemBlockVoidDAOItemNSError)(DAOItem* _Nullable item, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NSArray<DAOLocation* >* _Nullable locations, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)(NSArray<DAOPhoto* >* _Nullable photos, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
@@ -92,7 +94,7 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 
 - (void)doCheckFlagObject:(nonnull DAOItem*)item
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+                 andBlock:(nullable PTCLItemBlockVoidNSUIntegerNSError)block;
 
 - (void)doWishlistObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block;

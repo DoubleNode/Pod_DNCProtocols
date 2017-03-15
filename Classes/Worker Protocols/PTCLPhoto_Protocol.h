@@ -20,8 +20,8 @@
 typedef void(^PTCLPhotoContinueBlock)();
 
 typedef void(^PTCLPhotoBlockVoidNSError)(NSError* _Nullable error);
-
 typedef void(^PTCLPhotoBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLPhotoBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
 
 typedef void(^PTCLPhotoBlockVoidDAOItemNSError)(DAOItem* _Nullable beer, NSError* _Nullable error);
 typedef void(^PTCLPhotoBlockVoidDAOLocationNSError)(DAOLocation* _Nullable brewery, NSError* _Nullable error);
@@ -75,7 +75,7 @@ typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user,
 
 - (void)doCheckFlagObject:(nonnull DAOPhoto*)photo
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block;
+                 andBlock:(nullable PTCLPhotoBlockVoidNSUIntegerNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 

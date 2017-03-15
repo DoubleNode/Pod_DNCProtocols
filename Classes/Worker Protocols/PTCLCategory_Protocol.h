@@ -18,8 +18,9 @@
 typedef void(^PTCLCategoryContinueBlock)();
 
 typedef void(^PTCLCategoryBlockVoidNSError)(NSError* _Nullable error);
-
 typedef void(^PTCLCategoryBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLCategoryBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
+
 typedef void(^PTCLCategoryBlockVoidDAOCategoryNSError)(DAOCategory* _Nullable category, NSError* _Nullable error);
 typedef void(^PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)(NSArray<DAOItem* >* _Nullable items, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)(NSArray<DAOPhoto* >* _Nullable photos, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
@@ -70,7 +71,7 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 
 - (void)doCheckFlagObject:(nonnull DAOCategory*)category
                withAction:(nonnull NSString*)action
-                 andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
+                 andBlock:(nullable PTCLCategoryBlockVoidNSUIntegerNSError)block;
 
 - (void)doFollowObject:(nonnull DAOCategory*)category
              withBlock:(nullable PTCLCategoryBlockVoidNSError)block;
