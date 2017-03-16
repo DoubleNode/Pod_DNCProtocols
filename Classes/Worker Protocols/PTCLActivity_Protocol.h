@@ -12,6 +12,7 @@
 #import "__PTCLBase_Protocol.h"
 
 @class DAOActivity;
+@class DAOFlag;
 @class DAOItem;
 @class DAOLocation;
 @class DAOPhoto;
@@ -30,6 +31,7 @@ typedef void(^PTCLActivityBlockVoidDAOLocationNSError)(DAOLocation* _Nullable lo
 typedef void(^PTCLActivityBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
 typedef void(^PTCLActivityBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
 typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOActivity* >* _Nullable activities, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
+typedef void(^PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 typedef void(^PTCLActivityBlockVoidDAOActivityNSErrorContinue)(DAOActivity* _Nullable activity, NSError* _Nullable error, PTCLActivityContinueBlock _Nullable continueBlock);
 typedef void(^PTCLActivityBlockVoidDAOItemNSErrorContinue)(DAOItem* _Nullable item, NSError* _Nullable error, PTCLActivityContinueBlock _Nullable continueBlock);
@@ -37,6 +39,7 @@ typedef void(^PTCLActivityBlockVoidDAOLocationNSErrorContinue)(DAOLocation* _Nul
 typedef void(^PTCLActivityBlockVoidDAOPhotoNSErrorContinue)(DAOPhoto* _Nullable photo, NSError* _Nullable error, PTCLActivityContinueBlock _Nullable continueBlock);
 typedef void(^PTCLActivityBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user, NSError* _Nullable error, PTCLActivityContinueBlock _Nullable continueBlock);
 typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOActivity* >* _Nullable activities, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLActivityContinueBlock _Nullable continueBlock);
+typedef void(^PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLActivityContinueBlock _Nullable continueBlock);
 
 @protocol PTCLActivity_Protocol <PTCLBase_Protocol>
 
@@ -94,6 +97,11 @@ typedef void(^PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
                    andUpdateBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadFlagsForUser:(nonnull DAOUser*)user
+                withAction:(nonnull NSString*)action
+                  andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+            andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithParameters:(nullable NSDictionary*)parameters
                            andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block

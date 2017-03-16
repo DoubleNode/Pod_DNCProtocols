@@ -11,6 +11,7 @@
 
 #import "__PTCLBase_Protocol.h"
 
+@class DAOFlag;
 @class DAOItem;
 @class DAOLocation;
 @class DAOPhoto;
@@ -28,12 +29,14 @@ typedef void(^PTCLPhotoBlockVoidDAOLocationNSError)(DAOLocation* _Nullable brewe
 typedef void(^PTCLPhotoBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
 typedef void(^PTCLPhotoBlockVoidDAOReviewNSError)(DAOReview* _Nullable review, NSError* _Nullable error);
 typedef void(^PTCLPhotoBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
+typedef void(^PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 typedef void(^PTCLPhotoBlockVoidDAOItemNSErrorContinue)(DAOItem* _Nullable beer, NSError* _Nullable error, PTCLPhotoContinueBlock _Nullable continueBlock);
 typedef void(^PTCLPhotoBlockVoidDAOLocationNSErrorContinue)(DAOLocation* _Nullable brewery, NSError* _Nullable error, PTCLPhotoContinueBlock _Nullable continueBlock);
 typedef void(^PTCLPhotoBlockVoidDAOPhotoNSErrorContinue)(DAOPhoto* _Nullable photo, NSError* _Nullable error, PTCLPhotoContinueBlock _Nullable continueBlock);
 typedef void(^PTCLPhotoBlockVoidDAOReviewNSErrorContinue)(DAOReview* _Nullable review, NSError* _Nullable error, PTCLPhotoContinueBlock _Nullable continueBlock);
 typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user, NSError* _Nullable error, PTCLPhotoContinueBlock _Nullable continueBlock);
+typedef void(^PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLPhotoContinueBlock _Nullable continueBlock);
 
 @protocol PTCLPhoto_Protocol <PTCLBase_Protocol>
 
@@ -94,6 +97,13 @@ typedef void(^PTCLPhotoBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user,
 - (void)doLoadUserForObject:(nonnull DAOPhoto*)photo
                   withBlock:(nullable PTCLPhotoBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOUserNSError)updateBlock;
+
+#pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadFlagsForObject:(nonnull DAOPhoto*)photo
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
 
