@@ -98,10 +98,10 @@ typedef void(^PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorCont
 
 #pragma mark - Business Logic / Collection Items CRUD
 
-- (void)doLoadFlagsForUser:(nonnull DAOUser*)user
-                withAction:(nonnull NSString*)action
-                  andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
-            andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
+- (void)doLoadFlagsForObject:(nullable DAOActivity*)activity
+                  withAction:(nonnull NSString*)action
+                    andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithParameters:(nullable NSDictionary*)parameters
                            andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
