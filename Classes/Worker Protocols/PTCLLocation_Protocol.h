@@ -102,6 +102,11 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
                     andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
+- (void)doLoadMyFlagsForObject:(nonnull DAOLocation*)location
+                    withAction:(nonnull NSString*)action
+                      andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
+
 - (void)doLoadItemsForObject:(nonnull DAOLocation*)location
                    withBlock:(nullable PTCLLocationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
