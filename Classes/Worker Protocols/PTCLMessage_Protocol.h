@@ -6,14 +6,19 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#ifndef PTCLMessage_Protocol_h
-#define PTCLMessage_Protocol_h
+#pragma once
 
 #import "__PTCLBase_Protocol.h"
 
 @class DAOMessage;
 
+typedef void(^PTCLMessageContinueBlock)();
+
+typedef void(^PTCLMessageBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+
 typedef void(^PTCLMessageBlockVoidDAOMessageNSError)(DAOMessage* _Nullable message, NSError* _Nullable error);
+
+typedef void(^PTCLMessageBlockVoidDAOMessageNSErrorContinue)(DAOMessage* _Nullable message, NSError* _Nullable error, PTCLMessageContinueBlock _Nullable continueBlock);
 
 @protocol PTCLMessage_Protocol <PTCLBase_Protocol>
 
@@ -24,9 +29,14 @@ typedef void(^PTCLMessageBlockVoidDAOMessageNSError)(DAOMessage* _Nullable messa
 
 #pragma mark - Business Logic / Single Item CRUD
 
+- (void)doLoadObjectForId:(nonnull NSString*)messageId
+                withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSErrorContinue)block
+           andUpdateBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)updateBlock;
+
+- (void)doDeleteObject:(nonnull DAOMessage*)message
+             withBlock:(nullable PTCLMessageBlockVoidBOOLNSError)block;
+
 - (void)doSaveObject:(nonnull DAOMessage*)message
            withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block;
 
 @end
-
-#endif /* PTCLMessage_Protocol_h */
