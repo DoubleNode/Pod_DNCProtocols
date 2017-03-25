@@ -21,6 +21,7 @@ typedef void(^PTCLConversationContinueBlock)();
 
 typedef void(^PTCLConversationBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLConversationBlockVoidDAOConversationNSError)(DAOConversation* _Nullable conversation, NSError* _Nullable error);
+typedef void(^PTCLConversationBlockVoidDAOConversationNSErrorContinue)(DAOConversation* _Nullable conversation, NSError* _Nullable error, PTCLConversationContinueBlock _Nullable continueBlock);
 
 typedef void(^PTCLConversationBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSError)(NSArray<DAOCategory* >* _Nullable categories, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLConversationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)(NSArray<DAOItem* >* _Nullable items, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
@@ -44,6 +45,10 @@ typedef void(^PTCLConversationBlockVoidNSArrayDAOConversationNSUIntegerNSUIntege
 + (nonnull instancetype)worker:(nullable id<PTCLConversation_Protocol>)nextWorker;
 
 #pragma mark - Business Logic / Single Item CRUD
+
+- (void)doLoadObjectForId:(nonnull NSString*)conversationId
+                withBlock:(nullable PTCLConversationBlockVoidDAOConversationNSErrorContinue)block
+           andUpdateBlock:(nullable PTCLConversationBlockVoidDAOConversationNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOConversation*)conversation
              withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
