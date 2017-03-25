@@ -11,6 +11,7 @@
 #import "__PTCLBase_Protocol.h"
 
 @class DAOPaymentAccount;
+@class DAOUser;
 
 typedef void(^PTCLPaymentAccountContinueBlock)();
 

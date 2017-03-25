@@ -12,6 +12,7 @@
 
 @class DAONotification;
 @class DAOTransmission;
+@class DAOUser;
 
 typedef void(^PTCLNotificationContinueBlock)();
 

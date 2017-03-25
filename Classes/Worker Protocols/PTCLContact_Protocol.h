@@ -11,6 +11,7 @@
 #import "__PTCLBase_Protocol.h"
 
 @class DAOContact;
+@class DAOUser;
 
 typedef void(^PTCLContactContinueBlock)();
 
