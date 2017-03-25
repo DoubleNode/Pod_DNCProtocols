@@ -35,19 +35,19 @@ typedef void(^PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntege
 
 #pragma mark - Business Logic / Single Item CRUD
 
-- (void)doLoadObjectForId:(nonnull NSString*)contactId
+- (void)doLoadObjectForId:(nonnull NSString*)notificationId
                 withBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSErrorContinue)block
            andUpdateBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSError)updateBlock;
 
-- (void)doDeleteObject:(nonnull DAONotification*)contact
+- (void)doDeleteObject:(nonnull DAONotification*)notification
              withBlock:(nullable PTCLNotificationBlockVoidBOOLNSError)block;
 
-- (void)doSaveObject:(nonnull DAONotification*)contact
+- (void)doSaveObject:(nonnull DAONotification*)notification
            withBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
-- (void)doLoadTransmissionsForObject:(nonnull DAONotification*)contact
+- (void)doLoadTransmissionsForObject:(nonnull DAONotification*)notification
                            withBlock:(nullable PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntegerNSErrorContinue)block
                       andUpdateBlock:(nullable PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntegerNSError)updateBlock;
 
