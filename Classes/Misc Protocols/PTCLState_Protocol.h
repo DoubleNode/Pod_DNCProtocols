@@ -6,15 +6,13 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#ifndef PTCLState_Protocol_h
-#define PTCLState_Protocol_h
+#pragma once
 
 #import <UIKit/UIKit.h>
 
 @protocol PTCLState_Protocol
 
-@property (strong, nonatomic) NSDictionary* state;
+- (NSDictionary*)saveObjectState;
+- (void)restoreObjectState:(NSDictionary*)state;
 
 @end
-
-#endif /* PTCLState_Protocol_h */
