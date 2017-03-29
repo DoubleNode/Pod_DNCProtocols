@@ -10,6 +10,7 @@
 
 #import "__PTCLBase_Protocol.h"
 
+@class DAOContact;
 @class DAOPaymentAccount;
 @class DAOUser;
 
