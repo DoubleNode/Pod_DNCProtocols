@@ -87,12 +87,12 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOCategory*)category
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOCategory*)category
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 

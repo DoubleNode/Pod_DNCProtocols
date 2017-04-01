@@ -116,17 +116,17 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadAllFlagsForObject:(nonnull DAOUser*)user
-                     withAction:(nonnull NSString*)action
+                    withActions:(nonnull NSArray<NSString*>*)actions
                        andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadFlagsForObject:(nonnull DAOUser*)user
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOUser*)user
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 

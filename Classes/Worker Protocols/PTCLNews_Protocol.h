@@ -63,12 +63,12 @@ typedef void(^PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAONews*)news
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAONews*)news
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 

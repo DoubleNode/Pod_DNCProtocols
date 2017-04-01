@@ -101,12 +101,12 @@ typedef void(^PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinu
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOPhoto*)photo
-                  withAction:(nonnull NSString*)action
+                 withActions:(nonnull NSArray<NSString*>*)actions
                     andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOPhoto*)photo
-                    withAction:(nonnull NSString*)action
+                   withActions:(nonnull NSArray<NSString*>*)actions
                       andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
