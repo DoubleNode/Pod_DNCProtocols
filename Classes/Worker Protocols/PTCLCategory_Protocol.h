@@ -15,6 +15,7 @@
 @class DAOFlag;
 @class DAOItem;
 @class DAOPhoto;
+@class DAOUser;
 
 typedef void(^PTCLCategoryContinueBlock)();
 
