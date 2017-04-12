@@ -79,7 +79,7 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
             andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOLocation*)location
-             forUser:(nonnull DAOUser*)flaggingUser
+             forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
             andBlock:(nullable PTCLLocationBlockVoidNSError)block;

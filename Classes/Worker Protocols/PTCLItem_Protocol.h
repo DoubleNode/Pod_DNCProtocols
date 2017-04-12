@@ -91,7 +91,7 @@ typedef void(^PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue
             andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOItem*)item
-             forUser:(nonnull DAOUser*)flaggingUser
+             forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
             andBlock:(nullable PTCLItemBlockVoidNSError)block;

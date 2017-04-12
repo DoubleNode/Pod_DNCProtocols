@@ -61,7 +61,7 @@ typedef void(^PTCLUserBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)(NS
             andBlock:(nullable PTCLUserBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOUser*)user
-             forUser:(nonnull DAOUser*)flaggingUser
+             forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
             andBlock:(nullable PTCLUserBlockVoidNSError)block;
