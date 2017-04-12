@@ -78,7 +78,6 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
            withBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAOCategory*)category
-               forUser:(nonnull DAOUser*)flaggingUser
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
               andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
