@@ -90,6 +90,16 @@ typedef void(^PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue
              andText:(nonnull NSString*)text
             andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
+- (void)doFlagObject:(nonnull DAOItem*)item
+             forUser:(nonnull DAOUser*)flaggingUser
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLItemBlockVoidNSError)block;
+
+- (void)doDeleteFlag:(nonnull DAOFlag*)flag
+           forObject:(nonnull DAOItem*)item
+           withBlock:(nullable PTCLItemBlockVoidNSError)block;
+
 - (void)doUnflagObject:(nonnull DAOItem*)item
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text

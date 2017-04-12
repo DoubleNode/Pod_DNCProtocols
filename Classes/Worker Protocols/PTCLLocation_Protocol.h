@@ -78,6 +78,16 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
              andText:(nonnull NSString*)text
             andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
+- (void)doFlagObject:(nonnull DAOLocation*)location
+             forUser:(nonnull DAOUser*)flaggingUser
+          withAction:(nonnull NSString*)action
+             andText:(nonnull NSString*)text
+            andBlock:(nullable PTCLLocationBlockVoidNSError)block;
+
+- (void)doDeleteFlag:(nonnull DAOFlag*)flag
+           forObject:(nonnull DAOLocation*)location
+           withBlock:(nullable PTCLLocationBlockVoidNSError)block;
+
 - (void)doUnflagObject:(nonnull DAOLocation*)location
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
