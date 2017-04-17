@@ -48,19 +48,21 @@ typedef void(^PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError
 - (void)doSaveObject:(nonnull DAOOrder*)order
            withBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)block;
 
-#pragma mark - Business Logic / Collection Items CRUD
+#pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadLineitemsForObject:(nonnull DAOOrder*)order
                        withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSError)updateBlock;
 
+- (void)doLoadTransactionsForObject:(nonnull DAOOrder*)order
+                          withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSErrorContinue)block
+                     andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError)updateBlock;
+
+#pragma mark - Business Logic / Collection Items CRUD
+
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
                     andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock;
-
-- (void)doLoadTransactionsForObject:(nonnull DAOOrder*)order
-                          withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSErrorContinue)block
-                     andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
