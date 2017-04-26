@@ -37,9 +37,10 @@ typedef void(^PTCLLineitemBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSEr
 
 #pragma mark - Business Logic / Single Item CRUD
 
-- (void)doLoadObjectForId:(nonnull NSString*)lineitemId
-                withBlock:(nullable PTCLLineitemBlockVoidDAOLineitemNSErrorContinue)block
-           andUpdateBlock:(nullable PTCLLineitemBlockVoidDAOLineitemNSError)updateBlock;
+- (void)doLoadObjectForOrderId:(nonnull NSString*)orderId
+                         andId:(nonnull NSString*)lineitemId
+                     withBlock:(nullable PTCLLineitemBlockVoidDAOLineitemNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLLineitemBlockVoidDAOLineitemNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOLineitem*)lineitem
              withBlock:(nullable PTCLLineitemBlockVoidBOOLNSError)block;
