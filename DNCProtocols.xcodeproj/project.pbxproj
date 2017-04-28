@@ -58,6 +58,7 @@
 		6A3F02A41DBD80F4008849B5 /* __WKR_Base_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = __WKR_Base_Worker.m; path = Classes/__WKR_Base_Worker.m; sourceTree = SOURCE_ROOT; };
 		6A3F02A51DBD80F4008849B5 /* __WKRNET_Base_Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __WKRNET_Base_Worker.h; path = Classes/__WKRNET_Base_Worker.h; sourceTree = SOURCE_ROOT; };
 		6A3F02A61DBD80F4008849B5 /* __WKRNET_Base_Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = __WKRNET_Base_Worker.m; path = Classes/__WKRNET_Base_Worker.m; sourceTree = SOURCE_ROOT; };
+		6A65494D1EB2F23B002EBBCC /* PTCLUserNotificationSetting_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLUserNotificationSetting_Protocol.h; path = "Classes/Worker Protocols/PTCLUserNotificationSetting_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A07581E07A59200ADE310 /* __PTCLBase_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = __PTCLBase_Protocol.h; path = "Classes/Worker Protocols/__PTCLBase_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A07591E07A59200ADE310 /* PTCLActivity_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLActivity_Protocol.h; path = "Classes/Worker Protocols/PTCLActivity_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A075A1E07A59200ADE310 /* PTCLAnalytics_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLAnalytics_Protocol.h; path = "Classes/Worker Protocols/PTCLAnalytics_Protocol.h"; sourceTree = SOURCE_ROOT; };
@@ -242,6 +243,7 @@
 				6A02DF4D1EA4422A00705754 /* PTCLTransaction_Protocol.h */,
 				6A7A076E1E07A59200ADE310 /* PTCLUser_Protocol.h */,
 				6A7A076F1E07A59200ADE310 /* PTCLUserDevice_Protocol.h */,
+				6A65494D1EB2F23B002EBBCC /* PTCLUserNotificationSetting_Protocol.h */,
 				6A7A07701E07A59200ADE310 /* PTCLUserIdentification_Protocol.h */,
 				6A7A07711E07A59200ADE310 /* PTCLValidation_Protocol.h */,
 				6A7A07721E07A59200ADE310 /* PTCLWishlist_Protocol.h */,
