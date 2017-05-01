@@ -110,6 +110,9 @@ typedef void(^PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue
                withAction:(nonnull NSString*)action
                  andBlock:(nullable PTCLItemBlockVoidNSUIntegerNSError)block;
 
+- (void)doSaveFlag:(nonnull DAOFlag*)flag
+          andBlock:(nullable PTCLItemBlockVoidNSError)block;
+
 - (void)doWishlistObject:(nonnull DAOItem*)item
                withBlock:(nullable PTCLItemBlockVoidNSError)block;
 
