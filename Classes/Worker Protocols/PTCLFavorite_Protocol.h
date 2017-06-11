@@ -15,7 +15,7 @@
 @class DAOFavorite;
 @class DAOUser;
 
-typedef void(^PTCLFavoriteContinueBlock)();
+typedef void(^PTCLFavoriteContinueBlock)(void);
 
 typedef void(^PTCLFavoriteBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

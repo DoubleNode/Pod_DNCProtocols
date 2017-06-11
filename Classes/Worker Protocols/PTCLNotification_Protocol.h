@@ -14,7 +14,7 @@
 @class DAOTransmission;
 @class DAOUser;
 
-typedef void(^PTCLNotificationContinueBlock)();
+typedef void(^PTCLNotificationContinueBlock)(void);
 
 typedef void(^PTCLNotificationBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

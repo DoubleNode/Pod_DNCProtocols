@@ -19,7 +19,7 @@
 @class DAORating;
 @class DAOUser;
 
-typedef void(^PTCLActivityContinueBlock)();
+typedef void(^PTCLActivityContinueBlock)(void);
 
 typedef void(^PTCLActivityBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLActivityBlockVoidBOOLNSError)(BOOL, NSError* _Nullable error);

@@ -15,7 +15,7 @@
 @class DAOWishlist;
 @class DAOUser;
 
-typedef void(^PTCLWishlistContinueBlock)();
+typedef void(^PTCLWishlistContinueBlock)(void);
 
 typedef void(^PTCLWishlistBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

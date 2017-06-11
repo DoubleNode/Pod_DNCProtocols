@@ -16,7 +16,7 @@
 @class DAOReview;
 @class DAOUser;
 
-typedef void(^PTCLRatingContinueBlock)();
+typedef void(^PTCLRatingContinueBlock)(void);
 
 typedef void(^PTCLRatingBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLRatingBlockVoidDAORatingNSError)(DAORating* _Nullable updatedRating, NSError* _Nullable error);

@@ -7,11 +7,11 @@ inhibit_all_warnings!
 
 platform :ios, '9.0'
 
-target ‘DNCProtocols’ do
+target 'DNCProtocols' do
   # Pods for DNCProtocols
   pod 'DNCore'
 
-  target 'DNCProtocolsTests’ do
+  target 'DNCProtocolsTests' do
     inherit! :search_paths
 
     # Pods for testing

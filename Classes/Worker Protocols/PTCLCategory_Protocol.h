@@ -17,7 +17,7 @@
 @class DAOPhoto;
 @class DAOUser;
 
-typedef void(^PTCLCategoryContinueBlock)();
+typedef void(^PTCLCategoryContinueBlock)(void);
 
 typedef void(^PTCLCategoryBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLCategoryBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);

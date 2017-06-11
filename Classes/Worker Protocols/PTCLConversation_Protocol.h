@@ -17,7 +17,7 @@
 @class DAOMessage;
 @class DAOUser;
 
-typedef void(^PTCLConversationContinueBlock)();
+typedef void(^PTCLConversationContinueBlock)(void);
 
 typedef void(^PTCLConversationBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLConversationBlockVoidDAOConversationNSError)(DAOConversation* _Nullable conversation, NSError* _Nullable error);

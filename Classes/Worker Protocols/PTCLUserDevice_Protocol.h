@@ -14,7 +14,7 @@
 @class DAOUser;
 @class DAOUserDevice;
 
-typedef void(^PTCLUserDeviceContinueBlock)();
+typedef void(^PTCLUserDeviceContinueBlock)(void);
 
 typedef void(^PTCLUserDeviceBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

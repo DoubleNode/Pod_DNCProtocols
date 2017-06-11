@@ -12,7 +12,7 @@
 
 @class DAOMessage;
 
-typedef void(^PTCLMessageContinueBlock)();
+typedef void(^PTCLMessageContinueBlock)(void);
 
 typedef void(^PTCLMessageBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

@@ -14,7 +14,7 @@
 @class DAOFlag;
 @class DAONews;
 
-typedef void(^PTCLNewsContinueBlock)();
+typedef void(^PTCLNewsContinueBlock)(void);
 
 typedef void(^PTCLNewsBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLNewsBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);

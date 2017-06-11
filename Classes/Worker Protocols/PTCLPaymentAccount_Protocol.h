@@ -14,7 +14,7 @@
 @class DAOPaymentAccount;
 @class DAOUser;
 
-typedef void(^PTCLPaymentAccountContinueBlock)();
+typedef void(^PTCLPaymentAccountContinueBlock)(void);
 
 typedef void(^PTCLPaymentAccountBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

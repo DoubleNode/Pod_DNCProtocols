@@ -14,7 +14,7 @@
 @class DAOUser;
 @class DAOUserNotificationSetting;
 
-typedef void(^PTCLUserNotificationSettingContinueBlock)();
+typedef void(^PTCLUserNotificationSettingContinueBlock)(void);
 
 typedef void(^PTCLUserNotificationSettingBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

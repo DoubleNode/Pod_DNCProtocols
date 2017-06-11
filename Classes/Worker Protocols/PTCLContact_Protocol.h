@@ -13,7 +13,7 @@
 @class DAOContact;
 @class DAOUser;
 
-typedef void(^PTCLContactContinueBlock)();
+typedef void(^PTCLContactContinueBlock)(void);
 
 typedef void(^PTCLContactBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 

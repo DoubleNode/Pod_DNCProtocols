@@ -13,7 +13,7 @@
 @class DAOTransaction;
 @class DAOUser;
 
-typedef void(^PTCLTransactionContinueBlock)();
+typedef void(^PTCLTransactionContinueBlock)(void);
 
 typedef void(^PTCLTransactionBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 
