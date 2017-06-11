@@ -14,7 +14,7 @@
 @class DAOAuth;
 @class DAOUser;
 
-typedef void(^PTCLAuthContinueBlock)();
+typedef void(^PTCLAuthContinueBlock)(void);
 
 typedef void(^PTCLAuthBlockVoidDAOAuthNSError)(DAOAuth* _Nullable auth, NSError* _Nullable error);
 

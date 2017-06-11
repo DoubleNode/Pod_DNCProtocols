@@ -18,13 +18,13 @@
          usingAccessToken:(NSString* _Nullable)accessToken;
 
 - (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
-              retryHandler:(void(^ _Nullable)())retryHandler
+              retryHandler:(void(^ _Nullable)(void))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
 - (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
                   withData:(NSData* _Nonnull)data
-              retryHandler:(void(^ _Nullable)())retryHandler
+              retryHandler:(void(^ _Nullable)(void))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
