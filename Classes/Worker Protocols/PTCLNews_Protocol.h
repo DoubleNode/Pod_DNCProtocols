@@ -25,7 +25,7 @@ typedef void(^PTCLNewsBlockVoidDAONewsNSError)(DAONews* _Nullable news, NSError*
 typedef void(^PTCLNewsBlockVoidDAONewsNSErrorContinue)(DAONews* _Nullable news, NSError* _Nullable error, PTCLNewsContinueBlock _Nullable continueBlock);
 
 typedef void(^PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
-typedef void(^PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLLocationContinueBlock _Nullable continueBlock);
+typedef void(^PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLNewsContinueBlock _Nullable continueBlock);
 
 @protocol PTCLNews_Protocol <PTCLBase_Protocol>
 
