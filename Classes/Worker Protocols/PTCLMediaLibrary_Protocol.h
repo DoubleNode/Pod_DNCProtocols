@@ -29,6 +29,8 @@ typedef void(^PTCLMediaLibraryBlockVoidUIImageNSDictionary)(UIImage* _Nullable i
 
 - (void)doLoadCollectionsWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 - (void)doLoadImagesWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
+- (void)doLoadImagesForCollection:(id)assetCollection
+              withCompletionBlock:(PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 
 - (void)doLoadImage:(nonnull id)asset
                size:(CGSize)size
