@@ -11,14 +11,17 @@
 #import "__PTCLBase_Protocol.h"
 
 @class DAOMessage;
+@class DAOPhoto;
 
 typedef void(^PTCLMessageContinueBlock)(void);
 
 typedef void(^PTCLMessageBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 
 typedef void(^PTCLMessageBlockVoidDAOMessageNSError)(DAOMessage* _Nullable message, NSError* _Nullable error);
+typedef void(^PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)(NSArray<DAOPhoto* >* _Nullable photos, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 typedef void(^PTCLMessageBlockVoidDAOMessageNSErrorContinue)(DAOMessage* _Nullable message, NSError* _Nullable error, PTCLMessageContinueBlock _Nullable continueBlock);
+typedef void(^PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOPhoto* >* _Nullable photos, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLMessageContinueBlock _Nullable continueBlock);
 
 @protocol PTCLMessage_Protocol <PTCLBase_Protocol>
 
@@ -38,5 +41,11 @@ typedef void(^PTCLMessageBlockVoidDAOMessageNSErrorContinue)(DAOMessage* _Nullab
 
 - (void)doSaveObject:(nonnull DAOMessage*)message
            withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block;
+
+#pragma mark - Business Logic / Collection Items CRUD
+
+- (void)doLoadPhotosForObject:(nonnull DAOMessage*)message
+                    withBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
