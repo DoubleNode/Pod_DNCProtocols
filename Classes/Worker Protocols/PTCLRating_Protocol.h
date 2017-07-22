@@ -12,6 +12,7 @@
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
+@class DAOLocation;
 @class DAORating;
 @class DAOReview;
 @class DAOUser;
@@ -22,13 +23,17 @@ typedef void(^PTCLRatingBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable e
 typedef void(^PTCLRatingBlockVoidDAORatingNSError)(DAORating* _Nullable updatedRating, NSError* _Nullable error);
 
 typedef void(^PTCLRatingBlockVoidDAOItemNSError)(DAOItem* _Nullable item, NSError* _Nullable error);
-typedef void(^PTCLRatingBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
+typedef void(^PTCLRatingBlockVoidDAOLocationNSError)(DAOLocation* _Nullable location, NSError* _Nullable error);
 typedef void(^PTCLRatingBlockVoidDAORatingNSError)(DAORating* _Nullable rating, NSError* _Nullable error);
+typedef void(^PTCLRatingBlockVoidDAOReviewNSError)(DAOReview* _Nullable review, NSError* _Nullable error);
+typedef void(^PTCLRatingBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
 typedef void(^PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAORating* >* _Nullable ratings, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 typedef void(^PTCLRatingBlockVoidDAOItemNSErrorContinue)(DAOItem* _Nullable item, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
-typedef void(^PTCLRatingBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
+typedef void(^PTCLRatingBlockVoidDAOLocationNSErrorContinue)(DAOLocation* _Nullable location, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
 typedef void(^PTCLRatingBlockVoidDAORatingNSErrorContinue)(DAORating* _Nullable rating, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
+typedef void(^PTCLRatingBlockVoidDAOReviewNSErrorContinue)(DAOReview* _Nullable review, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
+typedef void(^PTCLRatingBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
 typedef void(^PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAORating* >* _Nullable ratings, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLRatingContinueBlock _Nullable continueBlock);
 
 @protocol PTCLRating_Protocol <PTCLBase_Protocol>
@@ -66,6 +71,14 @@ typedef void(^PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
                   withBlock:(nullable PTCLRatingBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLRatingBlockVoidDAOItemNSError)updateBlock;
 
+- (void)doLoadLocationForObject:(nonnull DAORating*)rating
+                      withBlock:(nullable PTCLRatingBlockVoidDAOLocationNSErrorContinue)block
+                 andUpdateBlock:(nullable PTCLRatingBlockVoidDAOLocationNSError)updateBlock;
+
+- (void)doLoadReviewForObject:(nonnull DAORating*)rating
+                    withBlock:(nullable PTCLRatingBlockVoidDAOReviewNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLRatingBlockVoidDAOReviewNSError)updateBlock;
+
 - (void)doLoadUserForObject:(nonnull DAORating*)rating
                   withBlock:(nullable PTCLRatingBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLRatingBlockVoidDAOUserNSError)updateBlock;
@@ -76,6 +89,16 @@ typedef void(^PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
               withParameters:(nullable NSDictionary*)parameters
                     andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
+
+- (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
+                  withParameters:(nullable NSDictionary*)parameters
+                        andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
+
+- (void)doLoadObjectsForReview:(nonnull DAOReview*)review
+                withParameters:(nullable NSDictionary*)parameters
+                      andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters

@@ -12,6 +12,7 @@
 #import "__PTCLBase_Protocol.h"
 
 @class DAOItem;
+@class DAOLocation;
 @class DAORating;
 @class DAOReview;
 @class DAOUser;
@@ -23,11 +24,15 @@ typedef void(^PTCLReviewBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable e
 typedef void(^PTCLReviewBlockVoidDAOReviewNSError)(DAOReview* _Nullable updatedReview, NSError* _Nullable error);
 
 typedef void(^PTCLReviewBlockVoidDAOItemNSError)(DAOItem* _Nullable item, NSError* _Nullable error);
+typedef void(^PTCLReviewBlockVoidDAOLocationNSError)(DAOLocation* _Nullable location, NSError* _Nullable error);
+typedef void(^PTCLReviewBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
 typedef void(^PTCLReviewBlockVoidDAOReviewNSError)(DAOReview* _Nullable review, NSError* _Nullable error);
 typedef void(^PTCLReviewBlockVoidDAOUserNSError)(DAOUser* _Nullable user, NSError* _Nullable error);
 typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<DAOReview* >* _Nullable reviews, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 
 typedef void(^PTCLReviewBlockVoidDAOItemNSErrorContinue)(DAOItem* _Nullable item, NSError* _Nullable error, PTCLReviewContinueBlock _Nullable continueBlock);
+typedef void(^PTCLReviewBlockVoidDAOLocationNSErrorContinue)(DAOLocation* _Nullable location, NSError* _Nullable error, PTCLReviewContinueBlock _Nullable continueBlock);
+typedef void(^PTCLReviewBlockVoidDAOPhotoNSErrorContinue)(DAOPhoto* _Nullable photo, NSError* _Nullable error, PTCLReviewContinueBlock _Nullable continueBlock);
 typedef void(^PTCLReviewBlockVoidDAOReviewNSErrorContinue)(DAOReview* _Nullable review, NSError* _Nullable error, PTCLReviewContinueBlock _Nullable continueBlock);
 typedef void(^PTCLReviewBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable user, NSError* _Nullable error, PTCLReviewContinueBlock _Nullable continueBlock);
 typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOReview* >* _Nullable reviews, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLReviewContinueBlock _Nullable continueBlock);
@@ -60,6 +65,14 @@ typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
                   withBlock:(nullable PTCLReviewBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOItemNSError)updateBlock;
 
+- (void)doLoadLocationForObject:(nonnull DAOReview*)review
+                      withBlock:(nullable PTCLReviewBlockVoidDAOLocationNSErrorContinue)block
+                 andUpdateBlock:(nullable PTCLReviewBlockVoidDAOLocationNSError)updateBlock;
+
+- (void)doLoadPhotoForObject:(nonnull DAOReview*)review
+                   withBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSError)updateBlock;
+
 - (void)doLoadUserForObject:(nonnull DAOReview*)review
                   withBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOUserNSError)updateBlock;
@@ -70,6 +83,11 @@ typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
               withParameters:(nullable NSDictionary*)parameters
                     andBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
+
+- (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
+                  withParameters:(nullable NSDictionary*)parameters
+                        andBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
