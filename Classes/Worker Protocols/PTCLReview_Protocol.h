@@ -61,6 +61,10 @@ typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
+- (void)doLoadCreatorForObject:(nonnull DAOReview*)review
+                     withBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
+                andUpdateBlock:(nullable PTCLReviewBlockVoidDAOUserNSError)updateBlock;
+
 - (void)doLoadItemForObject:(nonnull DAOReview*)review
                   withBlock:(nullable PTCLReviewBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOItemNSError)updateBlock;
