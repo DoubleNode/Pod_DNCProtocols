@@ -45,6 +45,11 @@ typedef void(^PTCLPaymentAccountBlockVoidNSArrayDAOPaymentAccountNSUIntegerNSUIn
 - (void)doSaveObject:(nonnull DAOPaymentAccount*)paymentAccount
            withBlock:(nullable PTCLPaymentAccountBlockVoidDAOPaymentAccountNSError)block;
 
+- (void)doVerifyObject:(nonnull DAOPaymentAccount*)paymentAccount
+          withDeposit1:(NSUInteger)deposit1
+           andDeposit2:(NSUInteger)deposit2
+              andBlock:(nullable PTCLPaymentAccountBlockVoidBOOLNSError)block;
+
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadContactForObject:(nonnull DAOPaymentAccount*)paymentAccount
