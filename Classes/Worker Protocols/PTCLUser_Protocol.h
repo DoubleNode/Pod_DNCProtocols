@@ -161,8 +161,8 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
 
 - (void)doLoadObjectsWithTag:(nonnull NSString*)tag
               withParameters:(nullable NSDictionary*)parameters
-                    andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
-              andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
+                    andBlock:(nullable PTCLUserBlockVoidNSArrayDAOUserNSUIntegerNSUIntegerNSErrorContinue)block
+              andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOUserNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end
 
