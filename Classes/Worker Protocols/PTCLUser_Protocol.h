@@ -62,6 +62,9 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
                              password:(nonnull NSString*)password
                             withBlock:(nullable PTCLUserBlockVoidDAOUserBOOLNSError)block;
 
+- (void)doCheckPendingTransactions:(nonnull DAOUser*)user
+                          andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
 - (void)doFlagObject:(nonnull DAOUser*)user
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
