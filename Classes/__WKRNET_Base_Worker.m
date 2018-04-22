@@ -6,8 +6,7 @@
 //  Copyright © 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
 //
 
-#import <DNCore/DNCUrlSessionManager.h>
-#import <DNCore/DNCUtilities.h>
+@import DNCore;
 
 #import "__WKRNET_Base_Worker.h"
 
@@ -73,17 +72,17 @@
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
 
-          NSNumber* retryCount = _retryCounts[request.URL.absoluteString];
+          NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
           if (!retryCount)
           {
               retryCount = @(0);
           }
           retryCount = @(retryCount.intValue + 1);
           
-          _retryCounts[request.URL.absoluteString]  = retryCount;
+          self->_retryCounts[request.URL.absoluteString]  = retryCount;
           if (retryCount.intValue >= 5)
           {
-              [_retryCounts removeObjectForKey:request.URL.absoluteString];
+              [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
 
               DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
               
@@ -190,17 +189,17 @@
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
           
-          NSNumber* retryCount = _retryCounts[request.URL.absoluteString];
+          NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
           if (!retryCount)
           {
               retryCount = @(0);
           }
           retryCount = @(retryCount.intValue + 1);
           
-          _retryCounts[request.URL.absoluteString]  = retryCount;
+          self->_retryCounts[request.URL.absoluteString]  = retryCount;
           if (retryCount.intValue >= 5)
           {
-              [_retryCounts removeObjectForKey:request.URL.absoluteString];
+              [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
               
               DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
               

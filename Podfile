@@ -5,7 +5,7 @@ use_frameworks!
 
 inhibit_all_warnings!
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'DNCProtocols' do
   # Pods for DNCProtocols
