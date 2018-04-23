@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name        = "DNCProtocols"
-  s.version     = "0.2.1"
+  s.version     = "0.2.2"
   s.summary     = "A base collection of DNCProtocols headers."
 
   s.description = <<-DESC

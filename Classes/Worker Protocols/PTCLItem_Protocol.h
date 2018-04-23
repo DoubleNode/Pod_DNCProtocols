@@ -115,7 +115,7 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
                  andBlock:(nullable PTCLItemBlockVoidNSUIntegerNSError)block;
 
 - (void)doSaveFlag:(nonnull DAOFlag*)flag
-          andBlock:(nullable PTCLItemBlockVoidNSError)block;
+         withBlock:(nullable PTCLItemBlockVoidNSError)block;
  
 - (void)doTagObject:(nonnull DAOItem*)item
             withTag:(nonnull NSString*)tag
@@ -154,9 +154,9 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
                andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTagsForObject:(nonnull DAOItem*)item
-                   andBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+                  withBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock;
- 
+
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
        withParameters:(nullable NSDictionary*)parameters

@@ -48,6 +48,8 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLUser_Protocol>)nextUserWorker;
 
+#pragma mark - Business Logic / Single Item CRUD
+
 - (BOOL)doCheckForAccessTokenError:(nullable NSData*)errorData;
 - (void)doCurrentAccessTokenWithBlock:(nullable PTCLUserBlockVoidDAOUserNSString)block;
 - (void)doCurrentUserWithBlock:(nullable PTCLUserBlockVoidDAOUser)block;
@@ -139,7 +141,7 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
            withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
- 
+
 - (void)doLoadAllFlagsForObject:(nonnull DAOUser*)user
                     withActions:(nonnull NSArray<NSString*>*)actions
                        andBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
@@ -156,7 +158,7 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
                 andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTagsForObject:(nonnull DAOUser*)user
-                   andBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+                  withBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithTag:(nonnull NSString*)tag
