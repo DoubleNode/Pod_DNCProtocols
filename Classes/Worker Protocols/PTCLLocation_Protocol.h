@@ -139,7 +139,7 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTagsForObject:(nonnull DAOLocation*)location
-                   andBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+                  withBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjects:(nonnull NSString*)searchId
