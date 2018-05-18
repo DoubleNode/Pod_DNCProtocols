@@ -14,7 +14,6 @@
 typedef void(^PTCLCacheBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLCacheBlockVoidIDNSError)(id _Nullable object, NSError* _Nullable error);
 typedef void(^PTCLCacheBlockVoid)(id _Nullable object, NSError* _Nullable error);
-typedef void(^PTCLCacheBlockVoidUIImageNSDataNSErrorNSURL)(UIImage* _Nullable image, NSData* _Nullable data, NSError* _Nullable error, NSURL* _Nullable imageURL);
 
 @protocol PTCLCache_Protocol <PTCLBase_Protocol>
 
@@ -35,8 +34,8 @@ typedef void(^PTCLCacheBlockVoidUIImageNSDataNSErrorNSURL)(UIImage* _Nullable im
                forId:(nonnull NSString*)cacheId
            withBlock:(nullable PTCLCacheBlockVoidNSError)block;
 
-- (void)doLoadImageWithUrl:(nonnull NSURL*)url
-                 withBlock:(nullable PTCLCacheBlockVoidUIImageNSDataNSErrorNSURL)block;
+- (void)doLoadImageForUrl:(nonnull NSURL*)url
+                withBlock:(nullable PTCLCacheBlockVoidIDNSError)block;
 
 @end
 
