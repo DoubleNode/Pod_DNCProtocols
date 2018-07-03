@@ -12,6 +12,7 @@
 #import "__PTCLBase_Protocol.h"
 
 typedef void(^PTCLMediaLibraryBlockVoidNSError)(NSError* _Nullable error);
+typedef void(^PTCLMediaLibraryBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLMediaLibraryBlockVoidNSArrayNSError)(NSArray* _Nullable assets, NSError* _Nullable error);
 typedef void(^PTCLMediaLibraryBlockVoidUIImageNSDictionary)(UIImage* _Nullable image, NSDictionary* _Nullable info);
 
@@ -35,6 +36,18 @@ typedef void(^PTCLMediaLibraryBlockVoidUIImageNSDictionary)(UIImage* _Nullable i
 - (void)doLoadImage:(nonnull id)asset
                size:(CGSize)size
     completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock;
+
+- (void)doSaveImage:(UIImage* _Nullable)image
+withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+- (void)doSaveImage:(UIImage* _Nullable)image
+       toCollection:(nonnull id)assetCollection
+withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+
+- (void)doSaveVideo:(NSURL* _Nullable)videoUrl
+withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+- (void)doSaveVideo:(NSURL* _Nullable)videoUrl
+       toCollection:(nonnull id)assetCollection
+withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 @end
 
