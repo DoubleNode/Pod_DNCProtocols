@@ -43,11 +43,17 @@ withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlo
        toCollection:(nonnull id)assetCollection
 withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
-- (void)doSaveVideo:(NSURL* _Nullable)videoUrl
-withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
-- (void)doSaveVideo:(NSURL* _Nullable)videoUrl
-       toCollection:(nonnull id)assetCollection
-withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+- (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+- (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
+              toCollection:(nonnull id)assetCollection
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+
+- (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+- (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
+              toCollection:(nonnull id)assetCollection
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 @end
 
