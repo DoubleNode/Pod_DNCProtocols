@@ -23,9 +23,10 @@ typedef void(^PTCLFileBlockVoidNSStringIDBOOLNSError)(NSString* _Nullable url, i
 + (nonnull instancetype)worker:(nullable id<PTCLFile_Protocol>)nextFileWorker;
 
 - (void)saveFileInBackgroundForUser:(nonnull DAOUser*)user
-                           withName:(nonnull NSString*)fileName
-                               data:(nonnull NSData*)data
-                              block:(nullable PTCLFileBlockVoidNSStringIDBOOLNSError)block;
+                        andFilename:(nonnull NSString*)filename
+                        andMetadata:(nonnull NSDictionary*)metadata
+                            andData:(nonnull NSData*)data
+                          withBlock:(nullable PTCLFileBlockVoidNSStringIDBOOLNSError)block;
 
 @end
 
