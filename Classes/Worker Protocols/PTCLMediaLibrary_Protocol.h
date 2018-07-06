@@ -14,6 +14,7 @@
 typedef void(^PTCLMediaLibraryBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLMediaLibraryBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
 typedef void(^PTCLMediaLibraryBlockVoidNSArrayNSError)(NSArray* _Nullable assets, NSError* _Nullable error);
+typedef void(^PTCLMediaLibraryBlockVoidNSURLNSDictionary)(NSURL* _Nullable url, NSDictionary* _Nullable info);
 typedef void(^PTCLMediaLibraryBlockVoidUIImageNSDictionary)(UIImage* _Nullable image, NSDictionary* _Nullable info);
 
 @protocol PTCLMediaLibrary_Protocol <PTCLBase_Protocol>
@@ -29,19 +30,33 @@ typedef void(^PTCLMediaLibraryBlockVoidUIImageNSDictionary)(UIImage* _Nullable i
 - (void)doRequestAuthorizationWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSError)completionBlock;
 
 - (void)doLoadCollectionsWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
-- (void)doLoadImagesWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
+- (void)doLoadImagesOfMediaTypes:(nullable NSArray*)mediaTypes
+             withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 - (void)doLoadImagesForCollection:(nonnull id)assetCollection
+                     ofMediaTypes:(nullable NSArray*)mediaTypes
               withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 
+- (void)doLoadAudio:(nonnull id)asset
+               size:(CGSize)size
+    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock;
 - (void)doLoadImage:(nonnull id)asset
                size:(CGSize)size
     completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock;
+- (void)doLoadVideo:(nonnull id)asset
+               size:(CGSize)size
+    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock;
 
 - (void)doSaveImage:(UIImage* _Nullable)image
 withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 - (void)doSaveImage:(UIImage* _Nullable)image
        toCollection:(nonnull id)assetCollection
 withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+
+- (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+- (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
+              toCollection:(nonnull id)assetCollection
+       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 - (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
        withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
