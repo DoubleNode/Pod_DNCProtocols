@@ -46,6 +46,10 @@
 {
 }
 
+- (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response
+{
+}
+
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
          usingAccessToken:(NSString* _Nullable)accessToken
 {

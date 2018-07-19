@@ -13,9 +13,10 @@
 - (BOOL)utilityCheckForAccessTokenError:(NSData*_Nullable)errorData;
 
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request;
-
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
          usingAccessToken:(NSString* _Nullable)accessToken;
+
+- (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response;
 
 - (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
               retryHandler:(void(^ _Nullable)(void))retryHandler
