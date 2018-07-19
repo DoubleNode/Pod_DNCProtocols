@@ -11,6 +11,8 @@
 
 @protocol WKRNET_Header_Processor<NSObject>
 
++ (nonnull instancetype)processor;
+
 - (void)processorAddHeaders:(NSMutableURLRequest*_Nonnull)request;
 - (void)processorGrabHeaders:(NSURLResponse*_Nonnull)response;
 
