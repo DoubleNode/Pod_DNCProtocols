@@ -44,10 +44,18 @@
 
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
 {
+    if ([self.headerProcessor respondsToSelector:@selector(processorAddHeaders:)])
+    {
+        [self.headerProcessor processorAddHeaders:request];
+    }
 }
 
 - (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response
 {
+    if ([self.headerProcessor respondsToSelector:@selector(processorGrabHeaders:)])
+    {
+        [self.headerProcessor processorGrabHeaders:response];
+    }
 }
 
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request

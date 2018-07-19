@@ -8,7 +8,11 @@
 
 #import "__WKR_Base_Worker.h"
 
+#import "__WKRNET_Header_Processor.h"
+
 @interface WKRNET_Base_Worker : WKR_Base_Worker
+
+@property (strong, nonatomic)   id<WKRNET_Header_Processor> _Nullable   headerProcessor;
 
 - (BOOL)utilityCheckForAccessTokenError:(NSData*_Nullable)errorData;
 
