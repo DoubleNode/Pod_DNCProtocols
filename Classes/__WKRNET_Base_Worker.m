@@ -84,6 +84,8 @@
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
 
+          [self utilityGrabHeaders:httpResponse];
+
           NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
           if (!retryCount)
           {
@@ -177,6 +179,8 @@
       ^(NSURLResponse* response, id responseObject)
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+          
+          [self utilityGrabHeaders:response];
           
           completionHandler ? completionHandler(response, responseObject) : nil;
           
@@ -201,6 +205,8 @@
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
           
+          [self utilityGrabHeaders:httpResponse];
+          
           NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
           if (!retryCount)
           {
@@ -294,6 +300,8 @@
       ^(NSURLResponse* response, id responseObject)
       {
           DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+          
+          [self utilityGrabHeaders:response];
           
           completionHandler ? completionHandler(response, responseObject) : nil;
           
