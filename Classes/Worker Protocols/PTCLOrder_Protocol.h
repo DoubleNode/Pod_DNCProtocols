@@ -60,6 +60,11 @@ typedef void(^PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError
 
 #pragma mark - Business Logic / Collection Items CRUD
 
+- (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
+                  withParameters:(nullable NSDictionary*)parameters
+                        andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
+                  andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock;
+
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
                     andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block

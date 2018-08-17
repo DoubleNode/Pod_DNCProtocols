@@ -322,7 +322,7 @@
 		6A1E83771DBBCC9F00CE0D48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = DoubleNode.com;
 				TargetAttributes = {
 					6A1E837E1DBBCC9F00CE0D48 = {
