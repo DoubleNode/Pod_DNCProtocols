@@ -31,7 +31,7 @@
 - (void)configure
 {
     [super configure];
-
+    
     _retryCounts = NSMutableDictionary.dictionary;
 }
 
@@ -74,122 +74,15 @@
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
 {
-    DNCLog(DNCLL_Info, DNCLD_Networking, @"START - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-
-    [self utilityAddHeaders:request];
-    
-    [[[DNCUrlSessionManager manager] sendTaskWithRequest:request
-                                     serverErrorHandler:
-      ^(NSHTTPURLResponse* _Nullable httpResponse)
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-
-          [self utilityGrabHeaders:httpResponse];
-
-          NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
-          if (!retryCount)
-          {
-              retryCount = @(0);
-          }
-          retryCount = @(retryCount.intValue + 1);
-          
-          self->_retryCounts[request.URL.absoluteString]  = retryCount;
-          if (retryCount.intValue >= 5)
-          {
-              [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
-
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-              
-              NSString* errorMessage    = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
-              if (errorMessage.length)
-              {
-                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-
-                  NSError*  responseError   = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                                  code:ERROR_SERVER_ERROR
-                                                              userInfo:@{
-                                                                         NSLocalizedDescriptionKey: errorMessage
-                                                                         }];
-                  
-                  errorHandler ? errorHandler(responseError) : nil;
-                  
-                  DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-              }
-              
-              return;
-          }
-          
-          retryHandler ? retryHandler() : nil;
-      }
-                                       dataErrorHandler:
-      ^(NSData* _Nullable errorData, NSString* _Nullable errorMessage)
-      {
-          if ([self utilityCheckForAccessTokenError:errorData])
-          {
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-
-              retryHandler ? retryHandler() : nil;
-              return;
-          }
-          
-          if (errorMessage.length)
-          {
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-
-              NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                             code:ERROR_SERVER_ERROR
-                                                         userInfo:@{
-                                                                    NSLocalizedDescriptionKey: errorMessage
-                                                                    }];
-              
-              errorHandler ? errorHandler(responseError) : nil;
-              
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          }
-      }
-                                    unknownErrorHandler:
-      ^(NSError* _Nullable dataError)
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                         code:ERROR_BAD_RESPONSE
-                                                     userInfo:dataError.userInfo];
-          
-          errorHandler ? errorHandler(responseError) : nil;
-          
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-      }
-                                  noResponseBodyHandler:
-      ^()
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                         code:ERROR_BAD_RESPONSE
-                                                     userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was invalid.", nil),
-                                                                 NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Unable to load object.", nil)
-                                                                 }];
-          
-          errorHandler ? errorHandler(responseError) : nil;
-          
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-      }
-                                      completionHandler:
-      ^(NSURLResponse* response, id responseObject)
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          [self utilityGrabHeaders:response];
-          
-          completionHandler ? completionHandler(response, responseObject) : nil;
-          
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-      }] resume];
+    [self utilitySendRequest:request
+      withResponseSerializer:nil
+                retryHandler:retryHandler
+                errorHandler:errorHandler
+           completionHandler:completionHandler];
 }
 
-- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
-                  withData:(NSData*)data
+- (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
+    withResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
               retryHandler:(void(^ _Nullable)(void))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
@@ -198,115 +91,268 @@
     
     [self utilityAddHeaders:request];
     
-    [[[DNCUrlSessionManager manager] dataTaskWithRequest:request
-                                               withData:data
-                                     serverErrorHandler:
-      ^(NSHTTPURLResponse* _Nullable httpResponse)
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          [self utilityGrabHeaders:httpResponse];
-          
-          NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
-          if (!retryCount)
-          {
-              retryCount = @(0);
-          }
-          retryCount = @(retryCount.intValue + 1);
-          
-          self->_retryCounts[request.URL.absoluteString]  = retryCount;
-          if (retryCount.intValue >= 5)
-          {
-              [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
-              
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-              
-              NSString* errorMessage    = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
-              if (errorMessage.length)
-              {
-                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-                  
-                  NSError*  responseError   = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                                  code:ERROR_SERVER_ERROR
-                                                              userInfo:@{
-                                                                         NSLocalizedDescriptionKey: errorMessage
-                                                                         }];
-                  
-                  errorHandler ? errorHandler(responseError) : nil;
-                  
-                  DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-              }
-              
-              return;
-          }
-          
-          retryHandler ? retryHandler() : nil;
-      }
-                                       dataErrorHandler:
-      ^(NSData* _Nullable errorData, NSString* _Nullable errorMessage)
-      {
-          if ([self utilityCheckForAccessTokenError:errorData])
-          {
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-              
-              retryHandler ? retryHandler() : nil;
-              return;
-          }
-          
-          if (errorMessage.length)
-          {
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-              
-              NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                             code:ERROR_SERVER_ERROR
-                                                         userInfo:@{
-                                                                    NSLocalizedDescriptionKey: errorMessage
-                                                                    }];
-              
-              errorHandler ? errorHandler(responseError) : nil;
+    DNCUrlSessionManager*   manager = DNCUrlSessionManager.manager;
+    if (responseSerializer)
+    {
+        manager.responseSerializer  = responseSerializer;
+    }
+    
+    NSURLSessionDataTask*   dataTask =
+    [manager sendTaskWithRequest:request
+              serverErrorHandler:
+     ^(NSHTTPURLResponse* _Nullable httpResponse)
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         [self utilityGrabHeaders:httpResponse];
+         
+         NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
+         if (!retryCount)
+         {
+             retryCount = @(0);
+         }
+         retryCount = @(retryCount.intValue + 1);
+         
+         self->_retryCounts[request.URL.absoluteString]  = retryCount;
+         if (retryCount.intValue >= 5)
+         {
+             [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
+             
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             
+             NSString* errorMessage    = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
+             if (errorMessage.length)
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+                 
+                 NSError*  responseError   = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                                 code:ERROR_SERVER_ERROR
+                                                             userInfo:@{
+                                                                        NSLocalizedDescriptionKey: errorMessage
+                                                                        }];
+                 
+                 errorHandler ? errorHandler(responseError) : nil;
+                 
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             }
+             
+             return;
+         }
+         
+         retryHandler ? retryHandler() : nil;
+     }
+                dataErrorHandler:
+     ^(NSData* _Nullable errorData, NSString* _Nullable errorMessage)
+     {
+         if ([self utilityCheckForAccessTokenError:errorData])
+         {
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             
+             retryHandler ? retryHandler() : nil;
+             return;
+         }
+         
+         if (errorMessage.length)
+         {
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             
+             NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                            code:ERROR_SERVER_ERROR
+                                                        userInfo:@{
+                                                                   NSLocalizedDescriptionKey: errorMessage
+                                                                   }];
+             
+             errorHandler ? errorHandler(responseError) : nil;
+             
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         }
+     }
+             unknownErrorHandler:
+     ^(NSError* _Nullable dataError)
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                        code:ERROR_BAD_RESPONSE
+                                                    userInfo:dataError.userInfo];
+         
+         errorHandler ? errorHandler(responseError) : nil;
+         
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+     }
+           noResponseBodyHandler:
+     ^()
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                        code:ERROR_BAD_RESPONSE
+                                                    userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was invalid.", nil),
+                                                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Unable to load object.", nil)
+                                                                }];
+         
+         errorHandler ? errorHandler(responseError) : nil;
+         
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+     }
+               completionHandler:
+     ^(NSURLResponse* response, id responseObject)
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         [self utilityGrabHeaders:response];
+         
+         completionHandler ? completionHandler(response, responseObject) : nil;
+         
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+     }];
+    
+    [dataTask resume];
+}
 
-              DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          }
-      }
-                                    unknownErrorHandler:
-      ^(NSError* _Nullable dataError)
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                         code:ERROR_BAD_RESPONSE
-                                                     userInfo:dataError.userInfo];
-          
-          errorHandler ? errorHandler(responseError) : nil;
-          
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-      }
-                                  noResponseBodyHandler:
-      ^()
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                         code:ERROR_BAD_RESPONSE
-                                                     userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was invalid.", nil),
-                                                                 NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Unable to load object.", nil)
-                                                                 }];
-          
-          errorHandler ? errorHandler(responseError) : nil;
-          
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-      }
-                                      completionHandler:
-      ^(NSURLResponse* response, id responseObject)
-      {
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-          
-          [self utilityGrabHeaders:response];
-          
-          completionHandler ? completionHandler(response, responseObject) : nil;
-          
-          DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-      }] resume];
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData*)data
+              retryHandler:(void(^ _Nullable)(void))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
+{
+    [self utilityDataRequest:request
+                    withData:data
+       andResponseSerializer:nil
+                retryHandler:retryHandler
+                errorHandler:errorHandler
+           completionHandler:completionHandler];
+}
+
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData*)data
+     andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
+              retryHandler:(void(^ _Nullable)(void))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
+{
+    DNCLog(DNCLL_Info, DNCLD_Networking, @"START - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+    
+    [self utilityAddHeaders:request];
+    
+    DNCUrlSessionManager*   manager = DNCUrlSessionManager.manager;
+    if (responseSerializer)
+    {
+        manager.responseSerializer  = responseSerializer;
+    }
+    
+    NSURLSessionDataTask*   dataTask =
+    [manager dataTaskWithRequest:request
+                        withData:data
+              serverErrorHandler:
+     ^(NSHTTPURLResponse* _Nullable httpResponse)
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         [self utilityGrabHeaders:httpResponse];
+         
+         NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
+         if (!retryCount)
+         {
+             retryCount = @(0);
+         }
+         retryCount = @(retryCount.intValue + 1);
+         
+         self->_retryCounts[request.URL.absoluteString]  = retryCount;
+         if (retryCount.intValue >= 5)
+         {
+             [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
+             
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             
+             NSString* errorMessage    = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
+             if (errorMessage.length)
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+                 
+                 NSError*  responseError   = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                                 code:ERROR_SERVER_ERROR
+                                                             userInfo:@{
+                                                                        NSLocalizedDescriptionKey: errorMessage
+                                                                        }];
+                 
+                 errorHandler ? errorHandler(responseError) : nil;
+                 
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             }
+             
+             return;
+         }
+         
+         retryHandler ? retryHandler() : nil;
+     }
+                dataErrorHandler:
+     ^(NSData* _Nullable errorData, NSString* _Nullable errorMessage)
+     {
+         if ([self utilityCheckForAccessTokenError:errorData])
+         {
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             
+             retryHandler ? retryHandler() : nil;
+             return;
+         }
+         
+         if (errorMessage.length)
+         {
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+             
+             NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                            code:ERROR_SERVER_ERROR
+                                                        userInfo:@{
+                                                                   NSLocalizedDescriptionKey: errorMessage
+                                                                   }];
+             
+             errorHandler ? errorHandler(responseError) : nil;
+             
+             DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         }
+     }
+             unknownErrorHandler:
+     ^(NSError* _Nullable dataError)
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                        code:ERROR_BAD_RESPONSE
+                                                    userInfo:dataError.userInfo];
+         
+         errorHandler ? errorHandler(responseError) : nil;
+         
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+     }
+           noResponseBodyHandler:
+     ^()
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
+                                                        code:ERROR_BAD_RESPONSE
+                                                    userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was invalid.", nil),
+                                                                NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Unable to load object.", nil)
+                                                                }];
+         
+         errorHandler ? errorHandler(responseError) : nil;
+         
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+     }
+               completionHandler:
+     ^(NSURLResponse* response, id responseObject)
+     {
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+         
+         [self utilityGrabHeaders:response];
+         
+         completionHandler ? completionHandler(response, responseObject) : nil;
+         
+         DNCLog(DNCLL_Info, DNCLD_Networking, @"END - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
+     }];
+    
+    [dataTask resume];
 }
 
 @end

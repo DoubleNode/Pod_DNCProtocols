@@ -10,6 +10,8 @@
 
 #import "__WKRNET_Header_Processor.h"
 
+@protocol AFURLResponseSerialization;
+
 @interface WKRNET_Base_Worker : WKR_Base_Worker
 
 @property (strong, nonatomic)   id<WKRNET_Header_Processor> _Nullable   headerProcessor;
@@ -27,8 +29,21 @@
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
+- (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
+    withResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
+              retryHandler:(void(^ _Nullable)(void))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
+
 - (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
                   withData:(NSData* _Nonnull)data
+              retryHandler:(void(^ _Nullable)(void))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
+
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData* _Nonnull)data
+     andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
               retryHandler:(void(^ _Nullable)(void))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
