@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name        = "DNCProtocols"
-  s.version     = "0.3.0"
+  s.version     = "0.3.1"
   s.summary     = "A base collection of DNCProtocols headers."
 
   s.description = <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.social_media_url    = "http://twitter.com/ehlersd"
 
   s.platform    = :ios, "10.0"
-  s.source      = { :git => "https://github.com/DoubleNode/Pod_DNCProtocols.git", :tag => "#{s.version}" }
+  s.source      = { :git => "https://github.com/postablur/Pod_DNCProtocols.git", :tag => "#{s.version}" }
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
