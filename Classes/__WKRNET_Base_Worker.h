@@ -25,26 +25,26 @@
 - (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response;
 
 - (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
-              retryHandler:(void(^ _Nullable)(void))retryHandler
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
 - (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
     withResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
-              retryHandler:(void(^ _Nullable)(void))retryHandler
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
 - (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
                   withData:(NSData* _Nonnull)data
-              retryHandler:(void(^ _Nullable)(void))retryHandler
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
 - (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
                   withData:(NSData* _Nonnull)data
      andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
-              retryHandler:(void(^ _Nullable)(void))retryHandler
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
