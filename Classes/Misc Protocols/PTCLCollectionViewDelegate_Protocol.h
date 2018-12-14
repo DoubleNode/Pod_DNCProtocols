@@ -16,6 +16,9 @@
 @property (strong, nonatomic)   id _Nullable                delegate;
 @property (strong, nonatomic)   UICollectionView* _Nullable collectionView;
 
+@property (assign, nonatomic)   CGFloat     columnWidth;
+@property (assign, nonatomic)   NSUInteger  numberOfColumns;
+
 + (nonnull instancetype)delegate;
 + (nonnull instancetype)delegateWithCollectionView:(nullable UICollectionView*)collectionView;
 

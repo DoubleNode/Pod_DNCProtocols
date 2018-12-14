@@ -100,11 +100,56 @@
     NSURLSessionDataTask*   dataTask =
     [manager sendTaskWithRequest:request
               serverErrorHandler:
-     ^(NSHTTPURLResponse* _Nullable httpResponse)
+     ^(NSHTTPURLResponse* _Nullable httpResponse, id _Nullable responseObject)
      {
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
          [self utilityGrabHeaders:httpResponse];
+         
+         NSString*  jsonErrorMessage    = @"";
+         
+         if (responseObject)
+         {
+             id jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                           options:0
+                                                             error:nil];
+             if (jsonData)
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ DATA=%@", request.HTTPMethod, request.URL.absoluteString, jsonData);
+                 
+                 jsonErrorMessage = [self stringFromString:jsonData[@"error"]];
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"data"][@"error"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"data"][@"message"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"message"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"Message"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"Message"]];
+                 }
+             }
+         }
+         
+         NSString*  retryErrorMessage   = jsonErrorMessage;
+         if (!retryErrorMessage.length)
+         {
+             retryErrorMessage  = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
+         }
+         if (!retryErrorMessage.length)
+         {
+             retryErrorMessage  = NSLocalizedString(@"Unknown error", @"");
+         }
          
          NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
          if (!retryCount)
@@ -118,21 +163,9 @@
          NSError*   retryError  = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
                                                       code:httpResponse.statusCode
                                                   userInfo:@{
-                                                             NSLocalizedDescriptionKey: NSLocalizedString(@"Unknown error", @""),
+                                                             NSLocalizedDescriptionKey: retryErrorMessage,
                                                              }];
-
-         NSString*  errorMessage = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
-         if (errorMessage.length)
-         {
-             DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-             
-             retryError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                              code:httpResponse.statusCode
-                                          userInfo:@{
-                                                     NSLocalizedDescriptionKey: errorMessage
-                                                     }];
-         }
-
+         
          self->_retryCounts[request.URL.absoluteString]  = retryCount;
          if (retryCount.intValue >= 5)
          {
@@ -168,7 +201,7 @@
                                                         NSLocalizedDescriptionKey: errorMessage
                                                         }];
          }
-
+         
          if ([self utilityCheckForAccessTokenError:errorData])
          {
              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
@@ -259,11 +292,56 @@
     [manager dataTaskWithRequest:request
                         withData:data
               serverErrorHandler:
-     ^(NSHTTPURLResponse* _Nullable httpResponse)
+     ^(NSHTTPURLResponse* _Nullable httpResponse, id _Nullable responseObject)
      {
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
          [self utilityGrabHeaders:httpResponse];
+         
+         NSString*  jsonErrorMessage    = @"";
+         
+         if (responseObject)
+         {
+             id jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                           options:0
+                                                             error:nil];
+             if (jsonData)
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ DATA=%@", request.HTTPMethod, request.URL.absoluteString, jsonData);
+                 
+                 jsonErrorMessage = [self stringFromString:jsonData[@"error"]];
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"data"][@"error"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"data"][@"message"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"message"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"Message"]];
+                 }
+                 if (!jsonErrorMessage.length)
+                 {
+                     jsonErrorMessage    = [self stringFromString:jsonData[@"Message"]];
+                 }
+             }
+         }
+         
+         NSString*  retryErrorMessage   = jsonErrorMessage;
+         if (!retryErrorMessage.length)
+         {
+             retryErrorMessage  = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
+         }
+         if (!retryErrorMessage.length)
+         {
+             retryErrorMessage  = NSLocalizedString(@"Unknown error", @"");
+         }
          
          NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
          if (!retryCount)
@@ -277,20 +355,8 @@
          NSError*   retryError  = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
                                                       code:httpResponse.statusCode
                                                   userInfo:@{
-                                                             NSLocalizedDescriptionKey: NSLocalizedString(@"Unknown error", @""),
+                                                             NSLocalizedDescriptionKey: retryErrorMessage,
                                                              }];
-         
-         NSString*  errorMessage = [NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode];
-         if (errorMessage.length)
-         {
-             DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
-             
-             retryError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                              code:httpResponse.statusCode
-                                          userInfo:@{
-                                                     NSLocalizedDescriptionKey: errorMessage
-                                                     }];
-         }
          
          self->_retryCounts[request.URL.absoluteString]  = retryCount;
          if (retryCount.intValue >= 5)
@@ -381,6 +447,35 @@
      }];
     
     [dataTask resume];
+}
+
+#pragma mark - Utility methods
+
+- (NSString*)stringFromString:(NSString*)string
+{
+    if ([string isKindOfClass:NSDictionary.class])
+    {
+        NSData* jsonData    = [NSJSONSerialization dataWithJSONObject:string
+                                                              options:0
+                                                                error:nil];
+        
+        string = [NSString.alloc initWithData:jsonData
+                                     encoding:NSUTF8StringEncoding];
+    }
+    
+    if ([string isKindOfClass:NSString.class])
+    {
+        return string;
+    }
+    
+    if (!string ||
+        ![string isKindOfClass:NSString.class] ||
+        [string isEqualToString:@"<null>"])
+    {
+        return @"";
+    }
+    
+    return [NSString stringWithFormat:@"%@", string];
 }
 
 @end
