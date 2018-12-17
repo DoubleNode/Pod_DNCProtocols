@@ -110,9 +110,21 @@
          
          if (responseObject)
          {
-             id jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                           options:0
-                                                             error:nil];
+             id jsonData;
+             if ([responseObject isKindOfClass:NSData.class])
+             {
+                 jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                            options:0
+                                                              error:nil];
+             }
+             else if ([responseObject isKindOfClass:NSDictionary.class])
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ responseObject=%@", request.HTTPMethod, request.URL.absoluteString, responseObject);
+             }
+             else
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ responseObject=%@", request.HTTPMethod, request.URL.absoluteString, responseObject);
+             }
              if (jsonData)
              {
                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ DATA=%@", request.HTTPMethod, request.URL.absoluteString, jsonData);
@@ -302,9 +314,21 @@
          
          if (responseObject)
          {
-             id jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                           options:0
-                                                             error:nil];
+             id jsonData;
+             if ([responseObject isKindOfClass:NSData.class])
+             {
+                 jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                            options:0
+                                                              error:nil];
+             }
+             else if ([responseObject isKindOfClass:NSDictionary.class])
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ responseObject=%@", request.HTTPMethod, request.URL.absoluteString, responseObject);
+             }
+             else
+             {
+                 DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ responseObject=%@", request.HTTPMethod, request.URL.absoluteString, responseObject);
+             }
              if (jsonData)
              {
                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ DATA=%@", request.HTTPMethod, request.URL.absoluteString, jsonData);
