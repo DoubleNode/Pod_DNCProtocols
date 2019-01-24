@@ -26,6 +26,37 @@
 #define ERROR_BAD_RESPONSE      1004
 #define ERROR_SERVER_ERROR      1005
 
+#pragma mark - Property Access Methods
+
+- (NSNumber*)retryCountForKey:(NSString*)key
+{
+    NSNumber*   retryCount;
+    
+    @synchronized (self->_retryCounts)
+    {
+        retryCount = self->_retryCounts[key];
+    }
+
+    return retryCount;
+}
+
+- (void)setRetryCount:(NSNumber*)retryCount
+               forKey:(NSString*)key
+{
+    @synchronized (self->_retryCounts)
+    {
+        self->_retryCounts[key] = retryCount;
+    }
+}
+
+- (void)clearRetryCountForKey:(NSString*)key
+{
+    @synchronized (self->_retryCounts)
+    {
+        [self->_retryCounts removeObjectForKey:key];
+    }
+}
+
 #pragma mark - Configuration
 
 - (void)configure
@@ -163,7 +194,7 @@
              retryErrorMessage  = NSLocalizedString(@"Unknown error", @"");
          }
          
-         NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
+         NSNumber* retryCount = [self retryCountForKey:request.URL.absoluteString];
          if (!retryCount)
          {
              retryCount = @(0);
@@ -178,10 +209,12 @@
                                                              NSLocalizedDescriptionKey: retryErrorMessage,
                                                              }];
          
-         self->_retryCounts[request.URL.absoluteString]  = retryCount;
+         [self setRetryCount:retryCount
+                      forKey:request.URL.absoluteString];
+
          if (retryCount.intValue >= 5)
          {
-             [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
+             [self clearRetryCountForKey:request.URL.absoluteString];
              
              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
              
@@ -367,7 +400,7 @@
              retryErrorMessage  = NSLocalizedString(@"Unknown error", @"");
          }
          
-         NSNumber* retryCount = self->_retryCounts[request.URL.absoluteString];
+         NSNumber* retryCount = [self retryCountForKey:request.URL.absoluteString];
          if (!retryCount)
          {
              retryCount = @(0);
@@ -382,10 +415,12 @@
                                                              NSLocalizedDescriptionKey: retryErrorMessage,
                                                              }];
          
-         self->_retryCounts[request.URL.absoluteString]  = retryCount;
+         [self setRetryCount:retryCount
+                      forKey:request.URL.absoluteString];
+
          if (retryCount.intValue >= 5)
          {
-             [self->_retryCounts removeObjectForKey:request.URL.absoluteString];
+             [self clearRetryCountForKey:request.URL.absoluteString];
              
              DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY LIMIT - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
              
