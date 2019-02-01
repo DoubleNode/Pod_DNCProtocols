@@ -16,14 +16,22 @@
 @property (strong, nonatomic)   id _Nullable                delegate;
 @property (strong, nonatomic)   UICollectionView* _Nullable collectionView;
 
-@property (assign, nonatomic)   CGFloat     columnWidth;
-@property (assign, nonatomic)   NSUInteger  numberOfColumns;
-
 + (nonnull instancetype)delegate;
 + (nonnull instancetype)delegateWithCollectionView:(nullable UICollectionView*)collectionView;
 
 - (nonnull instancetype)init;
 - (nonnull instancetype)initWithCollectionView:(nullable UICollectionView*)collectionView;
+
+#pragma mark - VisibleRow methods
+
+- (NSInteger)numberOfVisibleColumns;
+- (NSInteger)numberOfVisibleItemsInSection:(NSInteger)section;
+- (NSInteger)numberOfVisibleRowsInSection:(NSInteger)section;
+
+- (CGFloat)visibleColumnWidth;
+- (CGSize)visibleSize;
+
+- (BOOL)lastVisibleRowForItemAtIndexPath:(NSIndexPath*)indexPath;
 
 @end
 
