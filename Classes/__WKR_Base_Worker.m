@@ -112,4 +112,52 @@
     }
 }
 
+- (void)workerSemaphoreClose:(GGMutableDictionary*)semaphores
+                      forKey:(id)semaphoreKey
+{
+    @synchronized (semaphores)
+    {
+        DNCSemaphore*   mySemaphore = [semaphores objectForKey:semaphoreKey];
+        
+        [semaphores removeObjectForKey:semaphoreKey];
+        
+        if (mySemaphore)
+        {
+            [mySemaphore done];
+        }
+    };
+}
+
+- (void)workerSemaphoreOpen:(GGMutableDictionary*)semaphores
+                     forKey:(id)semaphoreKey
+                  withBlock:(DNCUtilitiesBlock)block
+{
+    [DNCLowThread run:
+     ^()
+     {
+         __block DNCSemaphore*  semaphore;
+         
+         @synchronized (semaphores)
+         {
+             semaphore = [semaphores objectForKey:semaphoreKey];
+         };
+         
+         if (semaphore)
+         {
+             [semaphore wait];
+         }
+         
+         @synchronized (semaphores)
+         {
+             if (!semaphore)
+             {
+                 semaphore = DNCSemaphoreGate.semaphore;
+             }
+             semaphores[semaphoreKey]   = semaphore;
+         };
+         
+         block ? block() : (void)nil;
+     }];
+}
+
 @end
