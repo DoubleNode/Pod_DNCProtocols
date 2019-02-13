@@ -10,11 +10,15 @@
 
 #import "__WKRNET_Header_Processor.h"
 
+@class DNCUrlSessionManager;
+
 @protocol AFURLResponseSerialization;
 
 @interface WKRNET_Base_Worker : WKR_Base_Worker
 
 @property (strong, nonatomic)   id<WKRNET_Header_Processor> _Nullable   headerProcessor;
+
++ (DNCUrlSessionManager*)createManager;
 
 - (BOOL)utilityCheckForAccessTokenError:(NSData*_Nullable)errorData;
 

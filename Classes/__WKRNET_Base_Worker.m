@@ -26,6 +26,11 @@
 #define ERROR_BAD_RESPONSE      1004
 #define ERROR_SERVER_ERROR      1005
 
++ (DNCUrlSessionManager*)createManager
+{
+    return DNCUrlSessionManager.manager;
+}
+
 #pragma mark - Property Access Methods
 
 - (NSNumber*)retryCountForKey:(NSString*)key
@@ -36,7 +41,7 @@
     {
         retryCount = self->_retryCounts[key];
     }
-
+    
     return retryCount;
 }
 
@@ -122,7 +127,7 @@
     
     [self utilityAddHeaders:request];
     
-    DNCUrlSessionManager*   manager = DNCUrlSessionManager.manager;
+    DNCUrlSessionManager*   manager = self.class.createManager;
     if (responseSerializer)
     {
         manager.responseSerializer  = responseSerializer;
@@ -211,7 +216,7 @@
          
          [self setRetryCount:retryCount
                       forKey:request.URL.absoluteString];
-
+         
          if (retryCount.intValue >= 5)
          {
              [self clearRetryCountForKey:request.URL.absoluteString];
@@ -327,7 +332,7 @@
     
     [self utilityAddHeaders:request];
     
-    DNCUrlSessionManager*   manager = DNCUrlSessionManager.manager;
+    DNCUrlSessionManager*   manager = self.class.createManager;
     if (responseSerializer)
     {
         manager.responseSerializer  = responseSerializer;
@@ -417,7 +422,7 @@
          
          [self setRetryCount:retryCount
                       forKey:request.URL.absoluteString];
-
+         
          if (retryCount.intValue >= 5)
          {
              [self clearRetryCountForKey:request.URL.absoluteString];
