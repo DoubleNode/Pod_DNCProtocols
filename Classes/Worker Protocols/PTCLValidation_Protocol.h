@@ -32,6 +32,9 @@
 @property (assign, nonatomic)   NSInteger   minimumPercentageValue;
 @property (assign, nonatomic)   NSInteger   maximumPercentageValue;
 
+@property (assign, nonatomic)   NSInteger   minimumPhoneLength;     // -1 = no minimum
+@property (assign, nonatomic)   NSInteger   maximumPhoneLength;     // -1 = no maximum
+
 @property (assign, nonatomic)   NSInteger   minimumUnsignedNumberValue;
 @property (assign, nonatomic)   NSInteger   maximumUnsignedNumberValue;
 
@@ -47,6 +50,7 @@
 - (BOOL)doValidateNumber:(nonnull NSString*)number error:(NSError*_Nullable*_Nullable)error;
 - (BOOL)doValidatePassword:(nonnull NSString*)password error:(NSError*_Nullable*_Nullable)error;
 - (BOOL)doValidatePercentage:(nonnull NSString*)percentage error:(NSError*_Nullable*_Nullable)error;
+- (BOOL)doValidatePhone:(nonnull NSString*)phone error:(NSError*_Nullable*_Nullable)error;
 - (BOOL)doValidateSearch:(nonnull NSString*)search error:(NSError*_Nullable*_Nullable)error;
 - (BOOL)doValidateState:(nonnull NSString*)state error:(NSError*_Nullable*_Nullable)error;
 - (BOOL)doValidateUnsignedNumber:(nonnull NSString*)number error:(NSError*_Nullable*_Nullable)error;
