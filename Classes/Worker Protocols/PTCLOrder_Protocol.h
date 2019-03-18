@@ -51,22 +51,26 @@ typedef void(^PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadLineitemsForObject:(nonnull DAOOrder*)order
-                       withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSErrorContinue)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                        andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOLineitemNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTransactionsForObject:(nonnull DAOOrder*)order
-                          withBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSErrorContinue)block
+                       withProgress:(nullable PTCLProgressBlock)progressBlock
+                           andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSErrorContinue)block
                      andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
                   withParameters:(nullable NSDictionary*)parameters
+                     andProgress:(nullable PTCLProgressBlock)progressBlock
                         andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLOrderBlockVoidNSArrayDAOOrderNSUIntegerNSUIntegerNSError)updateBlock;
 

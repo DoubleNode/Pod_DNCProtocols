@@ -33,19 +33,23 @@ typedef void(^PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorCont
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)messageId
-                withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLMessageBlockVoidDAOMessageNSErrorContinue)block
            andUpdateBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOMessage*)message
-             withBlock:(nullable PTCLMessageBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLMessageBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOMessage*)message
-           withBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLMessageBlockVoidDAOMessageNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadPhotosForObject:(nonnull DAOMessage*)message
-                    withBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
                andUpdateBlock:(nullable PTCLMessageBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end

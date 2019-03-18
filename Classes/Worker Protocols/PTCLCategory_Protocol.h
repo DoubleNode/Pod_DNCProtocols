@@ -30,7 +30,7 @@ typedef void(^PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)(NS
 typedef void(^PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)(NSArray<DAOPhoto* >* _Nullable photos, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)(NSArray<NSString* >* _Nullable tags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
 typedef void(^PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSString* _Nonnull searchId, NSArray<DAOCategory* >* _Nullable categories, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
- 
+
 typedef void(^PTCLCategoryBlockVoidDAOCategoryNSErrorContinue)(DAOCategory* _Nullable category, NSError* _Nullable error, PTCLCategoryContinueBlock _Nullable continueBlock);
 typedef void(^PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOCategory* >* _Nullable categories, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLCategoryContinueBlock _Nullable continueBlock);
 typedef void(^PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)(NSArray<DAOFlag* >* _Nullable flags, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error, PTCLCategoryContinueBlock _Nullable continueBlock);
@@ -52,83 +52,101 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)categoryId
-                withBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSErrorContinue)block
            andUpdateBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSError)updateBlock;
 
 - (void)doSaveObject:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLCategoryBlockVoidDAOCategoryNSError)block;
 
 - (void)doSaveObjectOptions:(nonnull DAOCategory*)category
-                  withBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
 
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue
          forCategory:(nonnull DAOCategory*)daoCategory
-           withBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLCategoryBlockVoidBOOLNSError)block;
 
 - (void)doFlagObject:(nonnull DAOCategory*)category
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOCategory*)category
              forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doDeleteFlag:(nonnull DAOFlag*)flag
            forObject:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLCategoryBlockVoidNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAOCategory*)category
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doCheckFlagObject:(nonnull DAOCategory*)category
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLCategoryBlockVoidNSUIntegerNSError)block;
 
 - (void)doFollowObject:(nonnull DAOCategory*)category
-             withBlock:(nullable PTCLCategoryBlockVoidNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doUnfollowObject:(nonnull DAOCategory*)category
-               withBlock:(nullable PTCLCategoryBlockVoidNSError)block;
-  
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
+
 - (void)doTagObject:(nonnull DAOCategory*)category
             withTag:(nonnull NSString*)tag
+        andProgress:(nullable PTCLProgressBlock)progressBlock
            andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 - (void)doUntagObject:(nonnull DAOCategory*)category
               withTag:(nonnull NSString*)tag
+          andProgress:(nullable PTCLProgressBlock)progressBlock
              andBlock:(nullable PTCLCategoryBlockVoidNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemsForObject:(nonnull DAOCategory*)category
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadPhotosForObject:(nonnull DAOCategory*)category
-                    withBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
                andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOCategory*)category
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOCategory*)category
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTagsForObject:(nonnull DAOCategory*)category
+                andProgress:(nullable PTCLProgressBlock)progressBlock
                    andBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock;
 
@@ -137,11 +155,13 @@ typedef void(^PTCLCategoryBlockVoidNSArrayNSUIntegerNSUIntegerNSError)(NSArray<D
         withLongitude:(nullable NSNumber*)longitude
          withLatitude:(nullable NSNumber*)latitude
        withParameters:(nullable NSDictionary*)parameters
+          andProgress:(nullable PTCLProgressBlock)progressBlock
              andBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
        andUpdateBlock:(nullable PTCLCategorySearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithTag:(nonnull NSString*)tag
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCategoryBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSError)updateBlock;
 

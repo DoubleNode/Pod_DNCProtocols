@@ -18,9 +18,9 @@
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLUserIdentification_Protocol>)nextUserIdentificationWorker;
 
-- (void)doUserIdentifier:(nonnull NSString*)identifier
-            withUsername:(nonnull NSString*)username
-                andEmail:(nonnull NSString*)email;
+- (void)doIdentifyUserWithIdentifier:(nonnull NSString*)identifier
+                         andUsername:(nonnull NSString*)username
+                            andEmail:(nonnull NSString*)email;
 
 @end
 

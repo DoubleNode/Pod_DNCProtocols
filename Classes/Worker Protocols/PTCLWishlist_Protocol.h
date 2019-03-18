@@ -39,32 +39,39 @@ typedef void(^PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)wishlistId
-                withBlock:(nullable PTCLWishlistBlockVoidDAOWishlistNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLWishlistBlockVoidDAOWishlistNSErrorContinue)block
            andUpdateBlock:(nullable PTCLWishlistBlockVoidDAOWishlistNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOWishlist*)wishlist
-             withBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)wishlistId
-                  withBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForItem:(nonnull DAOItem*)item
-                    withBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block;
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLWishlistBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOWishlist*)wishlist
-                  withBlock:(nullable PTCLWishlistBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLWishlistBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLWishlistBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nonnull DAOWishlist*)wishlist
-                  withBlock:(nullable PTCLWishlistBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLWishlistBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLWishlistBlockVoidDAOUserNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLWishlistBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 

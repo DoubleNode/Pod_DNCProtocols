@@ -33,19 +33,23 @@ typedef void(^PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSErrorCo
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)contactId
-                withBlock:(nullable PTCLContactBlockVoidDAOContactNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLContactBlockVoidDAOContactNSErrorContinue)block
            andUpdateBlock:(nullable PTCLContactBlockVoidDAOContactNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOContact*)contact
-             withBlock:(nullable PTCLContactBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOContact*)contact
-           withBlock:(nullable PTCLContactBlockVoidDAOContactNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLContactBlockVoidDAOContactNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSError)updateBlock;
 

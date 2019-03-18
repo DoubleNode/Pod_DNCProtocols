@@ -48,65 +48,80 @@ typedef void(^PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinu
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)photoId
-                withBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSErrorContinue)block
            andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOPhoto*)photo
-             withBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)photoId
-                  withBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLPhotoBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOPhoto*)photo
-           withBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLPhotoBlockVoidDAOPhotoNSError)block;
 
 - (void)doFavoriteObject:(nonnull DAOPhoto*)photo
-               withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
 
 - (void)doUnfavoriteObject:(nonnull DAOPhoto*)photo
-                 withBlock:(nullable PTCLPhotoBlockVoidNSError)block;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOPhoto*)photo
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAOPhoto*)photo
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLPhotoBlockVoidNSError)block;
 
 - (void)doCheckFlagObject:(nonnull DAOPhoto*)photo
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLPhotoBlockVoidNSUIntegerNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOPhoto*)photo
-                  withBlock:(nullable PTCLPhotoBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLPhotoBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doLoadLocationForObject:(nonnull DAOPhoto*)photo
-                      withBlock:(nullable PTCLPhotoBlockVoidDAOLocationNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLPhotoBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOLocationNSError)updateBlock;
 
 - (void)doLoadReviewForObject:(nonnull DAOPhoto*)photo
-                    withBlock:(nullable PTCLPhotoBlockVoidDAOReviewNSErrorContinue)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLPhotoBlockVoidDAOReviewNSErrorContinue)block
                andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOReviewNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nonnull DAOPhoto*)photo
-                  withBlock:(nullable PTCLPhotoBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLPhotoBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLPhotoBlockVoidDAOUserNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAOPhoto*)photo
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOPhoto*)photo
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLPhotoBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 

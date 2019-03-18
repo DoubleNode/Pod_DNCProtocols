@@ -42,36 +42,45 @@ typedef void(^PTCLCheckinBlockVoidDAOUserNSErrorContinue)(DAOUser* _Nullable use
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)checkinId
-                withBlock:(nullable PTCLCheckinBlockVoidDAOCheckinNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCheckinBlockVoidDAOCheckinNSErrorContinue)block
            andUpdateBlock:(nullable PTCLCheckinBlockVoidDAOCheckinNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOCheckin*)checkin
-             withBlock:(nullable PTCLCheckinBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLCheckinBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)checkinId
-                  withBlock:(nullable PTCLCheckinBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLCheckinBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOCheckin*)checkin
-           withBlock:(nullable PTCLCheckinBlockVoidDAOCheckinNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLCheckinBlockVoidDAOCheckinNSError)block;
 
 - (void)doFavoriteObject:(nonnull DAOCheckin*)checkin
-               withBlock:(nullable PTCLCheckinBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLCheckinBlockVoidNSError)block;
 
 - (void)doUnfavoriteObject:(nonnull DAOCheckin*)checkin
-                 withBlock:(nullable PTCLCheckinBlockVoidNSError)block;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLCheckinBlockVoidNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadLocationForObject:(nonnull DAOCheckin*)checkin
-                      withBlock:(nullable PTCLCheckinBlockVoidDAOLocationNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLCheckinBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLCheckinBlockVoidDAOLocationNSError)updateBlock;
 
 - (void)doLoadPhotoForObject:(nonnull DAOCheckin*)checkin
-                   withBlock:(nullable PTCLCheckinBlockVoidDAOPhotoNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLCheckinBlockVoidDAOPhotoNSErrorContinue)block
               andUpdateBlock:(nullable PTCLCheckinBlockVoidDAOPhotoNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nonnull DAOCheckin*)checkin
-                  withBlock:(nullable PTCLCheckinBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLCheckinBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLCheckinBlockVoidDAOUserNSError)updateBlock;
 
 @end

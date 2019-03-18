@@ -36,28 +36,34 @@ typedef void(^PTCLPaymentAccountBlockVoidNSArrayDAOPaymentAccountNSUIntegerNSUIn
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)paymentAccountId
-                withBlock:(nullable PTCLPaymentAccountBlockVoidDAOPaymentAccountNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLPaymentAccountBlockVoidDAOPaymentAccountNSErrorContinue)block
            andUpdateBlock:(nullable PTCLPaymentAccountBlockVoidDAOPaymentAccountNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOPaymentAccount*)paymentAccount
-             withBlock:(nullable PTCLPaymentAccountBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLPaymentAccountBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOPaymentAccount*)paymentAccount
-           withBlock:(nullable PTCLPaymentAccountBlockVoidDAOPaymentAccountNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLPaymentAccountBlockVoidDAOPaymentAccountNSError)block;
 
 - (void)doVerifyObject:(nonnull DAOPaymentAccount*)paymentAccount
           withDeposit1:(NSUInteger)deposit1
            andDeposit2:(NSUInteger)deposit2
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLPaymentAccountBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadContactForObject:(nonnull DAOPaymentAccount*)paymentAccount
-                     withBlock:(nullable PTCLPaymentAccountBlockVoidDAOContactNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                      andBlock:(nullable PTCLPaymentAccountBlockVoidDAOContactNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLPaymentAccountBlockVoidDAOContactNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLPaymentAccountBlockVoidNSArrayDAOPaymentAccountNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLPaymentAccountBlockVoidNSArrayDAOPaymentAccountNSUIntegerNSUIntegerNSError)updateBlock;
 

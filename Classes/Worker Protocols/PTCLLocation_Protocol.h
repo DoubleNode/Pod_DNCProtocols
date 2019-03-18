@@ -52,94 +52,115 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)locationId
-                withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLLocationBlockVoidDAOLocationNSErrorContinue)block
            andUpdateBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOLocation*)location
-             withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObject:(nonnull DAOLocation*)location
           fromCategory:(nonnull DAOCategory*)category
-             withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOLocation*)location
-           withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
 
 - (void)doSaveObject:(nonnull DAOLocation*)location
           inCategory:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLLocationBlockVoidDAOLocationNSError)block;
 
 - (void)doSaveObjectOptions:(nonnull DAOLocation*)location
-                  withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue
          forLocation:(nonnull DAOLocation*)daoLocation
-           withBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
 - (void)doFlagObject:(nonnull DAOLocation*)location
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOLocation*)location
              forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doDeleteFlag:(nonnull DAOFlag*)flag
            forObject:(nonnull DAOLocation*)location
-           withBlock:(nullable PTCLLocationBlockVoidNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAOLocation*)location
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doCheckFlagObject:(nonnull DAOLocation*)location
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLLocationBlockVoidNSUIntegerNSError)block;
 
 - (void)doFollowObject:(nonnull DAOLocation*)location
-             withBlock:(nullable PTCLLocationBlockVoidNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doUnfollowObject:(nonnull DAOLocation*)location
-               withBlock:(nullable PTCLLocationBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doTagObject:(nonnull DAOLocation*)location
             withTag:(nonnull NSString*)tag
+        andProgress:(nullable PTCLProgressBlock)progressBlock
            andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 - (void)doUntagObject:(nonnull DAOLocation*)location
               withTag:(nonnull NSString*)tag
+          andProgress:(nullable PTCLProgressBlock)progressBlock
              andBlock:(nullable PTCLLocationBlockVoidNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 #pragma mark - Business Logic / Collection Items CRUD
- 
+
 - (void)doLoadFlagsForObject:(nonnull DAOLocation*)location
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOLocation*)location
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadItemsForObject:(nonnull DAOLocation*)location
-                   withBlock:(nullable PTCLLocationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadPhotosForObject:(nonnull DAOLocation*)location
-                   withBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
-              andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTagsForObject:(nonnull DAOLocation*)location
-                  withBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjects:(nonnull NSString*)searchId
@@ -147,11 +168,13 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
         withLongitude:(nullable NSNumber*)longitude
          withLatitude:(nullable NSNumber*)latitude
        withParameters:(nullable NSDictionary*)parameters
+          andProgress:(nullable PTCLProgressBlock)progressBlock
              andBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
        andUpdateBlock:(nullable PTCLLocationSearchBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithTag:(nonnull NSString*)tag
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLLocationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLLocationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock;
 

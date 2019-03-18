@@ -51,69 +51,84 @@ typedef void(^PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorCont
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)activityId
-                withBlock:(nullable PTCLActivityBlockVoidDAOActivityNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLActivityBlockVoidDAOActivityNSErrorContinue)block
            andUpdateBlock:(nullable PTCLActivityBlockVoidDAOActivityNSError)updateBlock;
 
 - (void)doFavoriteObject:(nonnull DAOActivity*)activity
-               withBlock:(nullable PTCLActivityBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLActivityBlockVoidNSError)block;
 
 - (void)doUnfavoriteObject:(nonnull DAOActivity*)activity
-                 withBlock:(nullable PTCLActivityBlockVoidNSError)block;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLActivityBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOActivity*)activity
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLActivityBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAOActivity*)activity
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLActivityBlockVoidNSError)block;
 
 - (void)doCheckFlagObject:(nonnull DAOActivity*)activity
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLActivityBlockVoidNSUIntegerNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nullable DAOActivity*)activity
-                  withBlock:(nullable PTCLActivityBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLActivityBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLActivityBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doLoadLocationForObject:(nullable DAOActivity*)activity
-                      withBlock:(nullable PTCLActivityBlockVoidDAOLocationNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLActivityBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLActivityBlockVoidDAOLocationNSError)updateBlock;
 
 - (void)doLoadPhotoForObject:(nullable DAOActivity*)activity
-                   withBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nullable DAOActivity*)activity
-                  withBlock:(nullable PTCLActivityBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLActivityBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLActivityBlockVoidDAOUserNSError)updateBlock;
 
 - (void)doLoadUserAvatarForObject:(nullable DAOActivity*)activity
-                        withBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSErrorContinue)block
                    andUpdateBlock:(nullable PTCLActivityBlockVoidDAOPhotoNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nullable DAOActivity*)activity
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nullable DAOActivity*)activity
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithParameters:(nullable NSDictionary*)parameters
+                        andProgress:(nullable PTCLProgressBlock)progressBlock
                            andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
                      andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLActivityBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 

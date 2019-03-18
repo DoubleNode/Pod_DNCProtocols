@@ -35,23 +35,28 @@ typedef void(^PTCLUserDeviceBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)
 
 - (void)doLoadObjectForId:(nonnull NSString*)userDeviceId
                 andUserId:(nonnull NSString*)userId
-                withBlock:(nullable PTCLUserDeviceBlockVoidDAOUserDeviceNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLUserDeviceBlockVoidDAOUserDeviceNSErrorContinue)block
            andUpdateBlock:(nullable PTCLUserDeviceBlockVoidDAOUserDeviceNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOUserDevice*)userDevice
-             withBlock:(nullable PTCLUserDeviceBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLUserDeviceBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)userDeviceId
                   andUserId:(nonnull NSString*)userId
-                  withBlock:(nullable PTCLUserDeviceBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLUserDeviceBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOUserDevice*)userDevice
-           withBlock:(nullable PTCLUserDeviceBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLUserDeviceBlockVoidBOOLNSError)block;
 
 // Collection Items CRUD
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLUserDeviceBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLUserDeviceBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 

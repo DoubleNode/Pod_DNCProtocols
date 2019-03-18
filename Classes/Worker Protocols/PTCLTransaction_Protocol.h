@@ -38,13 +38,16 @@ typedef void(^PTCLTransactionBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerN
 
 - (void)doLoadObjectForOrderId:(nonnull NSString*)orderId
                          andId:(nonnull NSString*)transactionId
-                     withBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                      andBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOTransaction*)transaction
-             withBlock:(nullable PTCLTransactionBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLTransactionBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOTransaction*)transaction
-           withBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLTransactionBlockVoidDAOTransactionNSError)block;
 
 @end

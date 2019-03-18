@@ -28,11 +28,13 @@ typedef void(^PTCLSocialAuthenticateBlockVoidUserNSError)(PTCLSocialAuthenticate
 
 #pragma mark - Business Logic / Single Item CRUD
 
-- (void)doAuthenticateWithCompletion:(PTCLSocialAuthenticateBlockVoidSessionNSError _Nullable)completion;
+- (void)doAuthenticateWithProgress:(nullable PTCLProgressBlock)progressBlock
+                          andBlock:(PTCLSocialAuthenticateBlockVoidSessionNSError _Nullable)completion;
 
 - (void)doRetrieveUser:(nullable NSString*)userId
            withSession:(nullable PTCLSocialAuthenticate_Session*)session
-        withCompletion:(nullable PTCLSocialAuthenticateBlockVoidUserNSError)completion;
+           andProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLSocialAuthenticateBlockVoidUserNSError)completion;
 
 @end
 

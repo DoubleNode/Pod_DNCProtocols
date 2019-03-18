@@ -47,72 +47,89 @@ typedef void(^PTCLConversationBlockVoidNSArrayDAOConversationNSUIntegerNSUIntege
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)conversationId
-                withBlock:(nullable PTCLConversationBlockVoidDAOConversationNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLConversationBlockVoidDAOConversationNSErrorContinue)block
            andUpdateBlock:(nullable PTCLConversationBlockVoidDAOConversationNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOConversation*)conversation
-             withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOConversation*)conversation
-           withBlock:(nullable PTCLConversationBlockVoidDAOConversationNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLConversationBlockVoidDAOConversationNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doAddCategory:(nonnull DAOCategory*)category
              toObject:(nonnull DAOConversation*)conversation
-            withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+         withProgress:(nullable PTCLProgressBlock)progressBlock
+             andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doAddItem:(nonnull DAOItem*)item
          toObject:(nonnull DAOConversation*)conversation
-        withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+     withProgress:(nullable PTCLProgressBlock)progressBlock
+         andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doAddLocation:(nonnull DAOLocation*)location
              toObject:(nonnull DAOConversation*)conversation
-            withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+         withProgress:(nullable PTCLProgressBlock)progressBlock
+             andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doAddUser:(nonnull DAOUser*)user
          toObject:(nonnull DAOConversation*)conversation
-        withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+     withProgress:(nullable PTCLProgressBlock)progressBlock
+         andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doRemoveCategory:(nonnull DAOCategory*)category
               fromObject:(nonnull DAOConversation*)conversation
-               withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doRemoveItem:(nonnull DAOItem*)item
           fromObject:(nonnull DAOConversation*)conversation
-           withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doRemoveLocation:(nonnull DAOLocation*)location
               fromObject:(nonnull DAOConversation*)conversation
-               withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 - (void)doRemoveUser:(nonnull DAOUser*)user
           fromObject:(nonnull DAOConversation*)conversation
-           withBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLConversationBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadCategoriesForObject:(nonnull DAOConversation*)conversation
-                        withBlock:(nullable PTCLConversationBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)block
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLConversationBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSErrorContinue)block
                    andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOCategoryNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadItemsForObject:(nonnull DAOConversation*)conversation
-                   withBlock:(nullable PTCLConversationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLConversationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadLocationsForObject:(nonnull DAOConversation*)conversation
-                       withBlock:(nullable PTCLConversationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                        andBlock:(nullable PTCLConversationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMessagesForObject:(nonnull DAOConversation*)conversation
-                      withBlock:(nullable PTCLConversationBlockVoidNSArrayDAOMessageNSUIntegerNSUIntegerNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLConversationBlockVoidNSArrayDAOMessageNSUIntegerNSUIntegerNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOMessageNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadUsersForObject:(nonnull DAOConversation*)conversation
-                   withBlock:(nullable PTCLConversationBlockVoidNSArrayDAOUserNSUIntegerNSUIntegerNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLConversationBlockVoidNSArrayDAOUserNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOUserNSUIntegerNSUIntegerNSError)updateBlock;
 
-- (void)doLoadObjectsWithBlock:(nullable PTCLConversationBlockVoidNSArrayDAOConversationNSUIntegerNSUIntegerNSErrorContinue)block
-                andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOConversationNSUIntegerNSUIntegerNSError)updateBlock;
+- (void)doLoadObjectsWithProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLConversationBlockVoidNSArrayDAOConversationNSUIntegerNSUIntegerNSErrorContinue)block
+                   andUpdateBlock:(nullable PTCLConversationBlockVoidNSArrayDAOConversationNSUIntegerNSUIntegerNSError)updateBlock;
 
 @end

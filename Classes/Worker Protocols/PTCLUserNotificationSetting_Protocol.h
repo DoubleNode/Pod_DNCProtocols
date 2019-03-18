@@ -35,16 +35,19 @@ typedef void(^PTCLUserNotificationSettingBlockVoidNSArrayNSUIntegerNSUIntegerNSE
 
 - (void)doLoadObjectForId:(nonnull NSString*)userNotificationSettingId
                 andUserId:(nonnull NSString*)userId
-                withBlock:(nullable PTCLUserNotificationSettingBlockVoidDAOUserNotificationSettingNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLUserNotificationSettingBlockVoidDAOUserNotificationSettingNSErrorContinue)block
            andUpdateBlock:(nullable PTCLUserNotificationSettingBlockVoidDAOUserNotificationSettingNSError)updateBlock;
 
 - (void)doSaveObject:(nonnull DAOUserNotificationSetting*)userNotificationSetting
-           withBlock:(nullable PTCLUserNotificationSettingBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLUserNotificationSettingBlockVoidBOOLNSError)block;
 
 // Collection Items CRUD
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLUserNotificationSettingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLUserNotificationSettingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 

@@ -30,7 +30,8 @@ typedef void(^PTCLAuthBlockVoidDAOAuthNSErrorContinue)(DAOAuth* _Nullable auth, 
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForUser:(nonnull DAOUser*)user
-                  withBlock:(nullable PTCLAuthBlockVoidDAOAuthNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLAuthBlockVoidDAOAuthNSErrorContinue)block
              andUpdateBlock:(nullable PTCLAuthBlockVoidDAOAuthNSError)updateBlock;
 
 @end

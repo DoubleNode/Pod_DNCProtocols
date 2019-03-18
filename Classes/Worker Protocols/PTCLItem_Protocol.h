@@ -50,86 +50,107 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)itemId
-                withBlock:(nullable PTCLItemBlockVoidDAOItemNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLItemBlockVoidDAOItemNSErrorContinue)block
            andUpdateBlock:(nullable PTCLItemBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOItem*)item
-             withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObject:(nonnull DAOItem*)item
           fromCategory:(nonnull DAOCategory*)category
-             withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObject:(nonnull DAOItem*)item
           fromLocation:(nonnull DAOLocation*)location
-             withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOItem*)item
-           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
 
 - (void)doSaveObject:(nonnull DAOItem*)item
           inCategory:(nonnull DAOCategory*)category
-           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
 
 - (void)doSaveObject:(nonnull DAOItem*)item
           inLocation:(nonnull DAOLocation*)location
-           withBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLItemBlockVoidDAOItemNSError)block;
 
 - (void)doSaveObjectOptions:(nonnull DAOItem*)item
-                  withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doSaveOption:(nonnull NSString*)optionId
               andKey:(nonnull NSString*)optionKey
             andValue:(nullable id)optionValue
              forItem:(nonnull DAOItem*)daoItem
-           withBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLItemBlockVoidBOOLNSError)block;
 
 - (void)doFavoriteObject:(nonnull DAOItem*)item
-               withBlock:(nullable PTCLItemBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doUnfavoriteObject:(nonnull DAOItem*)item
-                 withBlock:(nullable PTCLItemBlockVoidNSError)block;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOItem*)item
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAOItem*)item
              forUser:(nullable DAOUser*)flaggingUser
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doDeleteFlag:(nonnull DAOFlag*)flag
            forObject:(nonnull DAOItem*)item
-           withBlock:(nullable PTCLItemBlockVoidNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAOItem*)item
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doCheckFlagObject:(nonnull DAOItem*)item
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLItemBlockVoidNSUIntegerNSError)block;
 
 - (void)doSaveFlag:(nonnull DAOFlag*)flag
-         withBlock:(nullable PTCLItemBlockVoidNSError)block;
- 
+      withProgress:(nullable PTCLProgressBlock)progressBlock
+          andBlock:(nullable PTCLItemBlockVoidNSError)block;
+
 - (void)doTagObject:(nonnull DAOItem*)item
             withTag:(nonnull NSString*)tag
+        andProgress:(nullable PTCLProgressBlock)progressBlock
            andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doUntagObject:(nonnull DAOItem*)item
               withTag:(nonnull NSString*)tag
+          andProgress:(nullable PTCLProgressBlock)progressBlock
              andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doWishlistObject:(nonnull DAOItem*)item
-               withBlock:(nullable PTCLItemBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 - (void)doUnwishlistObject:(nonnull DAOItem*)item
-                 withBlock:(nullable PTCLItemBlockVoidNSError)block;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLItemBlockVoidNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
@@ -137,34 +158,41 @@ typedef void(^PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError
 
 - (void)doLoadFlagsForObject:(nonnull DAOItem*)item
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAOItem*)item
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadLocationsForObject:(nonnull DAOItem*)item
-                       withBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                        andBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOLocationNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadPhotosForObject:(nonnull DAOItem*)item
-                    withBlock:(nullable PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSErrorContinue)block
                andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOPhotoNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadTagsForObject:(nonnull DAOItem*)item
-                  withBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinue)block
              andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjects:(nonnull NSString*)searchId
              withText:(nonnull NSString*)search
        withParameters:(nullable NSDictionary*)parameters
+          andProgress:(nullable PTCLProgressBlock)progressBlock
              andBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
        andUpdateBlock:(nullable PTCLItemBlockVoidNSStringNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsWithTag:(nonnull NSString*)tag
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLItemBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLItemBlockVoidNSArrayDAOItemNSUIntegerNSUIntegerNSError)updateBlock;
 

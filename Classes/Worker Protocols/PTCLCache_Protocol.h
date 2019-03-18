@@ -25,17 +25,21 @@ typedef void(^PTCLCacheBlockVoid)(id _Nullable object, NSError* _Nullable error)
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)cacheId
-                withBlock:(nullable PTCLCacheBlockVoidIDNSError)block;
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCacheBlockVoidIDNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)cacheId
-                  withBlock:(nullable PTCLCacheBlockVoidNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLCacheBlockVoidNSError)block;
 
 - (void)doSaveObject:(nonnull id)object
                forId:(nonnull NSString*)cacheId
-           withBlock:(nullable PTCLCacheBlockVoidNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLCacheBlockVoidNSError)block;
 
 - (void)doLoadImageForUrl:(nonnull NSURL*)url
-                withBlock:(nullable PTCLCacheBlockVoidIDNSError)block;
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLCacheBlockVoidIDNSError)block;
 
 @end
 

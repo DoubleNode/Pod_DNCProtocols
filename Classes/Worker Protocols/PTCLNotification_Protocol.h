@@ -36,23 +36,28 @@ typedef void(^PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntege
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)notificationId
-                withBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSErrorContinue)block
            andUpdateBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAONotification*)notification
-             withBlock:(nullable PTCLNotificationBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLNotificationBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAONotification*)notification
-           withBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLNotificationBlockVoidDAONotificationNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadTransmissionsForObject:(nonnull DAONotification*)notification
-                           withBlock:(nullable PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntegerNSErrorContinue)block
+                        withProgress:(nullable PTCLProgressBlock)progressBlock
+                            andBlock:(nullable PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntegerNSErrorContinue)block
                       andUpdateBlock:(nullable PTCLNotificationBlockVoidNSArrayDAOTransmissionNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLNotificationBlockVoidNSArrayDAONotificationNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLNotificationBlockVoidNSArrayDAONotificationNSUIntegerNSUIntegerNSError)updateBlock;
 

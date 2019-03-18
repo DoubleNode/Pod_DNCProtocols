@@ -37,38 +37,46 @@ typedef void(^PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)newsId
-                withBlock:(nullable PTCLNewsBlockVoidDAONewsNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLNewsBlockVoidDAONewsNSErrorContinue)block
            andUpdateBlock:(nullable PTCLNewsBlockVoidDAONewsNSError)updateBlock;
 
 - (void)doFavoriteObject:(nonnull DAONews*)news
-               withBlock:(nullable PTCLNewsBlockVoidNSError)block;
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLNewsBlockVoidNSError)block;
 
 - (void)doUnfavoriteObject:(nonnull DAONews*)news
-                 withBlock:(nullable PTCLNewsBlockVoidNSError)block;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLNewsBlockVoidNSError)block;
 
 - (void)doFlagObject:(nonnull DAONews*)news
           withAction:(nonnull NSString*)action
              andText:(nonnull NSString*)text
+         andProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLNewsBlockVoidNSError)block;
 
 - (void)doUnflagObject:(nonnull DAONews*)news
             withAction:(nonnull NSString*)action
                andText:(nonnull NSString*)text
+           andProgress:(nullable PTCLProgressBlock)progressBlock
               andBlock:(nullable PTCLNewsBlockVoidNSError)block;
 
 - (void)doCheckFlagObject:(nonnull DAONews*)news
                withAction:(nonnull NSString*)action
+              andProgress:(nullable PTCLProgressBlock)progressBlock
                  andBlock:(nullable PTCLNewsBlockVoidNSUIntegerNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadFlagsForObject:(nonnull DAONews*)news
                  withActions:(nonnull NSArray<NSString*>*)actions
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadMyFlagsForObject:(nonnull DAONews*)news
                    withActions:(nonnull NSArray<NSString*>*)actions
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLNewsBlockVoidNSArrayDAOFlagNSUIntegerNSUIntegerNSError)updateBlock;
 

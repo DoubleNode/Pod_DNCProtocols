@@ -39,32 +39,39 @@ typedef void(^PTCLFavoriteBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(N
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)favoriteId
-                withBlock:(nullable PTCLFavoriteBlockVoidDAOFavoriteNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLFavoriteBlockVoidDAOFavoriteNSErrorContinue)block
            andUpdateBlock:(nullable PTCLFavoriteBlockVoidDAOFavoriteNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOFavorite*)favorite
-             withBlock:(nullable PTCLFavoriteBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLFavoriteBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)favoriteId
-                  withBlock:(nullable PTCLFavoriteBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLFavoriteBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForItem:(nonnull DAOItem*)item
-                    withBlock:(nullable PTCLFavoriteBlockVoidBOOLNSError)block;
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLFavoriteBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAOFavorite*)favorite
-                  withBlock:(nullable PTCLFavoriteBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLFavoriteBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLFavoriteBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nonnull DAOFavorite*)favorite
-                  withBlock:(nullable PTCLFavoriteBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLFavoriteBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLFavoriteBlockVoidDAOUserNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLFavoriteBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLFavoriteBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 

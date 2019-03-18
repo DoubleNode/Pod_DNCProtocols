@@ -11,6 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PTCLProgressBlock)(NSUInteger currentStep, NSUInteger totalSteps, CGFloat precentCompleted, NSString* statusText);
+
 @protocol PTCLBase_Protocol <NSObject>
 
 @property (strong, nonatomic)   id<PTCLBase_Protocol> _Nullable nextBaseWorker;

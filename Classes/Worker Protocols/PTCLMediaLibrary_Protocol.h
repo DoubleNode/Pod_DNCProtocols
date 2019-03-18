@@ -27,48 +27,63 @@ typedef void(^PTCLMediaLibraryBlockVoidUIImageNSDictionary)(UIImage* _Nullable i
 + (CGSize)PTCLMediaLibraryMaximumSize;
 
 - (BOOL)doCheckAuthorization;
-- (void)doRequestAuthorizationWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSError)completionBlock;
+- (void)doRequestAuthorizationWithProgress:(nullable PTCLProgressBlock)progressBlock
+                                  andBlock:(nullable PTCLMediaLibraryBlockVoidNSError)completionBlock;
 
-- (void)doLoadCollectionsWithCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
+- (void)doLoadCollectionsWithProgress:(nullable PTCLProgressBlock)progressBlock
+                             andBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 - (void)doLoadAssetsOfMediaTypes:(nullable NSArray*)mediaTypes
-             withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
+                    withProgress:(nullable PTCLProgressBlock)progressBlock
+                        andBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 - (void)doLoadAssetsForCollection:(nonnull id)assetCollection
                      ofMediaTypes:(nullable NSArray*)mediaTypes
-              withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLMediaLibraryBlockVoidNSArrayNSError)completionBlock;
 
 - (void)doLoadAudio:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock;
+           withSize:(CGSize)size
+        andProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock;
 - (void)doLoadImage:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock;
+           withSize:(CGSize)size
+        andProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidUIImageNSDictionary)completionBlock;
 - (void)doLoadVideo:(nonnull id)asset
-               size:(CGSize)size
-    completionBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock;
+           withSize:(CGSize)size
+        andProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidNSURLNSDictionary)completionBlock;
 
 - (void)doSaveImage:(UIImage* _Nullable)image
-withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+       withProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 - (void)doSaveImage:(UIImage* _Nullable)image
        toCollection:(nonnull id)assetCollection
-withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+       withProgress:(nullable PTCLProgressBlock)progressBlock
+           andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 - (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 - (void)doSaveAudioFromUrl:(NSURL* _Nullable)videoUrl
               toCollection:(nonnull id)assetCollection
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 - (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 - (void)doSaveImageFromUrl:(NSURL* _Nullable)imageUrl
               toCollection:(nonnull id)assetCollection
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 - (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 - (void)doSaveVideoFromUrl:(NSURL* _Nullable)videoUrl
               toCollection:(nonnull id)assetCollection
-       withCompletionBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
+              withProgress:(nullable PTCLProgressBlock)progressBlock
+                  andBlock:(nullable PTCLMediaLibraryBlockVoidBOOLNSError)completionBlock;
 
 @end
 

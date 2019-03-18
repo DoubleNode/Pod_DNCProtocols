@@ -23,7 +23,8 @@ typedef void(^PTCLSocialShareBlockVoidNSError)(NSError* _Nullable error);
 - (void)doShareReview:(nonnull NSString*)text
             withImage:(nullable UIImage*)image
   usingViewController:(nonnull UIViewController*)viewController
-            withBlock:(nullable PTCLSocialShareBlockVoidNSError)block;
+          andProgress:(nullable PTCLProgressBlock)progressBlock
+             andBlock:(nullable PTCLSocialShareBlockVoidNSError)block;
 
 @end
 

@@ -46,62 +46,76 @@ typedef void(^PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)ratingId
-                withBlock:(nullable PTCLRatingBlockVoidDAORatingNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLRatingBlockVoidDAORatingNSErrorContinue)block
            andUpdateBlock:(nullable PTCLRatingBlockVoidDAORatingNSError)updateBlock;
 
 - (void)doLoadObjectForReview:(nonnull DAOReview*)review
-                    withBlock:(nullable PTCLRatingBlockVoidDAORatingNSErrorContinue)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLRatingBlockVoidDAORatingNSErrorContinue)block
                andUpdateBlock:(nullable PTCLRatingBlockVoidDAORatingNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAORating*)rating
-             withBlock:(nullable PTCLRatingBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLRatingBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)ratingId
-                  withBlock:(nullable PTCLRatingBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLRatingBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForItem:(nonnull DAOItem*)item
-                    withBlock:(nullable PTCLRatingBlockVoidBOOLNSError)block;
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLRatingBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAORating*)rating
-           withBlock:(nullable PTCLRatingBlockVoidDAORatingNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLRatingBlockVoidDAORatingNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadItemForObject:(nonnull DAORating*)rating
-                  withBlock:(nullable PTCLRatingBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLRatingBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLRatingBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doLoadLocationForObject:(nonnull DAORating*)rating
-                      withBlock:(nullable PTCLRatingBlockVoidDAOLocationNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLRatingBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLRatingBlockVoidDAOLocationNSError)updateBlock;
 
 - (void)doLoadReviewForObject:(nonnull DAORating*)rating
-                    withBlock:(nullable PTCLRatingBlockVoidDAOReviewNSErrorContinue)block
+                 withProgress:(nullable PTCLProgressBlock)progressBlock
+                     andBlock:(nullable PTCLRatingBlockVoidDAOReviewNSErrorContinue)block
                andUpdateBlock:(nullable PTCLRatingBlockVoidDAOReviewNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nonnull DAORating*)rating
-                  withBlock:(nullable PTCLRatingBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLRatingBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLRatingBlockVoidDAOUserNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForItem:(nonnull DAOItem*)item
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
                   withParameters:(nullable NSDictionary*)parameters
+                     andProgress:(nullable PTCLProgressBlock)progressBlock
                         andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForReview:(nonnull DAOReview*)review
                 withParameters:(nullable NSDictionary*)parameters
+                   andProgress:(nullable PTCLProgressBlock)progressBlock
                       andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLRatingBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
