@@ -47,54 +47,66 @@ typedef void(^PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)(NSA
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)reviewId
-                withBlock:(nullable PTCLReviewBlockVoidDAOReviewNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLReviewBlockVoidDAOReviewNSErrorContinue)block
            andUpdateBlock:(nullable PTCLReviewBlockVoidDAOReviewNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOReview*)review
-             withBlock:(nullable PTCLReviewBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLReviewBlockVoidBOOLNSError)block;
 
 - (void)doDeleteObjectForId:(nonnull NSString*)reviewId
-                  withBlock:(nullable PTCLReviewBlockVoidBOOLNSError)block;
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLReviewBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOReview*)review
-           withBlock:(nullable PTCLReviewBlockVoidDAOReviewNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLReviewBlockVoidDAOReviewNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
 - (void)doLoadCreatorForObject:(nonnull DAOReview*)review
-                     withBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                      andBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
                 andUpdateBlock:(nullable PTCLReviewBlockVoidDAOUserNSError)updateBlock;
 
 - (void)doLoadItemForObject:(nonnull DAOReview*)review
-                  withBlock:(nullable PTCLReviewBlockVoidDAOItemNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLReviewBlockVoidDAOItemNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOItemNSError)updateBlock;
 
 - (void)doLoadLocationForObject:(nonnull DAOReview*)review
-                      withBlock:(nullable PTCLReviewBlockVoidDAOLocationNSErrorContinue)block
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLReviewBlockVoidDAOLocationNSErrorContinue)block
                  andUpdateBlock:(nullable PTCLReviewBlockVoidDAOLocationNSError)updateBlock;
 
 - (void)doLoadPhotoForObject:(nonnull DAOReview*)review
-                   withBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSErrorContinue)block
+                withProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSErrorContinue)block
               andUpdateBlock:(nullable PTCLReviewBlockVoidDAOPhotoNSError)updateBlock;
 
 - (void)doLoadUserForObject:(nonnull DAOReview*)review
-                  withBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
+               withProgress:(nullable PTCLProgressBlock)progressBlock
+                   andBlock:(nullable PTCLReviewBlockVoidDAOUserNSErrorContinue)block
              andUpdateBlock:(nullable PTCLReviewBlockVoidDAOUserNSError)updateBlock;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
 - (void)doLoadObjectsForItem:(nonnull DAOItem*)item
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForLocation:(nonnull DAOLocation*)location
                   withParameters:(nullable NSDictionary*)parameters
+                     andProgress:(nullable PTCLProgressBlock)progressBlock
                         andBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
                   andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 
 - (void)doLoadObjectsForUser:(nonnull DAOUser*)user
               withParameters:(nullable NSDictionary*)parameters
+                 andProgress:(nullable PTCLProgressBlock)progressBlock
                     andBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSErrorContinue)block
               andUpdateBlock:(nullable PTCLReviewBlockVoidNSArrayNSUIntegerNSUIntegerNSError)updateBlock;
 

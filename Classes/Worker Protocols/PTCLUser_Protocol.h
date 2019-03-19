@@ -139,12 +139,13 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
                    withProgress:(nullable PTCLProgressBlock)progressBlock
                        andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
-- (void)doSave:(nonnull DAOUser*)user
-  withProgress:(nullable PTCLProgressBlock)progressBlock
-      andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+- (void)doSaveObject:(nonnull DAOUser*)user
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
 - (void)doSaveOptions:(nonnull DAOUser*)daoUser
-            withBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+         withProgress:(nullable PTCLProgressBlock)progressBlock
+             andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
 - (void)doSignUp:(nonnull DAOUser*)user
     withProgress:(nullable PTCLProgressBlock)progressBlock

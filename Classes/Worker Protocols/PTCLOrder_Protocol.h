@@ -39,14 +39,17 @@ typedef void(^PTCLOrderBlockVoidNSArrayDAOTransactionNSUIntegerNSUIntegerNSError
 #pragma mark - Business Logic / Single Item CRUD
 
 - (void)doLoadObjectForId:(nonnull NSString*)orderId
-                withBlock:(nullable PTCLOrderBlockVoidDAOOrderNSErrorContinue)block
+             withProgress:(nullable PTCLProgressBlock)progressBlock
+                 andBlock:(nullable PTCLOrderBlockVoidDAOOrderNSErrorContinue)block
            andUpdateBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)updateBlock;
 
 - (void)doDeleteObject:(nonnull DAOOrder*)order
-             withBlock:(nullable PTCLOrderBlockVoidBOOLNSError)block;
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLOrderBlockVoidBOOLNSError)block;
 
 - (void)doSaveObject:(nonnull DAOOrder*)order
-           withBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)block;
+        withProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLOrderBlockVoidDAOOrderNSError)block;
 
 #pragma mark - Business Logic / Single Item Relationship CRUD
 
