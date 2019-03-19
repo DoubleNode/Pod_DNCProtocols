@@ -58,7 +58,8 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
 
 - (void)doDeleteCurrentUserWithProgress:(nullable PTCLProgressBlock)progressBlock
                                andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
-- (void)doLogOut;
+- (void)doLogoutWithProgress:(nullable PTCLProgressBlock)progressBlock
+                    andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
 - (void)doValidateCurrentSessionWithProgress:(nullable PTCLProgressBlock)progressBlock
                                     andBlock:(nullable PTCLUserBlockVoidDAOUserBOOLNSError)block;
