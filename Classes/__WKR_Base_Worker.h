@@ -16,10 +16,10 @@
 
 - (BOOL)isOptionEnabled:(nonnull NSString*)option;
 
-- (void)workerSemaphoreClose:(GGMutableDictionary*)semaphores
-                      forKey:(id)semaphoreKey;
-- (void)workerSemaphoreOpen:(GGMutableDictionary*)semaphores
-                     forKey:(id)semaphoreKey
-                  withBlock:(DNCUtilitiesBlock)block;
+- (void)workerSemaphoreClose:(nonnull GGMutableDictionary*)semaphores
+                      forKey:(nonnull id)semaphoreKey;
+- (void)workerSemaphoreOpen:(nonnull GGMutableDictionary*)semaphores
+                     forKey:(nonnull id)semaphoreKey
+                  withBlock:(nullable DNCUtilitiesBlock)block;
 
 @end

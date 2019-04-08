@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic)   id<WKRNET_Header_Processor> _Nullable   headerProcessor;
 
-+ (DNCUrlSessionManager*)createManager;
++ (nonnull DNCUrlSessionManager*)createManager;
 
 - (BOOL)utilityCheckForAccessTokenError:(NSData*_Nullable)errorData;
 

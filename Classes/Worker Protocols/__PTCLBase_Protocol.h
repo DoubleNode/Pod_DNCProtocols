@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^PTCLProgressBlock)(NSUInteger currentStep, NSUInteger totalSteps, CGFloat precentCompleted, NSString* statusText);
+typedef void(^PTCLProgressBlock)(NSUInteger currentStep, NSUInteger totalSteps, CGFloat precentCompleted, NSString* _Nullable statusText);
 
 @protocol PTCLBase_Protocol <NSObject>
 
