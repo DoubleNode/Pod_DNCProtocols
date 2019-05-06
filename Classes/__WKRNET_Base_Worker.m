@@ -79,29 +79,33 @@
 }
 
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
+      withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
 {
-    if ([self.headerProcessor respondsToSelector:@selector(processorAddHeaders:)])
+    if ([headerProcessor respondsToSelector:@selector(processorAddHeaders:)])
     {
-        [self.headerProcessor processorAddHeaders:request];
-    }
-}
-
-- (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response
-{
-    if ([self.headerProcessor respondsToSelector:@selector(processorGrabHeaders:)])
-    {
-        [self.headerProcessor processorGrabHeaders:response];
+        [headerProcessor processorAddHeaders:request];
     }
 }
 
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
+      withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
          usingAccessToken:(NSString* _Nullable)accessToken
 {
-    [self utilityAddHeaders:request];
+    [self utilityAddHeaders:request
+        withHeaderProcessor:headerProcessor];
     
     if (accessToken.length > 0)
     {
         [request setValue:accessToken forHTTPHeaderField:@"Authentication"];
+    }
+}
+
+- (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response
+       withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+{
+    if ([headerProcessor respondsToSelector:@selector(processorGrabHeaders:)])
+    {
+        [headerProcessor processorGrabHeaders:response];
     }
 }
 
@@ -111,7 +115,8 @@
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
 {
     [self utilitySendRequest:request
-      withResponseSerializer:nil
+         withHeaderProcessor:self.headerProcessor
+       andResponseSerializer:nil
                 retryHandler:retryHandler
                 errorHandler:errorHandler
            completionHandler:completionHandler];
@@ -123,9 +128,39 @@
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
 {
+    [self utilitySendRequest:request
+         withHeaderProcessor:self.headerProcessor
+       andResponseSerializer:responseSerializer
+                retryHandler:retryHandler
+                errorHandler:errorHandler
+           completionHandler:completionHandler];
+}
+
+- (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
+       withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
+{
+    [self utilitySendRequest:request
+         withHeaderProcessor:headerProcessor
+       andResponseSerializer:nil
+                retryHandler:retryHandler
+                errorHandler:errorHandler
+           completionHandler:completionHandler];
+}
+
+- (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
+       withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+     andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
+{
     DNCLog(DNCLL_Info, DNCLD_Networking, @"START - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
     
-    [self utilityAddHeaders:request];
+    [self utilityAddHeaders:request
+        withHeaderProcessor:headerProcessor];
     
     DNCUrlSessionManager*   manager = self.class.createManager;
     if (responseSerializer)
@@ -140,7 +175,8 @@
      {
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
-         [self utilityGrabHeaders:httpResponse];
+         [self utilityGrabHeaders:httpResponse
+              withHeaderProcessor:headerProcessor];
          
          NSString*  jsonErrorMessage    = @"";
          
@@ -297,7 +333,8 @@
      {
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
-         [self utilityGrabHeaders:response];
+         [self utilityGrabHeaders:response
+              withHeaderProcessor:headerProcessor];
          
          completionHandler ? completionHandler(response, responseObject) : nil;
          
@@ -315,6 +352,7 @@
 {
     [self utilityDataRequest:request
                     withData:data
+          andHeaderProcessor:self.headerProcessor
        andResponseSerializer:nil
                 retryHandler:retryHandler
                 errorHandler:errorHandler
@@ -328,9 +366,43 @@
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
 {
+    [self utilityDataRequest:request
+                    withData:data
+          andHeaderProcessor:self.headerProcessor
+       andResponseSerializer:responseSerializer
+                retryHandler:retryHandler
+                errorHandler:errorHandler
+           completionHandler:completionHandler];
+}
+
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData* _Nonnull)data
+        andHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
+{
+    [self utilityDataRequest:request
+                    withData:data
+          andHeaderProcessor:headerProcessor
+       andResponseSerializer:nil
+                retryHandler:retryHandler
+                errorHandler:errorHandler
+           completionHandler:completionHandler];
+}
+
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData* _Nonnull)data
+        andHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+     andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler
+{
     DNCLog(DNCLL_Info, DNCLD_Networking, @"START - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
     
-    [self utilityAddHeaders:request];
+    [self utilityAddHeaders:request
+        withHeaderProcessor:headerProcessor];
     
     DNCUrlSessionManager*   manager = self.class.createManager;
     if (responseSerializer)
@@ -346,7 +418,8 @@
      {
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
-         [self utilityGrabHeaders:httpResponse];
+         [self utilityGrabHeaders:httpResponse
+              withHeaderProcessor:headerProcessor];
          
          NSString*  jsonErrorMessage    = @"";
          
@@ -503,7 +576,8 @@
      {
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
-         [self utilityGrabHeaders:response];
+         [self utilityGrabHeaders:response
+              withHeaderProcessor:headerProcessor];
          
          completionHandler ? completionHandler(response, responseObject) : nil;
          

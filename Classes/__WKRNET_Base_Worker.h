@@ -22,11 +22,14 @@
 
 - (BOOL)utilityCheckForAccessTokenError:(NSData*_Nullable)errorData;
 
-- (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request;
 - (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
+      withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor;
+- (void)utilityAddHeaders:(NSMutableURLRequest*_Nonnull)request
+      withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
          usingAccessToken:(NSString* _Nullable)accessToken;
 
-- (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response;
+- (void)utilityGrabHeaders:(NSURLResponse*_Nonnull)response
+       withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor;
 
 - (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
               retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
@@ -39,6 +42,19 @@
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
          completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
 
+- (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
+       withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
+
+- (void)utilitySendRequest:(NSMutableURLRequest*_Nonnull)request
+       withHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+     andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
+
 - (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
                   withData:(NSData* _Nonnull)data
               retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
@@ -47,6 +63,21 @@
 
 - (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
                   withData:(NSData* _Nonnull)data
+     andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
+
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData* _Nonnull)data
+        andHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
+              retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
+              errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
+         completionHandler:(void(^ _Nullable)(NSURLResponse* _Nonnull response, id _Nullable responseObject))completionHandler;
+
+- (void)utilityDataRequest:(NSMutableURLRequest*_Nonnull)request
+                  withData:(NSData* _Nonnull)data
+        andHeaderProcessor:(id<WKRNET_Header_Processor>_Nullable)headerProcessor
      andResponseSerializer:(id<AFURLResponseSerialization>_Nullable)responseSerializer
               retryHandler:(void(^ _Nullable)(NSError* _Nullable retryError))retryHandler
               errorHandler:(void(^ _Nullable)(NSError* _Nullable responseError))errorHandler
