@@ -276,6 +276,7 @@
                                                           code:ERROR_SERVER_ERROR
                                                       userInfo:@{
                                                                  NSLocalizedDescriptionKey: NSLocalizedString(@"Unknown error", @""),
+                                                                 @"errorData": (errorData ?: @""),
                                                                  }];
          if (errorMessage.length)
          {
@@ -284,7 +285,8 @@
              responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
                                                  code:ERROR_SERVER_ERROR
                                              userInfo:@{
-                                                        NSLocalizedDescriptionKey: errorMessage
+                                                        NSLocalizedDescriptionKey: errorMessage,
+                                                        @"errorData": (errorData ?: @""),
                                                         }];
          }
          
@@ -519,6 +521,7 @@
                                                           code:ERROR_SERVER_ERROR
                                                       userInfo:@{
                                                                  NSLocalizedDescriptionKey: NSLocalizedString(@"Unknown error", @""),
+                                                                 @"errorData": (errorData ?: @""),
                                                                  }];
          if (errorMessage.length)
          {
@@ -527,7 +530,8 @@
              responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
                                                  code:ERROR_SERVER_ERROR
                                              userInfo:@{
-                                                        NSLocalizedDescriptionKey: errorMessage
+                                                        NSLocalizedDescriptionKey: errorMessage,
+                                                        @"errorData": (errorData ?: @""),
                                                         }];
          }
          
