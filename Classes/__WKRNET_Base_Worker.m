@@ -189,6 +189,12 @@
                                                             options:0
                                                               error:nil];
              }
+             else if ([responseObject isKindOfClass:NSString.class])
+             {
+                 jsonData = [NSJSONSerialization JSONObjectWithData:[responseObject dataUsingEncoding:NSUTF8StringEncoding]
+                                                            options:0
+                                                              error:nil];
+             }
              else if ([responseObject isKindOfClass:NSDictionary.class])
              {
                  DNCLog(DNCLL_Info, DNCLD_Networking, @"RETRY DATA - [%@] %@ responseObject=%@", request.HTTPMethod, request.URL.absoluteString, responseObject);
@@ -431,6 +437,12 @@
              if ([responseObject isKindOfClass:NSData.class])
              {
                  jsonData = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                            options:0
+                                                              error:nil];
+             }
+             else if ([responseObject isKindOfClass:NSString.class])
+             {
+                 jsonData = [NSJSONSerialization JSONObjectWithData:[responseObject dataUsingEncoding:NSUTF8StringEncoding]
                                                             options:0
                                                               error:nil];
              }
