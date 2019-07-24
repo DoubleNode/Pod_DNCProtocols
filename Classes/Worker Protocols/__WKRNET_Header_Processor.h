@@ -13,6 +13,8 @@
 
 + (nonnull instancetype)processor;
 
+- (nullable NSString*)authenticationCookieValue;
+
 - (void)processorAddHeaders:(NSMutableURLRequest*_Nonnull)request;
 - (void)processorGrabHeaders:(NSURLResponse*_Nonnull)response;
 
