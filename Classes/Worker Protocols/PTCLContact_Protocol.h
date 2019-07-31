@@ -16,6 +16,7 @@
 typedef void(^PTCLContactContinueBlock)(void);
 
 typedef void(^PTCLContactBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLContactBlockVoidNSDictionaryNSError)(NSDictionary* _Nullable response, NSError* _Nullable error);
 
 typedef void(^PTCLContactBlockVoidDAOContactNSError)(DAOContact* _Nullable contact, NSError* _Nullable error);
 typedef void(^PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSError)(NSArray<DAOContact* >* _Nullable contacts, NSUInteger currentPage, NSUInteger numberOfPages, NSError* _Nullable error);
@@ -44,6 +45,17 @@ typedef void(^PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSErrorCo
 - (void)doSaveObject:(nonnull DAOContact*)contact
         withProgress:(nullable PTCLProgressBlock)progressBlock
             andBlock:(nullable PTCLContactBlockVoidDAOContactNSError)block;
+
+- (void)doSendVerificationType:(nonnull NSString*)type
+                     forObject:(nonnull DAOContact*)contact
+                  withProgress:(nullable PTCLProgressBlock)progressBlock
+                      andBlock:(nullable PTCLContactBlockVoidNSDictionaryNSError)block;
+
+- (void)doVerifyType:(nonnull NSString*)type
+           forObject:(nonnull DAOContact*)contact
+      withParameters:(nullable NSDictionary*)parameters
+         andProgress:(nullable PTCLProgressBlock)progressBlock
+            andBlock:(nullable PTCLContactBlockVoidNSDictionaryNSError)block;
 
 #pragma mark - Business Logic / Collection Items CRUD
 
