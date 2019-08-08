@@ -20,6 +20,7 @@ typedef void(^PTCLUserContinueBlock)(void);
 
 typedef void(^PTCLUserBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLUserBlockVoidNSStringNSError)(NSString* _Nullable security, NSError* _Nullable error);
 typedef void(^PTCLUserBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
 
 typedef void(^PTCLUserBlockVoidDAOPhotoNSError)(DAOPhoto* _Nullable photo, NSError* _Nullable error);
@@ -47,6 +48,26 @@ typedef void(^PTCLUserBlockVoidNSArrayNSStringNSUIntegerNSUIntegerNSErrorContinu
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLUser_Protocol>)nextUserWorker;
+
+#pragma mark - Business Logic / Single Item Security CRUD
+
+- (void)doLoadSecurityForObject:(nonnull DAOUser*)user
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLUserBlockVoidNSStringNSError)block;
+
+- (void)doDeleteSecurityForObject:(nonnull DAOUser*)user
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
+- (void)doSaveSecurity:(nonnull NSString*)security
+             forObject:(nonnull DAOUser*)user
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
+
+- (void)doVerifySecurity:(nonnull NSString*)security
+               forObject:(nonnull DAOUser*)user
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLUserBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Single Item CRUD
 

@@ -16,6 +16,7 @@
 typedef void(^PTCLContactContinueBlock)(void);
 
 typedef void(^PTCLContactBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLContactBlockVoidNSStringNSError)(NSString* _Nullable security, NSError* _Nullable error);
 typedef void(^PTCLContactBlockVoidNSDictionaryNSError)(NSDictionary* _Nullable response, NSError* _Nullable error);
 
 typedef void(^PTCLContactBlockVoidDAOContactNSError)(DAOContact* _Nullable contact, NSError* _Nullable error);
@@ -30,6 +31,26 @@ typedef void(^PTCLContactBlockVoidNSArrayDAOContactNSUIntegerNSUIntegerNSErrorCo
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLContact_Protocol>)nextWorker;
+
+#pragma mark - Business Logic / Single Item Security CRUD
+
+- (void)doLoadSecurityForObject:(nonnull DAOContact*)contact
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLContactBlockVoidNSStringNSError)block;
+
+- (void)doDeleteSecurityForObject:(nonnull DAOContact*)contact
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block;
+
+- (void)doSaveSecurity:(nonnull NSString*)security
+             forObject:(nonnull DAOContact*)contact
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block;
+
+- (void)doVerifySecurity:(nonnull NSString*)security
+               forObject:(nonnull DAOContact*)contact
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLContactBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Single Item CRUD
 

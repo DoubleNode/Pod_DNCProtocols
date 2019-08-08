@@ -31,7 +31,7 @@
 - (CGFloat)visibleColumnWidth;
 - (CGSize)visibleSize;
 
-- (BOOL)lastVisibleRowForItemAtIndexPath:(NSIndexPath*)indexPath;
+- (BOOL)lastVisibleRowForItemAtIndexPath:(nullable NSIndexPath*)indexPath;
 
 @end
 

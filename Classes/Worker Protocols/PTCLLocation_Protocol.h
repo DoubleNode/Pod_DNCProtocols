@@ -22,6 +22,7 @@ typedef void(^PTCLLocationContinueBlock)(void);
 
 typedef void(^PTCLLocationBlockVoidNSError)(NSError* _Nullable error);
 typedef void(^PTCLLocationBlockVoidBOOLNSError)(BOOL success, NSError* _Nullable error);
+typedef void(^PTCLLocationBlockVoidNSStringNSError)(NSString* _Nullable security, NSError* _Nullable error);
 typedef void(^PTCLLocationBlockVoidNSUIntegerNSError)(NSUInteger count, NSError* _Nullable error);
 
 typedef void(^PTCLLocationBlockVoidDAOLocationNSError)(DAOLocation* _Nullable location, NSError* _Nullable error);
@@ -48,6 +49,26 @@ typedef void(^PTCLLocationBlockVoidDAOLocation)(DAOLocation* _Nullable location)
 
 + (nonnull instancetype)worker;
 + (nonnull instancetype)worker:(nullable id<PTCLLocation_Protocol>)nextWorker;
+
+#pragma mark - Business Logic / Single Item Security CRUD
+
+- (void)doLoadSecurityForObject:(nonnull DAOLocation*)location
+                   withProgress:(nullable PTCLProgressBlock)progressBlock
+                       andBlock:(nullable PTCLLocationBlockVoidNSStringNSError)block;
+
+- (void)doDeleteSecurityForObject:(nonnull DAOLocation*)location
+                     withProgress:(nullable PTCLProgressBlock)progressBlock
+                         andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+
+- (void)doSaveSecurity:(nonnull NSString*)security
+             forObject:(nonnull DAOLocation*)location
+          withProgress:(nullable PTCLProgressBlock)progressBlock
+              andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
+
+- (void)doVerifySecurity:(nonnull NSString*)security
+               forObject:(nonnull DAOLocation*)location
+            withProgress:(nullable PTCLProgressBlock)progressBlock
+                andBlock:(nullable PTCLLocationBlockVoidBOOLNSError)block;
 
 #pragma mark - Business Logic / Single Item CRUD
 
