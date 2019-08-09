@@ -12,7 +12,7 @@
 
 #define WKR_Base_Option_NoCache @"noCache"
 
-@interface WKR_Base_Worker : NSObject<PTCLBase_Protocol>
+@interface WKR_Base_Worker : DNCDataTranslation<PTCLBase_Protocol>
 
 - (BOOL)isOptionEnabled:(nonnull NSString*)option;
 
