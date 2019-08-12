@@ -20,12 +20,12 @@
 @implementation WKRNET_Base_Worker
 
 #define ERROR_DOMAIN_CLASS      [NSString stringWithFormat:@"com.doublenode.dncprotocols.%@", NSStringFromClass([self class])]
-#define ERROR_UNKNOWN           1001
-#define ERROR_NOT_FOUND         1002
-#define ERROR_BAD_PARAMETER     1003
-#define ERROR_BAD_RESPONSE      1004
-#define ERROR_SERVER_ERROR      1005
-#define ERROR_EMPTY_RESPONSE    1006
+//#define ERROR_UNKNOWN           1001  // Moved to header
+//#define ERROR_NOT_FOUND         1002  // Moved to header
+//#define ERROR_BAD_PARAMETER     1003  // Moved to header
+//#define ERROR_BAD_RESPONSE      1004  // Moved to header
+//#define ERROR_SERVER_ERROR      1005  // Moved to header
+//#define ERROR_EMPTY_RESPONSE    1006  // Moved to header
 
 + (DNCUrlSessionManager*)createManager
 {

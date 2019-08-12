@@ -10,6 +10,13 @@
 
 #import "__WKRNET_Header_Processor.h"
 
+#define ERROR_UNKNOWN           1001
+#define ERROR_NOT_FOUND         1002
+#define ERROR_BAD_PARAMETER     1003
+#define ERROR_BAD_RESPONSE      1004
+#define ERROR_SERVER_ERROR      1005
+#define ERROR_EMPTY_RESPONSE    1006
+
 @class DNCUrlSessionManager;
 
 @protocol AFURLResponseSerialization;
