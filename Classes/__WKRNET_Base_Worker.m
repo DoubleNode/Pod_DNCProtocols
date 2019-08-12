@@ -25,6 +25,7 @@
 #define ERROR_BAD_PARAMETER     1003
 #define ERROR_BAD_RESPONSE      1004
 #define ERROR_SERVER_ERROR      1005
+#define ERROR_EMPTY_RESPONSE    1006
 
 + (DNCUrlSessionManager*)createManager
 {
@@ -327,8 +328,8 @@
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
          NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                        code:ERROR_BAD_RESPONSE
-                                                    userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was invalid.", nil),
+                                                        code:ERROR_EMPTY_RESPONSE
+                                                    userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was empty.", nil),
                                                                 NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Unable to load object.", nil)
                                                                 }];
          
@@ -578,8 +579,8 @@
          DNCLog(DNCLL_Info, DNCLD_Networking, @"RESPONSE ERROR - [%@] %@", request.HTTPMethod, request.URL.absoluteString);
          
          NSError*   responseError = [NSError errorWithDomain:ERROR_DOMAIN_CLASS
-                                                        code:ERROR_BAD_RESPONSE
-                                                    userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was invalid.", nil),
+                                                        code:ERROR_EMPTY_RESPONSE
+                                                    userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"The server response was empty.", nil),
                                                                 NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Unable to load object.", nil)
                                                                 }];
          
