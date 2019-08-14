@@ -18,6 +18,8 @@
 		6A3F02AA1DBD80F4008849B5 /* __WKRNET_Base_Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F02A61DBD80F4008849B5 /* __WKRNET_Base_Worker.m */; };
 		6A7A07731E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A076A1E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m */; };
 		6A7A07741E07A59200ADE310 /* PTCLSocialAuthenticate_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A076C1E07A59200ADE310 /* PTCLSocialAuthenticate_User.m */; };
+		6AD7E213230386EA002FB78F /* __PTCLBase_Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7E211230386EA002FB78F /* __PTCLBase_Protocol.swift */; };
+		6AD7E214230386EA002FB78F /* PTCLAnalytics_Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7E212230386EA002FB78F /* PTCLAnalytics_Protocol.swift */; };
 		7023CD81B5BD44CA10237B30 /* Pods_DNCProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864D4BE4BEC2981221E7D137 /* Pods_DNCProtocols.framework */; };
 		D62F9A080D5D5C83F4F4F959 /* Pods_DNCProtocolsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CAD258DC3FAD9CB7CE7D3E /* Pods_DNCProtocolsTests.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,9 @@
 		6A7A07761E07A5A800ADE310 /* PTCLCollectionViewDataSource_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCollectionViewDataSource_Protocol.h; path = "Classes/Misc Protocols/PTCLCollectionViewDataSource_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A077E1E07B09F00ADE310 /* PTCLCollectionViewDelegate_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCollectionViewDelegate_Protocol.h; path = "Classes/Misc Protocols/PTCLCollectionViewDelegate_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A8A01111E84C7E7005429A1 /* PTCLConversation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLConversation_Protocol.h; path = "Classes/Worker Protocols/PTCLConversation_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6AD7E210230386E9002FB78F /* DNCProtocols-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DNCProtocols-Bridging-Header.h"; sourceTree = "<group>"; };
+		6AD7E211230386EA002FB78F /* __PTCLBase_Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = __PTCLBase_Protocol.swift; path = "Classes/Worker Protocols/__PTCLBase_Protocol.swift"; sourceTree = SOURCE_ROOT; };
+		6AD7E212230386EA002FB78F /* PTCLAnalytics_Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PTCLAnalytics_Protocol.swift; path = "Classes/Worker Protocols/PTCLAnalytics_Protocol.swift"; sourceTree = SOURCE_ROOT; };
 		6ADA77BC1E53648D00F65B2F /* PTCLCache_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCache_Protocol.h; path = "Classes/Worker Protocols/PTCLCache_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6AE4B08F1E86ED920051EF08 /* PTCLContact_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLContact_Protocol.h; path = "Classes/Worker Protocols/PTCLContact_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6AE4B0901E86ED990051EF08 /* PTCLPaymentAccount_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLPaymentAccount_Protocol.h; path = "Classes/Worker Protocols/PTCLPaymentAccount_Protocol.h"; sourceTree = SOURCE_ROOT; };
@@ -214,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				6A7A07581E07A59200ADE310 /* __PTCLBase_Protocol.h */,
+				6AD7E211230386EA002FB78F /* __PTCLBase_Protocol.swift */,
+				6AD7E212230386EA002FB78F /* PTCLAnalytics_Protocol.swift */,
 				6A7A07591E07A59200ADE310 /* PTCLActivity_Protocol.h */,
 				6A7A075A1E07A59200ADE310 /* PTCLAnalytics_Protocol.h */,
 				6A7A075B1E07A59200ADE310 /* PTCLAuth_Protocol.h */,
@@ -251,6 +258,7 @@
 				6A65494D1EB2F23B002EBBCC /* PTCLUserNotificationSetting_Protocol.h */,
 				6A7A07711E07A59200ADE310 /* PTCLValidation_Protocol.h */,
 				6A7A07721E07A59200ADE310 /* PTCLWishlist_Protocol.h */,
+				6AD7E210230386E9002FB78F /* DNCProtocols-Bridging-Header.h */,
 			);
 			name = "Worker Protocols";
 			sourceTree = "<group>";
@@ -330,6 +338,7 @@
 					6A1E837E1DBBCC9F00CE0D48 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = T864D3RXRZ;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					6A1E83971DBBCC9F00CE0D48 = {
@@ -472,9 +481,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A1E838A1DBBCC9F00CE0D48 /* ViewController.m in Sources */,
+				6AD7E213230386EA002FB78F /* __PTCLBase_Protocol.swift in Sources */,
 				6A3F02A91DBD80F4008849B5 /* __WKR_Base_Worker.m in Sources */,
 				6A7A07731E07A59200ADE310 /* PTCLSocialAuthenticate_Session.m in Sources */,
 				6A1E83871DBBCC9F00CE0D48 /* AppDelegate.m in Sources */,
+				6AD7E214230386EA002FB78F /* PTCLAnalytics_Protocol.swift in Sources */,
 				6A3F02AA1DBD80F4008849B5 /* __WKRNET_Base_Worker.m in Sources */,
 				6A7A07741E07A59200ADE310 /* PTCLSocialAuthenticate_User.m in Sources */,
 				6A1E83841DBBCC9F00CE0D48 /* main.m in Sources */,
@@ -635,11 +646,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = T864D3RXRZ;
 				INFOPLIST_FILE = DNCProtocols/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DoubleNode.DNCProtocols;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DNCProtocols/DNCProtocols-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -649,11 +664,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = T864D3RXRZ;
 				INFOPLIST_FILE = DNCProtocols/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DoubleNode.DNCProtocols;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DNCProtocols/DNCProtocols-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -661,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFB0F4D8081B63EDD16EA02D /* Pods-DNCProtocolsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = T864D3RXRZ;
 				INFOPLIST_FILE = DNCProtocolsTests/Info.plist;
@@ -675,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F24019666FAA65C9808E0B26 /* Pods-DNCProtocolsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = T864D3RXRZ;
 				INFOPLIST_FILE = DNCProtocolsTests/Info.plist;

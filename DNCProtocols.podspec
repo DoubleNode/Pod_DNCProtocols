@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name        = "DNCProtocols"
-  s.version     = "0.3.25"
+  s.version     = "0.4.0"
   s.summary     = "A base collection of DNCProtocols headers."
 
   s.description = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.platform        = :ios, "11.0"
   s.source          = { :git => "https://github.com/DoubleNode/Pod_DNCProtocols.git", :tag => "#{s.version}" }
-  s.swift_version   = '4.2'
+  s.swift_version   = '5.1'
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
