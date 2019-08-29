@@ -1,9 +1,11 @@
 //
 //  PTCLSocialAuthenticate_Session.h
-//  DoubleNode Core
+//  DoubleNode Protocols
 //
 //  Created by Darren Ehlers on 2016/10/16.
-//  Copyright © 2019 - 2016 Darren Ehlers and DoubleNode, LLC. All rights reserved.
+//  Copyright © 2016 Darren Ehlers and DoubleNode, LLC.
+//
+//  DNCProtocols is released under the MIT license. See LICENSE for details.
 //
 
 #ifndef PTCLSocialAuthenticate_Session_h

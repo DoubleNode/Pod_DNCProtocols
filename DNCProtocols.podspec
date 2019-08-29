@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name        = "DNCProtocols"
-  s.version     = "0.3.25"
+  s.version     = "0.5.0"
   s.summary     = "A base collection of DNCProtocols headers."
 
   s.description = <<-DESC
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage            = "https://github.com/DoubleNode/Pod_DNCProtocols"
-  s.license             = { :type => "PRIVATE", :file => "README.md" }
+  s.license             = { :type => "MIT", :file => "LICENSE" }
   s.author              = { "Darren Ehlers" => "me@darrenehlers.com" }
   s.social_media_url    = "http://twitter.com/ehlersd"
 

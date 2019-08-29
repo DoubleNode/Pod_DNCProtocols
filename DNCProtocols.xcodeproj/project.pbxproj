@@ -90,6 +90,7 @@
 		6A7A07761E07A5A800ADE310 /* PTCLCollectionViewDataSource_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCollectionViewDataSource_Protocol.h; path = "Classes/Misc Protocols/PTCLCollectionViewDataSource_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A7A077E1E07B09F00ADE310 /* PTCLCollectionViewDelegate_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCollectionViewDelegate_Protocol.h; path = "Classes/Misc Protocols/PTCLCollectionViewDelegate_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6A8A01111E84C7E7005429A1 /* PTCLConversation_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLConversation_Protocol.h; path = "Classes/Worker Protocols/PTCLConversation_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		6AC77C6523186324004EF336 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6ADA77BC1E53648D00F65B2F /* PTCLCache_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTCLCache_Protocol.h; path = "Classes/Worker Protocols/PTCLCache_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6AE4B08F1E86ED920051EF08 /* PTCLContact_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLContact_Protocol.h; path = "Classes/Worker Protocols/PTCLContact_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		6AE4B0901E86ED990051EF08 /* PTCLPaymentAccount_Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTCLPaymentAccount_Protocol.h; path = "Classes/Worker Protocols/PTCLPaymentAccount_Protocol.h"; sourceTree = SOURCE_ROOT; };
@@ -203,6 +204,7 @@
 		6A1E83BD1DBC3F7400CE0D48 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				6AC77C6523186324004EF336 /* LICENSE */,
 				6A1E83BE1DBC3F8100CE0D48 /* README.md */,
 				6A1E83AD1DBBEDF000CE0D48 /* DNCProtocols.podspec */,
 				6A1E83B01DBBEF5800CE0D48 /* Classes */,
